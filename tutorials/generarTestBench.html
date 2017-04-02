@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>Tutorial VIVADO-PYNQ</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../index.html">Martin Nievas</a></h1>
+				</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Configuración</h2>
+							<p>Generar test bench</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+<div class="container">
+
+      <div class="about-texto">
+        <h1>Generación de Test Bench para Vivado</h1>
+        <p class="lead"></p>
+      </div>
+
+</div><!-- /.container -->
+ <article>
+   <p>  Como generar test bench para Vivado</p>
+
+ 								<section>
+									<h5>Paso 1</h5>
+                Crear nuestro proyecto de la forma en que vimos en: 
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-18-05.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+          
+                <section>
+									<h5>Paso 2</h5>
+                  Presionando ctrl+Alt se nos abre una ventana nueva. Seleccionar "Add or Create simulation sources"
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-18-39.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 3</h5>
+                  Crear un nuevo archivo.
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-18-53.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 4</h5>
+                  Es importante que el archivo termine en "*_tb".
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-19-08.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 5</h5>
+                  Luego de apretar "Ok" - "Finish". Dejar en blanco la deifnición del módulo.
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-19-15.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 6</h5>
+                  Si.
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-19-18.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 7</h5>
+                  Seleccionar el contenido del programa top "contadorUp.vhd"
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-19-53.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 8</h5>
+                  Pegarlo en la <a href=" http://vhdl.lapinoo.net/testbench/"><span class="label">página</span></a> presionar "generate" y luego copiar el resultado.
+                Seleccionar de la ventana "Source" el test Bench anteriormente generado ( terminación *_tb). 
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-20-05.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 9</h5>
+                  Seleccionar el contenido del *_tb, borrarlo y reemplazarlo por el que copiamos de la página.
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-20-08.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+
+                <section>
+									<h5>Paso 10</h5>
+                En la ventana "Source" el nombre del test bench está ahora en negrita. 
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-20-30.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 11</h5>
+                  Modificar las configuraciones del reloj y las señales de entrada.
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-21-23.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+                <section>
+									<h5>Paso 12</h5>
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-21-27.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+
+                <section>
+									<h5>Paso 13</h5>
+									<div class="box alt">
+                    Correr la simulación.
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-21-40.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+
+                <section>
+									<h5>Paso 14</h5>
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-21-45.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+
+                <section>
+									<h5>Paso 15</h5>
+               Adaptar el zoom heciendo click derecho sobre el gráfico.
+									<div class="box alt">
+										<div class="row uniform 50%">
+											<div class="12u"><span class="image fit"><img src="../images/testBenchTutorial/Captura de pantalla de 2017-04-02 18-24-06.png" alt="" /></span></div>
+										</div>
+									</div>
+								</section>
+
+
+
+
+ </article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="mailto:martin.nievas.ar@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
