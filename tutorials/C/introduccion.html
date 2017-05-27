@@ -10,8 +10,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<link rel="stylesheet" href="../assets/css/desert.css" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/desert.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
@@ -55,16 +55,22 @@
 							<h2>introducción a C</h2>
 						</header>
 						<section class="wrapper style5">
-              <p>Primero voy a explicar el tipo de notación que van a encontrar a lo largo de estos ejemplos.<br>
-              <b>Nombre de las variables:</b>Utilizo la versión <a href="https://es.wikipedia.org/wiki/CamelCase" target="_blank">lowerCamelCase</a>. Por ejemplo:
+              <p>Primero voy a explicar el tipo de notación que van a encontrar a lo largo de estos ejemplos. Es la notación que me 
+              resulta mas práctica a la hora de programar, no es la única, pueden investigar un poco y se van a dar cuenta que hay otras formas.<br>
+              Aclaro que no es obligatorio utilizar todo lo que van a leer en estos ejemplos. Solo es a modo de persentación<br>
+
+
+              <b>Nombre de las variables:</b>Utilizo la versión <a href="https://es.wikipedia.org/wiki/CamelCase" target="_blank">lowerCamelCase</a>. 
+              Se caracteriza porque los nombres de las variables formadas por mas de una palabra, la primera es escrita en minúscula, mientras que la siguiente 
+              aparece en mayúscula. Por ejemplo:
               </p>
 
 <pre class="prettyprint lang-c desert">
-int contadorNotas;
-char opcionMenu;
-float menorPromedio;
+int contadorNotas; /*contador notas*/
+char opcionMenu;   /*opcion menu*/
+float menorPromedio;  /*menor promedio*/
 </pre>
-              <b>Comentarios:</b>Los comentarios en C son de la forma:
+<b>Comentarios:</b>Los comentarios en C que utilizo son de la forma:
 <pre class="prettyprint lang-c desert">
 /*
  *Primer estilo de comentario
@@ -74,26 +80,59 @@ float menorPromedio;
 **Segundo estilo de comentario
 */
 
-/* Otra forma de comentarios */
+/* Comentario */
 </pre>
-              <b>Espacios:</b> Usar los espacios verticales y horizontales.
+
+<b>Espacios:</b> Es preferible utilizar los espacios verticales y horizontales de forma generosa:
 <pre class="prettyprint lang-c desert">
 /*Esto funciona*/
 int i;
-for (i=0;i< cantidadFilas;i++) 
-{  if (i<=numeroSalto) 
+for(i=0;i< cantidadFilas;i++) 
+{  if(i<=numeroSalto) 
     printf("%d",i);
    else
     printf("%d",0);
 }
 /*Pero esto se lee mejor*/
 for (i = 0; i < cantidadFilas ; i++) 
-{  if (i <= numeroSalto) 
+{  if(i <= numeroSalto) 
     printf("%d",i);
    else
     printf("%d",0);
 }
 </pre>
+
+<b>Consistencia:</b> ¿Consistencia significa uniformidad? No. "Uniformidad" implica que todas las cosas deben parecer la misma. 
+Sin embargo, "consistencia" significa que las cosas similares deben parecerse y las cosas diferentes deben tener un aspecto diferente.<br>
+Por ejemplo:
+<pre class="prettyprint lang-c desert">
+/*Si declaro dos variables de la forma*/
+int mayorNota;
+/*No debería declarar una variable de la forma*/
+int nota_menor;
+</pre>
+<b>Llaves:</b> A la hora de programar, en ocasiones, nos vemos ante la necesidad de anidar intrucciones. Una forma de ordenar los bloques de código mediante las llaves, 
+es abrirlas debajo de la intrucción, y cerrarla a la misma altura. De esta forma es mas fácil identificar los bloques. Por ejemplo:
+<pre class="prettyprint lang-c desert">
+if (notaIngresada < notaPromocionado) 
+  if (notaIngresada < notaAprobado) 
+    desaprobados++;
+  else
+    aprobados++;
+else
+  aprobados++:
+/*para evitar confusiones, conviene utilizar las llaves*/
+
+if (notaIngresada < notaPromocionado) 
+{  if (notaIngresada < notaAprobado) 
+     desaprobados++;
+   else
+     aprobados++;
+}
+else
+  aprobados++;
+</pre>
+
 
 
 <pre class="prettyprint lang-c desert">
