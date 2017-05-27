@@ -6,13 +6,15 @@
 -->
 <html>
 	<head>
-		<title>Acerca De</title>
+		<title>Introducción a C</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/desert.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -50,23 +52,64 @@
 				<!-- Main -->
 					<article id="main">
 						<header>
-							<h2>informática 1</h2>
+							<h2>introducción a C</h2>
 						</header>
 						<section class="wrapper style5">
+              <p>Primero voy a explicar el tipo de notación que van a encontrar a lo largo de estos ejemplos.<br>
+              <b>Nombre de las variables:</b>Utilizo la versión <a href="https://es.wikipedia.org/wiki/CamelCase" target="_blank">lowerCamelCase</a>. Por ejemplo:
+              </p>
+
+<pre class="prettyprint lang-c desert">
+int contadorNotas;
+char opcionMenu;
+float menorPromedio;
+</pre>
+              <b>Comentarios:</b>Los comentarios en C son de la forma:
+<pre class="prettyprint lang-c desert">
+/*
+ *Primer estilo de comentario
+ */
+
+/*
+**Segundo estilo de comentario
+*/
+
+/* Otra forma de comentarios */
+</pre>
+              <b>Espacios:</b> Usar los espacios verticales y horizontales.
+<pre class="prettyprint lang-c desert">
+/*Esto funciona*/
+int i;
+for (i=0;i< cantidadFilas;i++) 
+{  if (i<=numeroSalto) 
+    printf("%d",i);
+   else
+    printf("%d",0);
+}
+/*Pero esto se lee mejor*/
+for (i = 0; i < cantidadFilas ; i++) 
+{  if (i <= numeroSalto) 
+    printf("%d",i);
+   else
+    printf("%d",0);
+}
+</pre>
+
+
+<pre class="prettyprint lang-c desert">
+class Voila {
+public:
+  // Voila
+  static const string VOILA = "Voila";
+
+  // will not interfere with embedded <a href="#voila2">tags</a>.
+}</pre>
+
+
+
+
 							<div class="inner">
-
-								<h3>Introducción al lenguaje C</h3>
-								<a href="tutorials/C/introduccion.html" class="menuToggle"><span>Introduccion</span></a>
-
-
-								<h3>Lenguaje C</h3>
-                <p>Archivos coming soon...</p>
-
-
-								<h3>Operadores</h3>
-                <p>Archivos coming soon...</p>
-
-
+              
 							</div>
 						</section>
 					</article>
@@ -92,6 +135,11 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+      <script src="js/shCore.js"></script>
+      <script src="js/shBrushCpp.js"></script>
+      <script>
+        SyntaxHighlighter.all()
+      </script>
 
 	</body>
 
