@@ -26,18 +26,18 @@
 		
 		</script>
 	</head>
-	<body>
+  <body>
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
 				<!-- Header -->
-					<header id="header">
+					<header id="header" >
 						<h1><a href="index.html">Martin Nievas</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<a href="../../auxiliar.html" class="menuToggle"><span>back to info 1</span></a>
 									<div id="menu">
 										<ul>
 											<li><a href="index.html">Home</a></li>
@@ -60,18 +60,24 @@
               Aclaro que no es obligatorio utilizar todo lo que van a leer en estos ejemplos. Solo es a modo de persentación<br>
 
 
-              <b>Nombre de las variables:</b>Utilizo la versión <a href="https://es.wikipedia.org/wiki/CamelCase" target="_blank">lowerCamelCase</a>. 
+              <b>Nombre de las variables:</b>Hay varias formas. La primera sería <a href="https://es.wikipedia.org/wiki/CamelCase" target="_blank">lowerCamelCase</a>. 
               Se caracteriza porque los nombres de las variables formadas por mas de una palabra, la primera es escrita en minúscula, mientras que la siguiente 
-              aparece en mayúscula. Por ejemplo:
+              aparece en mayúscula. <br>
+              Otra forma podría ser separar las palabras mediante guion <a href="https://en.wikipedia.org/wiki/Snake_case" target="_blank">snake_case</a>. Veamos algunos ejemplos:
               </p>
 
-<pre class="prettyprint lang-c desert">
+              <pre class="prettyprint lang-c desert">
 int contadorNotas; /*contador notas*/
 char opcionMenu;   /*opcion menu*/
 float menorPromedio;  /*menor promedio*/
-</pre>
-<b>Comentarios:</b>Los comentarios en C que utilizo son de la forma:
-<pre class="prettyprint lang-c desert">
+/**************************************************************/
+int contador_notas; /*contador notas*/
+char opcion_menu;   /*opcion menu*/
+float menor_promedio;  /*menor promedio*/
+
+              </pre>
+              <b>Comentarios:</b>Los comentarios en C que utilizo son de la forma:
+              <pre class="prettyprint lang-c desert">
 /*
  *Primer estilo de comentario
  */
@@ -81,39 +87,42 @@ float menorPromedio;  /*menor promedio*/
 */
 
 /* Comentario */
-</pre>
+              </pre>
 
-<b>Espacios:</b> Es preferible utilizar los espacios verticales y horizontales de forma generosa:
-<pre class="prettyprint lang-c desert">
+              <b>Espacios:</b> Es preferible utilizar los espacios verticales y horizontales de forma generosa. Utilice indentación para todas las operaciones que se realizan dentro de
+              una estructura de control, como en un if,for , while o do-while , y para el contenido de funciones.Utilice  espacios después de las comas.
+              <pre class="prettyprint lang-c desert">
 /*Esto funciona*/
 int i;
 for(i=0;i< cantidadFilas;i++) 
-{  if(i<=numeroSalto) 
-    printf("%d",i);
-   else
-    printf("%d",0);
-}
+if(i<=numeroSalto) 
+printf("%d", i);
+else
+printf("%d", 0);
 /*Pero esto se lee mejor*/
 for (i = 0; i < cantidadFilas ; i++) 
 {  if(i <= numeroSalto) 
-    printf("%d",i);
+    printf("%d", i);
    else
-    printf("%d",0);
+    printf("%d", 0);
 }
-</pre>
-
-<b>Consistencia:</b> ¿Consistencia significa uniformidad? No. "Uniformidad" implica que todas las cosas deben parecer la misma. 
-Sin embargo, "consistencia" significa que las cosas similares deben parecerse y las cosas diferentes deben tener un aspecto diferente.<br>
-Por ejemplo:
-<pre class="prettyprint lang-c desert">
-/*Si declaro dos variables de la forma*/
+/*Espacio alrededor de los operadores binarios*/
+if(notaIngresada < notaPromocionado && notaIngresada > notaAprobado)
+  aprobados++;
+              </pre>
+              <b>Consistencia:</b> ¿Consistencia significa uniformidad? No. "Uniformidad" implica que todas las cosas deben parecer la misma. 
+              Sin embargo, "consistencia" significa que las cosas similares deben parecerse y las cosas diferentes deben tener un aspecto diferente.<br>
+              Por ejemplo:
+              <pre class="prettyprint lang-c desert">
+/*Si declaro una variable de la forma*/
 int mayorNota;
-/*No debería declarar una variable de la forma*/
+/*No debería mas adelante declarar una variable de la forma*/
 int nota_menor;
-</pre>
-<b>Llaves:</b> A la hora de programar, en ocasiones, nos vemos ante la necesidad de anidar intrucciones. Una forma de ordenar los bloques de código mediante las llaves, 
-es abrirlas debajo de la intrucción, y cerrarla a la misma altura. De esta forma es mas fácil identificar los bloques. Por ejemplo:
-<pre class="prettyprint lang-c desert">
+              </pre>
+              <b>Llaves:</b> A la hora de programar, en ocasiones, nos vemos ante la necesidad de anidar intrucciones.
+              Una forma de ordenar los bloques de código, es mediante las llaves. 
+              Abrirlas debajo de la intrucción, y cerrarla a la misma altura. De esta forma es mas fácil identificar los bloques. Por ejemplo:
+              <pre class="prettyprint lang-c desert">
 if (notaIngresada < notaPromocionado) 
   if (notaIngresada < notaAprobado) 
     desaprobados++;
@@ -131,21 +140,24 @@ if (notaIngresada < notaPromocionado)
 }
 else
   aprobados++;
-</pre>
+              </pre>
 
 
+              En una estructura de control for, utilice las secciones de inicialización e incremento sólo para acciones relacionadas con la variable de control. Por ejemplo:
+              <pre class="prettyprint lang-c desert">
 
-<pre class="prettyprint lang-c desert">
-class Voila {
-public:
-  // Voila
-  static const string VOILA = "Voila";
+/* mala práctica */
+for(i = 0, acumulado = 0; i < n; acumulado += notas[i], i += 1);
+/* mejor escribirlo asi */
+acumulado = 0;
+for(i = 0; i < n; i += 1)
+{ acumulado += notas[i];
+}
+              </pre>
 
-  // will not interfere with embedded <a href="#voila2">tags</a>.
-}</pre>
-
-
-
+							<ul class="actions">
+									<li><a href="../../auxiliar.html" class="button special">Volver a info 1</a></li>
+							</ul>
 
 							<div class="inner">
               

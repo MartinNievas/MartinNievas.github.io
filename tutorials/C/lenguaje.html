@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Lenguaje C</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/desert.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-98385505-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+	</head>
+  <body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" >
+						<h1><a href="index.html">Martin Nievas</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="../../auxiliar.html" class="menuToggle"><span>back to info 1</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<!--<li><a href="about.html">About</a></li>-->
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Lenguaje C</h2>
+						</header>
+						<section class="wrapper style5">
+               
+							<h2>Ejemplos de programas utilizando las funciones printf() y scanf()</h2>
+              <p><b>Devolver el producto de dos números ingresados </b></p>
+              <pre class="prettyprint lang-c desert">
+#include &#60stdio.h>
+
+int main()
+{ int numero1;
+  int numero2;
+  printf("Ingrese el primer número: ");
+  scanf("%d",&numero1);
+  printf("Ingrese el segundo número: ");
+  scanf("%d",&numero2);
+  printf("%dx%d = %d\n", numero1, numero2, numero1*numero2);
+  
+  return 0;
+}
+              </pre>
+              <pre><code>
+Ingrese el primer número: 4
+Ingrese el segundo número: 1
+4x1 = 4
+              </code></pre>
+                           
+              <p><b>Calcular el cociente y el resto entre los números ingresados</b></p>
+              <pre class="prettyprint lang-c desert">
+#include &#60stdio.h>
+int main()
+{
+  int dividendo, divisor, cociente, resto;
+  printf("Ingrese el dividendo: ");
+  scanf("%d", &amp;dividendo);
+  printf("Ingrese el divisor: ");
+  scanf("%d", &divisor);
+  /*Calcular el cociente*/
+  cociente = dividendo / divisor;
+  /*Calcular el resto*/
+  resto = dividendo % divisor;
+  printf("Cociente = %d\n", cociente);
+  printf("Resto = %d", resto);
+
+  return 0;
+}
+              </pre>
+              <pre><code>
+Ingrese el dividendo: 13
+Ingrese el divisor: 7
+Cociente = 1
+Resto = 6
+              </code></pre>
+
+              <p><b>Intercambiar el valor de dos variables ingresadas</b></p>
+              <pre class="prettyprint lang-c desert">
+#include &#60stdio.h>
+int main()
+{
+  int numero1, numero2, variableTemporal;
+
+  printf("Ingrese el primer numero:");
+  scanf("%d",&numero1);
+  printf("Ingrese el segundo numero:");
+  scanf("%d",&numero2);
+  printf("\nAntes del intercambio\n");
+  printf("Primer número = %d\n", numero1);
+  printf("Segundo número = %d\n", numero2);
+
+  /*Guardo el primer número en la variable temporal*/
+  variableTemporal = numero1;
+
+  /*El valor del segundo número es guardado en el primer número*/
+  numero1 = numero2;
+
+  /*El valor del la variable temporal (que contiene el primer número) es asignado al segundo número*/
+  numero2 = variableTemporal;
+
+  printf("\nDespués del intercambio\n");
+  printf("Primer número = %d\n", numero1);
+  printf("Segundo número = %d\n", numero2);
+
+  return 0;
+}
+
+
+              </pre>
+              <pre><code>
+Ingrese el primer numero:15
+Ingrese el segundo numero:-7
+
+Antes del intercambio
+Primer número = 15
+Segundo número = -7
+
+Después del intercambio
+Primer número = -7
+Segundo número = 15
+              </code></pre>
+
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="mailto:martin.nievas.ar@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+      <script src="js/shCore.js"></script>
+      <script src="js/shBrushCpp.js"></script>
+      <script>
+        SyntaxHighlighter.all()
+      </script>
+
+	</body>
+
+</html>
