@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Arreglos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/desert.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-98385505-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+	</head>
+  <body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" >
+						<h1><a href="index.html">Martin Nievas</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="../../auxiliar.html" class="menuToggle"><span>back to info 1</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<!--<li><a href="about.html">About</a></li>-->
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Bucles</h2>
+						</header>
+						<section class="wrapper style5">
+               
+							<h2>Arreglos</h2>
+              Los arreglos son estructuras de un conjunto de datos
+              del mismo tipo (int, float, char, y otros). Los arreglos tienen un tamano, el cual es la cantidad de objetos del
+              mismo tipo que pueden almacenar( es el valor entre corchetes []). Son entidades estaticas debido
+              a que se declaran de un cierto tamaño y conservan este todo a lo largo de la
+              ejecucion del programa en el cual fue declarado. ¿Que significa esto en C? Que si yo declaro un arreglo de 10 elementos, no puedo mas adelante en el programa almacenrar
+             
+              <h4>Declaración</h4> 
+              <pre class="prettyprint lang-c desert">#define TAM 100
+int mi_arreglo[TAM];
+              </pre>
+              La ventaja de esto, es que si modificamos el tamaño del arreglo desde "TAM", todas las instancias que manipulen mi_arreglo utilizarán como tamaño TAM y si quiero cambiar el tamaño del array alcanza con cambiar la definicion de TAM.
+
+              <h4>Inicialización</h4> 
+              Hay varias formas de inicializar un areglo.
+              En la declaración del
+              arreglo haciendo seguir a la declaración un signo de igual y una lista entre llaves
+              de valores separados por comas.
+              <pre class="prettyprint lang-c desert">int mi_arreglo[] = {10, 20};
+int otro_arreglo[] = {100,200,400,500}; /*Este es un arreglo de cuatro elementos*/
+int arreglo_con_tam[10]={32, 27, 64, 18, 95, 24, 90, 70, 8, 3}; /*Este es un arreglo de 10 elementos*/
+int arreglo_sin_tam[] = {1,2,3,4,9};
+              </pre>
+              Otra posibilidad que tenemos al inicializar arreglos, es la de no especificar su tamaño diréctamente. En el caso de arreglo_con_tam[10] yo le especifico el tamaño (10) y luego en la lista inicializadora, puedo incluir los 10 elementos. En el caso de arreglo_sin_tam[], su tamaño se determina a partir de la lista inicializadora, la cual contiene 5 elementos, por lo cual el arreglo es de 5.
+
+
+              <h4>Operaciones Frecuentes</h4> 
+              Podemos recorrer un arreglo de tamaño TAM desde el primer al último elemento. Esto es de utilidad en el caso de imprimir el contenido de un arreglo, o símplemente para operar con cada elemento. Lo realizamos la siguiente forma:
+              <pre class="prettyprint lang-c desert">for(i = 0; i < TAM; i++)
+{printf("%d", arreglo[i]);
+              </pre>
+También podríamos recorrerlo en sentido inverso:
+              <pre class="prettyprint lang-c desert">for(i = TAM-1; i >= 0; i--)
+{printf("%d", arreglo[i]);
+              </pre>
+Para cargar un arreglo de tamaño TAM y luego imprimir su contenido lo podemos hacer de la siguiente manera:
+              <pre class="prettyprint lang-c desert">for(i = 0; i < TAM; i++)
+{ printf("Ingrese el elemento[%d,%d]:");
+  scanf("%d", arreglo[i]);
+}
+for(i = 0; i < TAM; i++)
+printf("El elemento %d del arreglo es: %d\n", i, arreglo[i]);
+              </pre>
+
+              <h4>Problemas Resueltos</h4> 
+              1) Realizar un programa que cargue en un arreglo unidimensional los primeros 99 números naturales mas el cero. Luego que imprima el contenido del arreglo en pantalla.</br>
+              <a href="./programas/au_1.c">Solución</a>.</p>
+              2) Realizar un programa que cargue en un arreglo unidimensional los primeros 100 números (naturales mas el cero) pares. Luego que imprima el contenido del arreglo en pantalla.</br>
+              <a href="./programas/au_2.c">Solución</a>.</p>
+              3) Realizar un programa que lea 10 números por teclado, los almacene en un arreglo y muestre la sumatoria, el promedio, y el mayor de todos los elementos.</br> 
+              <a href="./programas/au_3.c">Solución</a>.</p>
+              4) Realizar un programa que lea 10 números por teclado, los almacene en un arreglo. Luego copiar los elementos del primer arreglo en otro multiplicados por 7. Por último  mostrar los elementos del segundo arreglo.</br> 
+              <a href="./programas/au_4.c">Solución</a>.</p>
+
+
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="../../acercaDe.html" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+      <script src="js/shCore.js"></script>
+      <script src="js/shBrushCpp.js"></script>
+      <script>
+        SyntaxHighlighter.all()
+      </script>
+
+	</body>
+
+</html>
