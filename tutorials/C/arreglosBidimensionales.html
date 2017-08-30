@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Bucles</title>
+		<title>Arreglos Bidimensionales</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -52,130 +52,51 @@
 				<!-- Main -->
 					<article id="main">
 						<header>
-							<h2>Bucles</h2>
+							<h2>Arreglos Bidimensionales</h2>
 						</header>
 						<section class="wrapper style5">
                
-							<h2>Ejemplos de programas utilizando las estructuras repetitivas</h2>
-              <p>En general se utilizan los bucles <b>for</b> cuando conocemos de antemano la cantidad de veces
-              que vamos a iterar. Si queremos repetir una porción de código basados en una condición (distinta de un número de veces)
-              deberíamos utilizar las sentencias <b>while</b> y <b>do-while</b>
-              </p>
-              <p>De las estructuras de selección no voy a dedicar ejemplos específicos, estan incluidos en los códigos acontinuación. </p>
-              
-              
-              <p><b>Imprimir el triángulo de Pascal</b></p>
-              <p>El <a href="https://es.wikipedia.org/wiki/Tri%C3%A1ngulo_de_Pascal" target="_blank">Triángulo de Pascal</a> es un triángulo de números enteros, infinito y simétrico. Se 
-              empieza con un 1 en la primera fila, y en las filas siguientes se van colocando números de forma que cada uno de ellos 
-              sea la suma de los dos números que tiene encima. Se supone que los lugares fuera del triángulo contienen ceros, de forma 
-              que los bordes del triángulo están formados por unos. Aquí sólo se ve una parte; el triángulo continúa por debajo y es infinito. </p>
-              <pre class="prettyprint lang-c desert">#include &#60stdio.h>
-int main()
-{
-  int filas, coeficiente = 1, espacio, i, j;
-
-  printf("Ingrese el número de filas: ");
-  scanf("%d",&filas);
-
-  /*Iteramos para cada fila*/
-  for(i=0; i< filas; i++)
-  {
-  /*Necesito dejar filas-1 espacios antes de 
-   *imprimir el primer número de la fila correspondiente
-   */
-      for(espacio = 1; espacio <= filas-i; espacio++)
-          printf("  ");   /*Imprimo un espacio*/
-  /*Iteramos las columnas
-   *Sabemos que la cantidad de elementos a imprimir en la fila i
-   *es de  
-   */
-      for(j=0; j <= i; j++)
-      {   /*Si estoy en los bordes imrpimo un "1"
-           *si no, calculo el valor del coeficiente a imprimir
-           */
-          if (j==0 || i==0)
-              coeficiente = 1;
-          else
-              coeficiente = coeficiente*(i-j+1)/j;
-          printf("%4d", coeficiente);
-      }
-      printf("\n");
-  }
-  return 0;
-}
+							<h2>Arreglos Bidimensionales</h2>
+             
+              <h4>Declaración</h4> 
+              <pre class="prettyprint lang-c desert">#define COL 3
+#define FILA 3
+int mi_arreglo[FILA][COL];
               </pre>
-              <pre><code>Ingrese el número de filas: 5
-             1
-           1   1
-         1   2   1
-       1   3   3   1
-     1   4   6   4   1
-              </code></pre>
-         
-              <p><b>Imprimir una pirámide completa usando números</b></p>
-              <pre class="prettyprint lang-c desert">#include &#60stdio.h>
-int main()
-{
-  int i, espacio, filas, k=0, contadorIzquierdo = 0, contadorDerecho = 0;
-
-  printf("Ingrese el número de filas: ");
-  scanf("%d",&filas);
-
-/*Vamos a iterar a lo largo de las filas */
-  for(i=1; i <= filas; ++i)
-  {
-	/*Necesito dejar "filas-1" espacios antes de 
-	 *imprimir el primer número de la fila correspondiente
-	 */
-    for(espacio = 1; espacio <= filas-i; ++espacio)
-      { printf("  ");		/*Imprimo dos espacios*/
-        ++contadorIzquierdo;
-      }
-	/*Mientras tengamos números para imprimir*/
-      while(k != 2*i-1)
-      	{ if (contadorIzquierdo <= filas-1) /*Imprimo a la izquierda?*/
-      	    { printf("%d ", i+k);
-      	      ++contadorIzquierdo;
-      	    }
-      	    else
-      	    { ++contadorDerecho;
-      	      printf("%d ", (i+k-2*contadorDerecho));
-      	    }
-      	    ++k;
-      	}
-/*terminé con esta fila, reinicio los contadores y repito para la siquiente fila*/
-      contadorDerecho = contadorIzquierdo = k = 0;
-      printf("\n");
-  }
-  return 0;
-}
+              La ventaja de esto, es que si modificamos el tamaño del arreglo desde "COL" y "FILA", todas las instancias que manipulen mi_arreglo utilizarán como tamaño COL y FILA respectivamente, y si quiero cambiar el tamaño del array alcanza con cambiar la definicion.
+Como está organizado un arreglo bidimensional?
+              <pre class="prettyprint lang-c desert">int A[FILA][COL];
+/*
+        Columna 0 Columna 1 Columna 2 
+Fila 0  A[0][0]   A[0][1]   A[0][2] 
+Fila 1  A[1][0]   A[1][1]   A[1][2] 
+Fila 2  A[2][0]   A[2][1]   A[2][2] 
+*/
               </pre>
-              
-
-
-
-							<pre><code>Ingrese le número de filas: 5
-        1 
-      2 3 2 
-    3 4 5 4 3 
-  4 5 6 7 6 5 4 
-5 6 7 8 9 8 7 6 5
-              </code></pre>
-
-
-<!--
-              
-              <p><b>Calcular el cociente y el resto </b></p>
-              <pre class="prettyprint lang-c desert">
-
-
+              <h4>Operaciones Frecuentes</h4> 
+              Podemos recorrer un arreglo de tamaño desde el primer al último elemento, columna por columna, fila por fila. Esto es de utilidad en el caso de imprimir el contenido de un arreglo, o símplemente para operar con cada elemento. Lo realizamos la siguiente forma:
+              <pre class="prettyprint lang-c desert">for(i = 0; i < FILA; i++)
+for(j = 0; j < COL; j++)
+printf("%d", arreglo[i][j]);
               </pre>
-              <pre><code>
 
+Para cargar un arreglo y luego imprimir su contenido lo podemos hacer de la siguiente manera:
+              <pre class="prettyprint lang-c desert">for(i = 0; i < FILA; i++)
+  for(j = 0; j < COL; j++)                   
+    { 
+      printf("Ingrese el elemento[%d,%d]:", i, j);
+      scanf("%d", arreglo[i][j]);
+    }
+for(i = 0; i < FILA; i++)
+  for(j = 0; j < COL; j++)                   
+    printf("El elemento [%d,%d] del arreglo es: %d\n", i, j, arreglo[i][j]);
+              </pre>
 
-              </code></pre>
--->
-
+              <h4>Problemas Resueltos</h4> 
+              1) Realizar un programa que cargue en un arreglo bidimensional de tamaño FILA y COL (donde FILA = COL) primeros 99 números naturales mas el cero. Luego que imprima el contenido del arreglo en pantalla.</br>
+              <a href="./programas/ab_1.c">Solución</a>.</p>
+              2) Realizar un programa que cargue en un arreglo bidimensional de tamaño FILA y COL, los primeros 100 números (naturales mas el cero) pares. Luego que imprima el contenido del arreglo en pantalla.</br>
+              <a href="./programas/ab_2.c">Solución</a>.</p>
 						</section>
 					</article>
 
