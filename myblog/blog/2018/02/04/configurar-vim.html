@@ -15,32 +15,32 @@
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Configuración de VimLaTexSuite">
     <meta itemprop="description" content="Como configurar vimlatexsuite para compilar archivos LaTex desde Vim"> 
-    <meta itemprop="image" content="/blog/2018/02/04/configurar-vim.html/images/default.jpg"> 
+    <meta itemprop="image" content="/blog/2018/02/04/configurar-vim.html/images/vimLatexSuite.png"> 
 
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html">
+    <meta name="twitter:site" content="http://localhost:4000/blog/2018/02/04/configurar-vim.html">
     <meta name="twitter:title" content="Configuración de VimLaTexSuite">
     <meta name="twitter:description" content="Como configurar vimlatexsuite para compilar archivos LaTex desde Vim">
     <meta name="twitter:creator" content="Martin Nievas"> 
-    <meta name="twitter:image" content="https://martinnievas.github.io/myblog/images/default.jpg"> 
+    <meta name="twitter:image" content="http://localhost:4000/images/vimLatexSuite.png"> 
 
 
     <!-- Open Graph data -->
     <meta property="og:title" content="Configuración de VimLaTexSuite" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html" /> 
-    <meta property="og:image" content="https://martinnievas.github.io/myblog/images/default.jpg" /> 
+    <meta property="og:url" content="http://localhost:4000/blog/2018/02/04/configurar-vim.html" /> 
+    <meta property="og:image" content="http://localhost:4000/images/vimLatexSuite.png" /> 
     <meta property="og:description" content="Como configurar vimlatexsuite para compilar archivos LaTex desde Vim" />
     <meta property="og:site_name" content="Martin Nievas Blog Personal" /> 
-    <meta content="https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html" property="og:url">   
+    <meta content="http://localhost:4000/blog/2018/02/04/configurar-vim.html" property="og:url">   
     <meta content="blog" property="article:section">    
     <meta content="code" property="article:tag">  
 
     <!-- Bootstrap -->
-    <link href="https://martinnievas.github.io/myblog/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://martinnievas.github.io/myblog/css/custom.css" rel="stylesheet">
+    <link href="http://localhost:4000/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:4000/css/custom.css" rel="stylesheet">
 
     <!-- Begin MailChimp Signup Form -->
     <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
@@ -102,7 +102,7 @@
 				<a href="#" class="image-anchor">
 
 					
-					<img class="img-main" src="https://martinnievas.github.io/myblog/images/default.jpg" height="400">
+					<img class="img-main" src="http://localhost:4000/images/vimLatexSuite.png" height="400">
 					
 
 					
@@ -111,7 +111,82 @@
 				<h1 class="blog-heading">Configuración de VimLaTexSuite</h1>
 				<p class="time"> <i class="fa fa-clock-o" aria-hidden="true"></i> 04 February 2018</p>
 
-				<p>Proximamente un buen post</p>
+				<p>Vamos a ver como podemos instalar un plugin bastante interesante que nos permite utilizar Vim para compilar archivos LaTex sin la necesidad de salir del mismo.</p>
+
+<p>Si tenemos instalado <a href="https://www.vim.org/">Vim</a>,nos saltamos este paso, sino, podemos instalarlo con el siguiente comando (asumo que estamos en alguna versión de Ubuntu o derivados):</p>
+
+<pre><code>sudo apt install vim
+</code></pre>
+
+<h1 id="administrador-de-plugins">Administrador de plugins</h1>
+<p>Los administradores de plugins nos permiten trabajar mas fácil y de forma mas ordenada. En este caso utilizaremos <a href="https://github.com/tpope/vim-pathogen#">Pathogen</a>. Para instalarlo debemos hacer:</p>
+
+<pre><code>mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+</code></pre>
+<p>Si no tenermos instalado curl, podemos instalarlo haciendo:</p>
+<pre><code>curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+</code></pre>
+<p>Ahora tenemos que hacer que vim al iniciar cargue Pathogen. Los archivos de configuración de Vim están en el archivo .vimrc. El mismo se encuentra en nuestra carpeta del \home. En caso de no tenerlo, crear uno vacío.
+Agregamos estas lineas al comienzo de nuestro ~/.vimrc con cualquier editor de texto:</p>
+<pre><code>execute pathogen#infect()
+syntax on
+filetype plugin indent only
+</code></pre>
+<h1 id="vim-latex-suite">VIM-LATEX-SUITE</h1>
+<p>Ahora que ya tenemos instalado nuestro gestor de plugins vamos a instalar Vim-LaTexSuite:</p>
+
+<p>Primero necesitamos descargar los archivos de <a href="https://sourceforge.net/projects/vim-latex/files/">SourceForge</a></p>
+
+<p>Presionamos en descargar la última versión, y esto nos lleva a la página de descarga. El archivo descargado es “vim-latex-1.10.0.tar.gz”. Vamos a la carpeta de descargas y descomprimimos el archivo. 
+Luego de descomprimir los archivos se genera una carpeta “vim-latex-version”. dentro de la misma encontramos los siguientes archivos:</p>
+<pre><code>compiler/  doc/  ftplugin/  indent/  latextags*  ltags*  Makefile  Makefile.in  plugin/  README.md  vim-latex.metainfo.xml
+</code></pre>
+<p>Copiamos los archivos a nuestra carpeta .vim en el home.</p>
+
+<p>Abrimos de nuevo el archivo .vimrc y agregamos:</p>
+
+<pre><code>filetype plugin on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+""Pueden agregarse mas, pero eso es lo básico
+</code></pre>
+<p>Comocamos las siguientes lineas en el archivo ~/.vim/ftplugin/tex.vim (en caso de no existir el archivo, crearlo):</p>
+<pre><code>"Identando el código queda mas presentable
+set sw=2
+" TIP: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press  you will automatically cycle through
+" all the figure labels. Very useful!
+set iskeyword+=:
+</code></pre>
+
+<p>Con esto ya tenemos todo listo para compilar LaTex desde Vim!</p>
+
+<h2 id="como-utilizar">COMO UTILIZAR</h2>
+
+<p>Una guia completa está <a href="//vim-lhttpsatex.sourceforge.net/documentation/latex-suite/index.html">aquí</a>… Pero resumiendo:</p>
+
+<ol>
+  <li>Abrimos Vim en una terminal en una carpeta donde deseemos crear nuestro proyecto.</li>
+  <li>Podemos crear un archivo LaTex simple o abrir un archivo ya creado.
+En este caso vamos a pegar un ejemplo sencillo foo.tex:
+    <pre><code>\documentclass[a4paper]{article}
+\begin{document}
+Probando :D
+\end{document}
+</code></pre>
+    <p>Para compilar el archivo de LaTex en el modo normal de Vim presionamos</p>
+    <pre><code>,ll
+</code></pre>
+    <p>Esto genera una serie de archivos foo.aux  foo.log  foo.pdf  foo.synctex.gz</p>
+  </li>
+</ol>
+
+<p>Para ver el archivo PDF generado, en el modo normal</p>
+<pre><code>,lv
+</code></pre>
+<p>Con eso terminamos la primera entrada del foro.</p>
+
 
 
 			</div>
@@ -122,12 +197,12 @@
     <hr class="recent-hr">
     
       <div class="recent">
-          <a class="recent-item" href="https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html"><span > Configuración de VimLaTexSuite </span></a>
+          <a class="recent-item" href="http://localhost:4000/blog/2018/02/17/ipdod-moto-compare.html"><span > Comparación de sonido entre ipod y Moto G3 </span></a>
       </div>
       <hr class="recent-hr">
     
       <div class="recent">
-          <a class="recent-item" href="https://martinnievas.github.io/myblog/blog/2018/02/04/example-post.html"><span > Ejemplo de post para comprobar que todo funciona </span></a>
+          <a class="recent-item" href="http://localhost:4000/blog/2018/02/04/configurar-vim.html"><span > Configuración de VimLaTexSuite </span></a>
       </div>
       <hr class="recent-hr">
     
@@ -144,7 +219,7 @@
       
         
             <div class="recent">
-                <a href="https://martinnievas.github.io/myblog/category/blog" class="recent-item"> Blog (2)</a>
+                <a href="http://localhost:4000/category/blog" class="recent-item"> Blog (2)</a>
             </div>
             <hr class="recent-hr">
         
@@ -161,7 +236,7 @@
         
           
             
-                <a href="https://martinnievas.github.io/myblog/tag/code"><span class="tag">code</span></a>
+                <a href="http://localhost:4000/tag/code"><span class="tag">code</span></a>
         
     </div>
 </div>
@@ -194,12 +269,12 @@
 		<div class="row">
 			<div class="col-lg-4 col-lg-offset-2">
 				<h2 class="share-group">
-					<a href="http://twitter.com/share?text=Configuración de VimLaTexSuite&url=https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html&via=MARTIN" target="_blank"><i class="fa fa-twitter share" aria-hidden="true"></i></a>
-					<a href="http://www.facebook.com/sharer.php?u=https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html&p[title]=<Configuración de VimLaTexSuite" target="_blank"><i class="fa fa-facebook share" aria-hidden="true"></i></a>
-					<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html&title=Configuración de VimLaTexSuite&summary=Como configurar vimlatexsuite para compilar archivos LaTex desde Vim&source=https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html" target="_blank"><i class="fa fa-linkedin share" aria-hidden="true"></i></a>
-					<a href="http://www.tumblr.com/share/link?url=https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html&name=Configuración de VimLaTexSuite&description=Como configurar vimlatexsuite para compilar archivos LaTex desde Vim" target="_blank"><i class="fa fa-instagram share" aria-hidden="true"></i></a>
-					<a href="http://pinterest.com/pin/create/button/?url=https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html&description=Configuración de VimLaTexSuite" target="_blank"><i class="fa fa-pinterest-p share" aria-hidden="true"></i></a>
-					<a href="https://plus.google.com/share?url=https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html" target="_blank"><i class="fa fa-google-plus share" aria-hidden="true"></i></a>
+					<a href="http://twitter.com/share?text=Configuración de VimLaTexSuite&url=http://localhost:4000/blog/2018/02/04/configurar-vim.html&via=MARTIN" target="_blank"><i class="fa fa-twitter share" aria-hidden="true"></i></a>
+					<a href="http://www.facebook.com/sharer.php?u=http://localhost:4000/blog/2018/02/04/configurar-vim.html&p[title]=<Configuración de VimLaTexSuite" target="_blank"><i class="fa fa-facebook share" aria-hidden="true"></i></a>
+					<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/2018/02/04/configurar-vim.html&title=Configuración de VimLaTexSuite&summary=Como configurar vimlatexsuite para compilar archivos LaTex desde Vim&source=http://localhost:4000/blog/2018/02/04/configurar-vim.html" target="_blank"><i class="fa fa-linkedin share" aria-hidden="true"></i></a>
+					<a href="http://www.tumblr.com/share/link?url=http://localhost:4000/blog/2018/02/04/configurar-vim.html&name=Configuración de VimLaTexSuite&description=Como configurar vimlatexsuite para compilar archivos LaTex desde Vim" target="_blank"><i class="fa fa-instagram share" aria-hidden="true"></i></a>
+					<a href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/blog/2018/02/04/configurar-vim.html&description=Configuración de VimLaTexSuite" target="_blank"><i class="fa fa-pinterest-p share" aria-hidden="true"></i></a>
+					<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2018/02/04/configurar-vim.html" target="_blank"><i class="fa fa-google-plus share" aria-hidden="true"></i></a>
 				</h2>
 			</div>
 		</div>
@@ -211,8 +286,8 @@
 <!-- next and prious button -->
 <div class="page">
 	<div class="col-lg-10 col-lg-offset-1">
-		
-		<a href="/blog/2018/02/04/example-post.html"><span class="btn round-btn pull-left">&larr; Ejemplo de post para comprobar que todo funciona</span></a>  
+		 
+		<a href="/blog/2018/02/17/ipdod-moto-compare.html"><span class="btn round-btn pull-right">Comparación de sonido entre ipod y Moto G3 &raquo;</span></a> 
 	</div>
 </div>
 <hr>
@@ -272,10 +347,10 @@
 
 <!-- ALl js file links -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://martinnievas.github.io/myblog/js/bootstrap.min.js"></script>
-<script src="https://martinnievas.github.io/myblog/js/custom.js"></script>
-<script src="https://martinnievas.github.io/myblog/js/lunr.min.js"></script>
-<script src="https://martinnievas.github.io/myblog/js/search.js"></script>
+<script src="http://localhost:4000/js/bootstrap.min.js"></script>
+<script src="http://localhost:4000/js/custom.js"></script>
+<script src="http://localhost:4000/js/lunr.min.js"></script>
+<script src="http://localhost:4000/js/search.js"></script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98385505-2"></script>

@@ -1,1 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/" rel="alternate" type="text/html" /><updated>2018-02-14T23:18:40-03:00</updated><id>https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog//</id><subtitle>This is personal blog.</subtitle><entry><title type="html">Configuración de VimLaTexSuite</title><link href="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html" rel="alternate" type="text/html" title="Configuración de VimLaTexSuite" /><published>2018-02-04T09:11:34-03:00</published><updated>2018-02-04T09:11:34-03:00</updated><id>https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim</id><content type="html" xml:base="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/blog/2018/02/04/configurar-vim.html">&lt;p&gt;Proximamente un buen post&lt;/p&gt;</content><category term="code" /><summary type="html">Proximamente un buen post</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/images/default.jpg" /></entry><entry><title type="html">Ejemplo de post para comprobar que todo funciona</title><link href="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/blog/2018/02/04/example-post.html" rel="alternate" type="text/html" title="Ejemplo de post para comprobar que todo funciona" /><published>2018-02-04T09:11:34-03:00</published><updated>2018-02-04T09:11:34-03:00</updated><id>https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/blog/2018/02/04/example-post</id><content type="html" xml:base="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/blog/2018/02/04/example-post.html">&lt;p&gt;Esto es una prueba&lt;/p&gt;</content><category term="code" /><summary type="html">Esto es una prueba</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://martinnievas.github.io/myblog/https://martinnievas.github.io/myblog/images/default.jpg" /></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000//feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000//feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000//" rel="alternate" type="text/html" /><updated>2018-03-03T17:07:49-03:00</updated><id>http://localhost:4000///</id><subtitle>This is personal blog.</subtitle><entry><title type="html">Comparación de sonido entre ipod y Moto G3</title><link href="http://localhost:4000//blog/2018/02/17/ipdod-moto-compare.html" rel="alternate" type="text/html" title="Comparación de sonido entre ipod y Moto G3" /><published>2018-02-17T09:11:34-03:00</published><updated>2018-02-17T09:11:34-03:00</updated><id>http://localhost:4000//blog/2018/02/17/ipdod-moto-compare</id><content type="html" xml:base="http://localhost:4000//blog/2018/02/17/ipdod-moto-compare.html">&lt;h1 id=&quot;introducción&quot;&gt;Introducción&lt;/h1&gt;
+&lt;p&gt;La idea de esta entrada surgió una tarde que caminaba hacia la facultad. Normalmente llevo unos auriculares y mi celular. Una tarde decido llevar el ipod, porque la música del teléfono me había “cansado” un poco. El problema es cuando a la mitad del recorrido, me quedo sin batería en el ipod (no lo uso nunca, la vez que lo llevo muere). Como iba a la mitad de un tema, busqué el mismo en Spotify y seguí el camino. Después de caminar un tiempo, empecé a notar que el audio ya no era tan “claro” como veía hace un rato. Faltaban graves y algunos instrumentos sonaban un poco distinto. En un primer momento pensé que la placa de sonido del ipod es mejor y por eso ahora me falta calidad de sonido. 
+Después de unos pasos, pensando que no le podía dar la razón a la marca de “la manzanita”, me di cuenta que a lo mejor los archivos de audio que estaba escuchando eran del mismo tema, pero en distintos formatos. Después de todo, ni siquiera se que formato reproduce Spotify. Harían falta unas pruebas mas sustantivas que mi propia audición.&lt;/p&gt;
+
+&lt;h2 id=&quot;comparemos&quot;&gt;Comparemos!&lt;/h2&gt;
+&lt;p&gt;Pero, ¿Que comparar? Ambos dispositivos seguramente cuentan con amplificadores de audio, decodificadores de audio, un sistema operativo por detrás que maneja las cosas, ecualizadores que cambian un poco el audio y un sinfín de cosas mas. Como es muy complejo controlar todas las variables posibles, la idea es minimizar todos los efectos de estas variables y comparar el sonido con la menor cantidad de “intervenciones” posibles.&lt;/p&gt;
+
+&lt;h2 id=&quot;ensayos&quot;&gt;Ensayos&lt;/h2&gt;
+&lt;p&gt;Los ensayos que se proponen son los mismos que le realizamos a un amplificador de audio ( o deberíamos ). Pero como en este caso no podemos aislar el amplificador de audio (al menos no de una forma en la que alguno de los dispositivos termine desarmado), la idea es que ponerlos a priebas con el mismo archivo de audio.&lt;/p&gt;
+
+&lt;p&gt;El primer ensayo es inspirado en la norma SMPTE standard RP120-1983. Es un esayo de intermodulación donde tenemos un tono de baja frecuencia y gran amplitud, y otro de alta frecuencia y gran amplitud.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Baja frecuencia - gran amplitud (50H)&lt;/li&gt;
+  &lt;li&gt;Alta frecuencia - pequeña aplitud (7Khz)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;El segundo esayo está inspirado en la norma DIN. Ingresamos con dos tonos de gran amplitud con frecuencias poco separadas.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Primer tono 19Khz&lt;/li&gt;
+  &lt;li&gt;Segundo tono 20Khz&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;archivo-mp3&quot;&gt;Archivo MP3&lt;/h2&gt;
+&lt;p&gt;Investigando un poco me dí cuenta que es muy complejo el formato. Pero básicamente es un formato que comprime la cantidad de muestras de un archivo de audio.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;4 Kbps es el mínimo del estándar&lt;/li&gt;
+  &lt;li&gt;8 Kbps es la calidad telefónica&lt;/li&gt;
+  &lt;li&gt;32 Kbps corresponde a la calidad de radio AM&lt;/li&gt;
+  &lt;li&gt;96 Kbps corresponde a la calidad de radio FM&lt;/li&gt;
+  &lt;li&gt;128 Kbps es la calidad semi CD, muy común en MP3&lt;/li&gt;
+  &lt;li&gt;192 Kbps corresponde a la calidad CD en formato MP3&lt;/li&gt;
+  &lt;li&gt;320 Kbps es la máxima calidad para el formato MP3&lt;/li&gt;
+&lt;/ul&gt;</content><category term="code" /><summary type="html">Introducción
+La idea de esta entrada surgió una tarde que caminaba hacia la facultad. Normalmente llevo unos auriculares y mi celular. Una tarde decido llevar el ipod, porque la música del teléfono me había “cansado” un poco. El problema es cuando a la mitad del recorrido, me quedo sin batería en el ipod (no lo uso nunca, la vez que lo llevo muere). Como iba a la mitad de un tema, busqué el mismo en Spotify y seguí el camino. Después de caminar un tiempo, empecé a notar que el audio ya no era tan “claro” como veía hace un rato. Faltaban graves y algunos instrumentos sonaban un poco distinto. En un primer momento pensé que la placa de sonido del ipod es mejor y por eso ahora me falta calidad de sonido. 
+Después de unos pasos, pensando que no le podía dar la razón a la marca de “la manzanita”, me di cuenta que a lo mejor los archivos de audio que estaba escuchando eran del mismo tema, pero en distintos formatos. Después de todo, ni siquiera se que formato reproduce Spotify. Harían falta unas pruebas mas sustantivas que mi propia audición.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000//images/moto_vs_ipod.jpg" /></entry><entry><title type="html">Configuración de VimLaTexSuite</title><link href="http://localhost:4000//blog/2018/02/04/configurar-vim.html" rel="alternate" type="text/html" title="Configuración de VimLaTexSuite" /><published>2018-02-04T09:11:34-03:00</published><updated>2018-02-04T09:11:34-03:00</updated><id>http://localhost:4000//blog/2018/02/04/configurar-vim</id><content type="html" xml:base="http://localhost:4000//blog/2018/02/04/configurar-vim.html">&lt;p&gt;Vamos a ver como podemos instalar un plugin bastante interesante que nos permite utilizar Vim para compilar archivos LaTex sin la necesidad de salir del mismo.&lt;/p&gt;
+
+&lt;p&gt;Si tenemos instalado &lt;a href=&quot;https://www.vim.org/&quot;&gt;Vim&lt;/a&gt;,nos saltamos este paso, sino, podemos instalarlo con el siguiente comando (asumo que estamos en alguna versión de Ubuntu o derivados):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt install vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;administrador-de-plugins&quot;&gt;Administrador de plugins&lt;/h1&gt;
+&lt;p&gt;Los administradores de plugins nos permiten trabajar mas fácil y de forma mas ordenada. En este caso utilizaremos &lt;a href=&quot;https://github.com/tpope/vim-pathogen#&quot;&gt;Pathogen&lt;/a&gt;. Para instalarlo debemos hacer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si no tenermos instalado curl, podemos instalarlo haciendo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora tenemos que hacer que vim al iniciar cargue Pathogen. Los archivos de configuración de Vim están en el archivo .vimrc. El mismo se encuentra en nuestra carpeta del \home. En caso de no tenerlo, crear uno vacío.
+Agregamos estas lineas al comienzo de nuestro ~/.vimrc con cualquier editor de texto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;execute pathogen#infect()
+syntax on
+filetype plugin indent only
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;vim-latex-suite&quot;&gt;VIM-LATEX-SUITE&lt;/h1&gt;
+&lt;p&gt;Ahora que ya tenemos instalado nuestro gestor de plugins vamos a instalar Vim-LaTexSuite:&lt;/p&gt;
+
+&lt;p&gt;Primero necesitamos descargar los archivos de &lt;a href=&quot;https://sourceforge.net/projects/vim-latex/files/&quot;&gt;SourceForge&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Presionamos en descargar la última versión, y esto nos lleva a la página de descarga. El archivo descargado es “vim-latex-1.10.0.tar.gz”. Vamos a la carpeta de descargas y descomprimimos el archivo. 
+Luego de descomprimir los archivos se genera una carpeta “vim-latex-version”. dentro de la misma encontramos los siguientes archivos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;compiler/  doc/  ftplugin/  indent/  latextags*  ltags*  Makefile  Makefile.in  plugin/  README.md  vim-latex.metainfo.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Copiamos los archivos a nuestra carpeta .vim en el home.&lt;/p&gt;
+
+&lt;p&gt;Abrimos de nuevo el archivo .vimrc y agregamos:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;filetype plugin on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+&quot;&quot;Pueden agregarse mas, pero eso es lo básico
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Comocamos las siguientes lineas en el archivo ~/.vim/ftplugin/tex.vim (en caso de no existir el archivo, crearlo):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&quot;Identando el código queda mas presentable
+set sw=2
+&quot; TIP: if you write your \label's as \label{fig:something}, then if you
+&quot; type in \ref{fig: and press  you will automatically cycle through
+&quot; all the figure labels. Very useful!
+set iskeyword+=:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Con esto ya tenemos todo listo para compilar LaTex desde Vim!&lt;/p&gt;
+
+&lt;h2 id=&quot;como-utilizar&quot;&gt;COMO UTILIZAR&lt;/h2&gt;
+
+&lt;p&gt;Una guia completa está &lt;a href=&quot;//vim-lhttpsatex.sourceforge.net/documentation/latex-suite/index.html&quot;&gt;aquí&lt;/a&gt;… Pero resumiendo:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Abrimos Vim en una terminal en una carpeta donde deseemos crear nuestro proyecto.&lt;/li&gt;
+  &lt;li&gt;Podemos crear un archivo LaTex simple o abrir un archivo ya creado.
+En este caso vamos a pegar un ejemplo sencillo foo.tex:
+    &lt;pre&gt;&lt;code&gt;\documentclass[a4paper]{article}
+\begin{document}
+Probando :D
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;Para compilar el archivo de LaTex en el modo normal de Vim presionamos&lt;/p&gt;
+    &lt;pre&gt;&lt;code&gt;,ll
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;Esto genera una serie de archivos foo.aux  foo.log  foo.pdf  foo.synctex.gz&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Para ver el archivo PDF generado, en el modo normal&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;,lv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con eso terminamos la primera entrada del foro.&lt;/p&gt;</content><category term="code" /><summary type="html">Vamos a ver como podemos instalar un plugin bastante interesante que nos permite utilizar Vim para compilar archivos LaTex sin la necesidad de salir del mismo.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000//images/vimLatexSuite.png" /></entry></feed>
