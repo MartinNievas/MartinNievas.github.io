@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>Tutorial compilar desde terminal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	   <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-98385505-1', 'auto');
+		  ga('send', 'pageview');
+		
+		</script>
+</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../../index.html">Martin Nievas</a></h1>
+             <nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="../../tutorials.html" class="menuToggle"><span>Back to Tutorials</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="auxiliar.html">Informática 1</a></li>
+											<!--<li><a href="about.html">About</a></li>-->
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+				</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Extras</h2>
+							<p>Compilación y ejecución de programas en C desde terminal</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+                              <div class="container">
+
+                                <div class="about-texto">
+                                  <h1>Como compilar y correr un programa desde la terminal</h1>
+                                  <p class="lead"></p>
+                                </div>
+
+                              </div><!-- /.container -->
+                              <article>
+                                <h2>Compilar y correr un programa desde la terminal</h2>
+                                <h3>Introducción</h3>
+                                <p> En este tutorial se mostrará como compilar desde la terminal de GNU/Linux. Esto resulta útil para cuando no se dispone de un IDE (Integrated Development Environment) para programar. Ubuntu nos permite compilar, enlazar y correr el programa desde la misma terminal! :D <br> 
+                                Para ello utilizaremos GCC. La sigla GCC significa "GNU Compiler Collection". Originalmente significaba "GNU C Compiler"
+                                </p>
+
+
+
+
+                                <section>
+                                  <h5>Paso 1</h5>
+                                  <h6>Crear el archivo .c</h6>
+                                  <p> Debemos crearlo en una carpeta que contendrá los archivos fuente .c para luego compilarlos (Esto es para ser mas ordenado). <br>
+                                  Podemos utilizar cualquier editor de texto, para este caso usaremos Gedit (Buscar Gedit en los programas y lanzarlo) 
+                                  <div class="box alt">
+                                    <div class="row uniform 50%">
+                                      <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/2.png" alt="" /></span></div>
+                                    </div>
+                                  </div>
+                                  Aquí debemos escribir el programa como normalmente haríamos. Como podemos ver en la imágen anterior no tiene colores... Esto es debido a que no está guardado. Debemos guardar el archivo en una carpeta ( Para el tutorial utilizaremos programas_info1 en el Escritorio) y no olvidarse de colocar la extensión .c En este caso se llamará "ejemplo.c" 
+                                  <div class="box alt">
+                                    <div class="row uniform 50%">
+                                      <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/3.png" alt="" /></span></div>
+                                    </div>
+                                  </div>
+                                  Como podemos ver, luego de guardar, el programa aparece con colores.
+                                  <div class="box alt">
+                                    <div class="row uniform 50%">
+                                      <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/4.png" alt="" /></span></div>
+                                    </div>
+                                  </div>
+                                  </p>
+
+                                  <h5>Paso 2</h5>
+                                  <h6>Ir a la carpeta donde están nuestros programas</h6>
+                                  <p> Esta carpeta contendrá los archivos fuente .c para luego compilarlos. <br> 
+                                  Abrimos una terminal, en Linux Ctrl+Alt+t (la terminal puede variar entre computadora y computadora).
+                                  <div class="box alt">
+                                    <div class="row uniform 50%">
+                                      <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/1.png" alt="" /></span></div>
+                                    </div>
+                                  </div>
+                                  Para este tutorial, los programas estarán en ~/Escritorio/programas_info1 <br>
+                                  En la terminal escribimos:
+                                  </p>
+                                  <div class="highlight-bash"><div class="highlight"><pre><span class="nv"></span>cd ~/Escritorio/programas_info1
+ls
+                                    </pre></div>
+                                    <p> El comando cd cambia de directorio y ls lista los archivos que tengamos en la ruta actual<br> 
+                                    <div class="box alt">
+                                      <div class="row uniform 50%">
+                                        <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/5.png" alt="" /></span></div>
+                                      </div>
+                                    </div>
+                                    Como podemos ver aparece el programa que creamos anteriormente, señal de que vamos en buen camino :D
+                                    </p>
+
+                                    <h5>Paso 3</h5>
+                                    <h6>Compilar y correr el programa</h6>
+                                    <p> Por último, falta compilar el programa y ejecutarlo<br> 
+                                    En la misma terminal que tenemos abierta, tenemos que escribir lo siguiente (pueden copiar y pegar desde el explorador a la terminal):
+                                    <div class="highlight-bash"><div class="highlight"><pre><span class="nv"></span>clear && gcc -Wall -pedantic-errors -std=c90 ejemplo.c -o salida.o && ./salida.o
+                                      </pre></div>
+                                      <div class="box alt">
+                                        <div class="row uniform 50%">
+                                          <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/11.png" alt="" /></span></div>
+                                        </div>
+                                      </div>
+                                      Presionamos enter
+                                      <div class="box alt">
+                                        <div class="row uniform 50%">
+                                          <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/6.png" alt="" /></span></div>
+                                        </div>
+                                      </div>
+                                      En este caso, la compilación terminó con éxito y el programa corrió correctamente como puede verse en la imágen anterior <br>
+                                    </p>
+
+                                    <h5>Paso 4</h5>
+                                    <h6>Corregir errores </h6>
+                                    <p> Ahora simularemos un ejemplo de programa con errores, para interpretar la salida y ver mas o menos donde puede estar el error<br> 
+                                    Crearemos un programa "mal_ejemplo.c" idéntico a "ejemplo.c" pero en este caso no colocaremos el punto y coma al final del printf.
+                                    <div class="box alt">
+                                      <div class="row uniform 50%">
+                                        <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/7.png" alt="" /></span></div>
+                                      </div>
+                                    </div>
+                                    En la terminal corremos ahora:
+                                    <div class="highlight-bash"><div class="highlight"><pre><span class="nv"></span>clear && gcc -Wall -pedantic-errors -std=c90 mal_ejemplo.c -o salida.o && ./salida.o
+                                      </pre></div>
+                                      <div class="box alt">
+                                        <div class="row uniform 50%">
+                                          <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/8.png" alt="" /></span></div>
+                                        </div>
+                                      </div>
+                                      Como podemos ver, se genera un error. <br>
+                                      <div class="box alt">
+                                        <div class="row uniform 50%">
+                                          <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/9.png" alt="" /></span></div>
+                                        </div>
+                                      </div>
+                                      El error dice que se espera un ; antes que "return". El compilador no es muy elegante en ciertas ocasiones para presentar los errores, pero con la práctica se llega a dominarlo. En este caso el error dice que es en la línea 8 "mal_ejemplo.c:8:1: error", pero en realidad el punto y coma va al final del printf (pero como está antes que el "return" el compilador está en lo correcto)
+                                      <br>
+                                      Agregando el ; el programa compila y corre normalmente.
+                                      <div class="box alt">
+                                        <div class="row uniform 50%">
+                                          <div class="12u"><span class="image fit"><img src="../../images/compilarTerminal/10.png" alt="" /></span></div>
+                                        </div>
+                                      </div>
+                                    </p>
+
+                                    <h5>Paso 5</h5>
+                                    <h6>Fin :D</h6>
+                                </section>
+
+
+
+
+                              </article>
+
+                              <!-- Footer -->
+                              <footer id="footer">
+                                <ul class="icons">
+                                  <!-- <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li> -->
+                                  <li><a href="../../about.html" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                                </ul>
+                              </footer>
+
+                            </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
