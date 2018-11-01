@@ -43,7 +43,7 @@ void ingreso_personas(persona_t * p, int n)
   {
     printf("Ingrese el nombre: ");
     scanf("%s", (p+i)->nombre);
-    /*scanf("%s", (*(p+i)).nombre);*/
+    /*scanf("%s", &(*(p+i)).nombre);*/
 
     (p+i)->edad = validar_edad_mayor_que(17);
 
@@ -71,8 +71,8 @@ void ordenar_edad_menor_mayor(persona_t * p, int n)
     for ( j = 0 ; j < n-1 ; j++ )
       if ( (p+j)->edad > (p+j+1)->edad )
       {
-        tmp = j[p];
-        p[j] = (j+1)[p];
+        tmp = p[j];
+        p[j] = p[j+1];
         p[j+1] = tmp;
       }
 }
