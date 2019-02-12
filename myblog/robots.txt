@@ -1,1 +1,1 @@
-Sitemap: http://martinnievas.github.io//myblog/sitemap.xml
+Sitemap: http://localhost:4000/myblog/sitemap.xml
