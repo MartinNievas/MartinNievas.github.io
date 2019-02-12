@@ -69,12 +69,12 @@
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/" />
-  <link rel="canonical" href="http://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/" />
+  <meta property="og:url" content="https://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/" />
+  <link rel="canonical" href="https://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/" />
   
 
   
-  <meta property="og:image" content="http://martinnievas.github.io/myblog/img/avatar-icon.png" />
+  <meta property="og:image" content="https://martinnievas.github.io/myblog/img/avatar-icon.png" />
   
 
 
@@ -92,7 +92,7 @@
   
 
   
-  <meta name="twitter:image" content="http://martinnievas.github.io/myblog/img/avatar-icon.png" />
+  <meta name="twitter:image" content="https://martinnievas.github.io/myblog/img/avatar-icon.png" />
   
 
   
@@ -117,7 +117,7 @@
         <span class="icon-bar"></span>
       </button>
       
-        <a class="navbar-brand" href="http://martinnievas.github.io/myblog">martin nievas blog</a>
+        <a class="navbar-brand" href="https://martinnievas.github.io/myblog">martin nievas blog</a>
       
     </div>
 
@@ -191,8 +191,8 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://martinnievas.github.io/myblog">
-	      <img class="avatar-img" src="/myblog/img/terminal.png" />
+	    <a href="https://martinnievas.github.io/myblog">
+	      <img class="avatar-img" src="/myblog/myblog/img/terminal.png" />
 		</a>
 	  </div>
 	</div>
@@ -251,15 +251,15 @@
 
 <p>Podemos utilizar cualquier editor de texto, para este caso usaremos Gedit (Buscar Gedit en los programas y lanzarlo)</p>
 
-<p><img src="/img/compilarTerminal/2.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/2.png" alt="Crepe" /></p>
 
 <p>Aquí debemos escribir el programa como normalmente haríamos. Como podemos ver en la imágen anterior no tiene colores… Esto es debido a que no está guardado. Debemos guardar el archivo en una carpeta ( Para el tutorial utilizaremos programas_info1 en el Escritorio) y no olvidarse de colocar la extensión .c En este caso se llamará “ejemplo.c”</p>
 
-<p><img src="/img/compilarTerminal/3.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/3.png" alt="Crepe" /></p>
 
 <p>Como podemos ver, luego de guardar, el programa aparece con colores.</p>
 
-<p><img src="/img/compilarTerminal/4.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/4.png" alt="Crepe" /></p>
 
 <h1 id="paso-2">Paso 2</h1>
 <h2 id="ir-a-la-carpeta-donde-están-nuestros-programas">Ir a la carpeta donde están nuestros programas</h2>
@@ -267,7 +267,7 @@
 <p>Esta carpeta contendrá los archivos fuente .c para luego compilarlos.
 Abrimos una terminal, en Linux Ctrl+Alt+t (la terminal puede variar entre computadora y computadora).</p>
 
-<p><img src="/img/compilarTerminal/1.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/1.png" alt="Crepe" /></p>
 
 <p>Para este tutorial, los programas estarán en ~/Escritorio/programas_info1
 En la terminal escribimos:</p>
@@ -278,7 +278,7 @@ En la terminal escribimos:</p>
 
 <p>El comando cd cambia de directorio y ls lista los archivos que tengamos en la ruta actual</p>
 
-<p><img src="/img/compilarTerminal/5.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/5.png" alt="Crepe" /></p>
 
 <p>Como podemos ver aparece el programa que creamos anteriormente, señal de que vamos en buen camino :D</p>
 
@@ -291,11 +291,11 @@ En la misma terminal que tenemos abierta, tenemos que escribir lo siguiente (pue
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear <span class="o">&amp;&amp;</span> gcc <span class="nt">-Wall</span> <span class="nt">-pedantic-errors</span> <span class="nt">-std</span><span class="o">=</span>c90 ejemplo.c <span class="nt">-o</span> salida.o <span class="o">&amp;&amp;</span> ./salida.o
 </code></pre></div></div>
 
-<p><img src="/img/compilarTerminal/11.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/11.png" alt="Crepe" /></p>
 
 <p>Presionamos enter</p>
 
-<p><img src="/img/compilarTerminal/6.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/6.png" alt="Crepe" /></p>
 
 <p>En este caso, la compilación terminó con éxito y el programa corrió correctamente como puede verse en la imágen anterior</p>
 
@@ -305,24 +305,24 @@ En la misma terminal que tenemos abierta, tenemos que escribir lo siguiente (pue
 <p>Ahora simularemos un ejemplo de programa con errores, para interpretar la salida y ver mas o menos donde puede estar el error
 Crearemos un programa “mal_ejemplo.c” idéntico a “ejemplo.c” pero en este caso no colocaremos el punto y coma al final del printf.</p>
 
-<p><img src="/img/compilarTerminal/7.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/7.png" alt="Crepe" /></p>
 
 <p>En la terminal corremos ahora:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear <span class="o">&amp;&amp;</span> gcc <span class="nt">-Wall</span> <span class="nt">-pedantic-errors</span> <span class="nt">-std</span><span class="o">=</span>c90 mal_ejemplo.c <span class="nt">-o</span> salida.o <span class="o">&amp;&amp;</span> ./salida.o
 </code></pre></div></div>
 
-<p><img src="/img/compilarTerminal/8.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/8.png" alt="Crepe" /></p>
 
 <p>Como podemos ver, se genera un error.</p>
 
-<p><img src="/img/compilarTerminal/9.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/9.png" alt="Crepe" /></p>
 
 <p>El error dice que se espera un ; antes que “return”. El compilador no es muy elegante en ciertas ocasiones para presentar los errores, pero con la práctica se llega a dominarlo. En este caso el error dice que es en la línea 8 “mal_ejemplo.c:8:1: error”, pero en realidad el punto y coma va al final del printf (pero como está antes que el “return” el compilador está en lo correcto)</p>
 
 <p>Agregando el ; el programa compila y corre normalmente.</p>
 
-<p><img src="/img/compilarTerminal/10.png" alt="Crepe" /></p>
+<p><img src="/myblog/img/compilarTerminal/10.png" alt="Crepe" /></p>
 
 <h1 id="paso-5">Paso 5</h1>
 <h2 id="fin">Fin</h2>

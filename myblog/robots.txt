@@ -1,1 +1,1 @@
-Sitemap: http://martinnievas.github.io/myblog/myblog/sitemap.xml
+Sitemap: https://martinnievas.github.io/myblog/myblog/sitemap.xml
