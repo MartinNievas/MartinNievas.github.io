@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>Compilar y correr un programa desde la terminal</title>
+  <title>Eliminar archivos trackeados</title>
 
   <meta name="author" content="Martin Nievas" />
 
@@ -58,19 +58,19 @@
   
 
   
-  <meta property="og:title" content="Compilar y correr un programa desde la terminal" />
+  <meta property="og:title" content="Eliminar archivos trackeados" />
   
 
    
-  <meta property="og:description" content="En este tutorial se mostrará como compilar desde la terminal de GNU/Linux. Esto resulta útil para cuando no se dispone de un IDE (Integrated Development Environment) para programar. Ubuntu nos permite compilar, enlazar y correr el programa desde la misma terminal! :D Para ello utilizaremos GCC. La sigla GCC significa...">
+  <meta property="og:description" content="Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="https://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/" />
-  <link rel="canonical" href="https://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/" />
+  <meta property="og:url" content="https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/" />
+  <link rel="canonical" href="https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/" />
   
 
   
@@ -84,11 +84,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Compilar y correr un programa desde la terminal" />
+  <meta name="twitter:title" content="Eliminar archivos trackeados" />
   
 
   
-  <meta name="twitter:description" content="En este tutorial se mostrará como compilar desde la terminal de GNU/Linux. Esto resulta útil para cuando no se dispone de un IDE (Integrated Development Environment) para programar. Ubuntu nos permite compilar, enlazar y correr el programa desde la misma terminal! :D Para ello utilizaremos GCC. La sigla GCC significa...">
+  <meta name="twitter:description" content="Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...">
   
 
   
@@ -215,11 +215,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Compilar y correr un programa desde la terminal</h1>
+          <h1>Eliminar archivos trackeados</h1>
 		  
 		  
 		  
-		  <span class="post-meta">Posted on February 12, 2019</span>
+		  <span class="post-meta">Posted on February 18, 2019</span>
 		  
         </div>
       </div>
@@ -239,93 +239,36 @@
       
 
       <article role="main" class="blog-post">
-        <p>En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.</p>
-
-<p>Esto resulta útil para cuando no se dispone de un IDE (Integrated Development Environment) para programar. Ubuntu nos permite compilar, enlazar y correr el programa desde la misma terminal! :D</p>
-
-<p>Para ello utilizaremos GCC. La sigla GCC significa “GNU Compiler Collection”. Originalmente significaba “GNU C Compiler”</p>
+        <p>Este tutorial lo hago para tener un lugar donde buscar los comandos.</p>
 
 <h1 id="paso-1">Paso 1</h1>
-<h2 id="crear-el-archivo-c">Crear el archivo .c</h2>
-<p>Debemos crearlo en una carpeta que contendrá los archivos fuente .c para luego compilarlos (Esto es para ser mas ordenado).</p>
+<h2 id="hacer-un-commit-de-todos-los-cambios">Hacer un commit de todos los cambios</h2>
 
-<p>Podemos utilizar cualquier editor de texto, para este caso usaremos Gedit (Buscar Gedit en los programas y lanzarlo)</p>
-
-<p><img src="/myblog/img/compilarTerminal/2.png" alt="Crepe" /></p>
-
-<p>Aquí debemos escribir el programa como normalmente haríamos. Como podemos ver en la imágen anterior no tiene colores… Esto es debido a que no está guardado. Debemos guardar el archivo en una carpeta ( Para el tutorial utilizaremos programas_info1 en el Escritorio) y no olvidarse de colocar la extensión .c En este caso se llamará “ejemplo.c”</p>
-
-<p><img src="/myblog/img/compilarTerminal/3.png" alt="Crepe" /></p>
-
-<p>Como podemos ver, luego de guardar, el programa aparece con colores.</p>
-
-<p><img src="/myblog/img/compilarTerminal/4.png" alt="Crepe" /></p>
+<p>De todo, incluyendo el .gitignore</p>
 
 <h1 id="paso-2">Paso 2</h1>
-<h2 id="ir-a-la-carpeta-donde-están-nuestros-programas">Ir a la carpeta donde están nuestros programas</h2>
+<h2 id="eliminar-los-archivos-del-índice">Eliminar los archivos del índice</h2>
 
-<p>Esta carpeta contendrá los archivos fuente .c para luego compilarlos.
-Abrimos una terminal, en Linux Ctrl+Alt+t (la terminal puede variar entre computadora y computadora).</p>
-
-<p><img src="/myblog/img/compilarTerminal/1.png" alt="Crepe" /></p>
-
-<p>Para este tutorial, los programas estarán en ~/Escritorio/programas_info1
-En la terminal escribimos:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Escritorio/programas_info1
-<span class="nb">ls</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rm <span class="nt">-r</span> <span class="nt">--cached</span> <span class="nb">.</span>
 </code></pre></div></div>
 
-<p>El comando cd cambia de directorio y ls lista los archivos que tengamos en la ruta actual</p>
-
-<p><img src="/myblog/img/compilarTerminal/5.png" alt="Crepe" /></p>
-
-<p>Como podemos ver aparece el programa que creamos anteriormente, señal de que vamos en buen camino :D</p>
+<ul>
+  <li>rm es para borrar</li>
+  <li>-r para que sea recursivo</li>
+  <li>El punto especifica que todos los archivos se van a eliminar. Para borrar solo algunos se los puede especificar con git rm –cached archivo.c</li>
+</ul>
 
 <h1 id="paso-3">Paso 3</h1>
-<h2 id="compilar-y-correr-el-programa">Compilar y correr el programa</h2>
+<h2 id="agregar-todo-de-nuevo">Agregar todo de nuevo</h2>
 
-<p>Por último, falta compilar el programa y ejecutarlo
-En la misma terminal que tenemos abierta, tenemos que escribir lo siguiente (pueden copiar y pegar desde el explorador a la terminal):</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear <span class="o">&amp;&amp;</span> gcc <span class="nt">-Wall</span> <span class="nt">-pedantic-errors</span> <span class="nt">-std</span><span class="o">=</span>c90 ejemplo.c <span class="nt">-o</span> salida.o <span class="o">&amp;&amp;</span> ./salida.o
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
 </code></pre></div></div>
-
-<p><img src="/myblog/img/compilarTerminal/11.png" alt="Crepe" /></p>
-
-<p>Presionamos enter</p>
-
-<p><img src="/myblog/img/compilarTerminal/6.png" alt="Crepe" /></p>
-
-<p>En este caso, la compilación terminó con éxito y el programa corrió correctamente como puede verse en la imágen anterior</p>
 
 <h1 id="paso-4">Paso 4</h1>
-<h2 id="corregir-errores">Corregir errores</h2>
+<h2 id="hacer-un-commit-con-los-cambios">Hacer un commit con los cambios</h2>
 
-<p>Ahora simularemos un ejemplo de programa con errores, para interpretar la salida y ver mas o menos donde puede estar el error
-Crearemos un programa “mal_ejemplo.c” idéntico a “ejemplo.c” pero en este caso no colocaremos el punto y coma al final del printf.</p>
-
-<p><img src="/myblog/img/compilarTerminal/7.png" alt="Crepe" /></p>
-
-<p>En la terminal corremos ahora:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear <span class="o">&amp;&amp;</span> gcc <span class="nt">-Wall</span> <span class="nt">-pedantic-errors</span> <span class="nt">-std</span><span class="o">=</span>c90 mal_ejemplo.c <span class="nt">-o</span> salida.o <span class="o">&amp;&amp;</span> ./salida.o
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"arreglo .gitignore"</span>
 </code></pre></div></div>
-
-<p><img src="/myblog/img/compilarTerminal/8.png" alt="Crepe" /></p>
-
-<p>Como podemos ver, se genera un error.</p>
-
-<p><img src="/myblog/img/compilarTerminal/9.png" alt="Crepe" /></p>
-
-<p>El error dice que se espera un ; antes que “return”. El compilador no es muy elegante en ciertas ocasiones para presentar los errores, pero con la práctica se llega a dominarlo. En este caso el error dice que es en la línea 8 “mal_ejemplo.c:8:1: error”, pero en realidad el punto y coma va al final del printf (pero como está antes que el “return” el compilador está en lo correcto)</p>
-
-<p>Agregando el ; el programa compila y corre normalmente.</p>
-
-<p><img src="/myblog/img/compilarTerminal/10.png" alt="Crepe" /></p>
-
-<h1 id="paso-5">Paso 5</h1>
-<h2 id="fin">Fin</h2>
 
 
       </article>
@@ -344,13 +287,9 @@ Crearemos un programa “mal_ejemplo.c” idéntico a “ejemplo.c” pero en es
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="/myblog/2019-02-11-primer-post/" data-toggle="tooltip" data-placement="top" title="Primer post1">&larr; Previous Post</a>
+          <a href="/myblog/2019-02-12-compilar-desde-la-terminal/" data-toggle="tooltip" data-placement="top" title="Compilar y correr un programa desde la terminal">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="next">
-          <a href="/myblog/2019-02-18-eliminar-archivos-gitignore/" data-toggle="tooltip" data-placement="top" title="Eliminar archivos trackeados">Next Post &rarr;</a>
-        </li>
         
       </ul>
 

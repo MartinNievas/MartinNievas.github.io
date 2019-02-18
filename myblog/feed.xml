@@ -7,6 +7,17 @@
     <atom:link href="https://martinnievas.github.io/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Eliminar archivos trackeados</title>
+        <description>
+          
+          Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...
+        </description>
+        <pubDate>Mon, 18 Feb 2019 00:00:00 -0800</pubDate>
+        <link>https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/</link>
+        <guid isPermaLink="true">https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/</guid>
+      </item>
+    
+      <item>
         <title>Compilar y correr un programa desde la terminal</title>
         <description>
           
