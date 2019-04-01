@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>Eliminar archivos trackeados</title>
+  <title>Controlar LED RGB con binario y arduino</title>
 
   <meta name="author" content="Martin Nievas" />
 
@@ -58,19 +58,35 @@
   
 
   
-  <meta property="og:title" content="Eliminar archivos trackeados" />
+  <meta property="og:title" content="Controlar LED RGB con binario y arduino" />
   
 
    
-  <meta property="og:description" content="Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...">
+  <meta property="og:description" content="En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.
+
+Materiales
+
+  Arduino (cualquiera puede funcionar)
+  Protoboard
+  Cables de conección
+  Resistencias de 220 ohm
+  LED RGB
+
+
+El circuito es el que se muestra en la página de arduino.
+
+Código para Arduino
+get the code
+
+">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/" />
-  <link rel="canonical" href="https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/" />
+  <meta property="og:url" content="https://martinnievas.github.io/myblog/2019-03-19-controlar-led-binario/" />
+  <link rel="canonical" href="https://martinnievas.github.io/myblog/2019-03-19-controlar-led-binario/" />
   
 
   
@@ -84,11 +100,27 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Eliminar archivos trackeados" />
+  <meta name="twitter:title" content="Controlar LED RGB con binario y arduino" />
   
 
   
-  <meta name="twitter:description" content="Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...">
+  <meta name="twitter:description" content="En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.
+
+Materiales
+
+  Arduino (cualquiera puede funcionar)
+  Protoboard
+  Cables de conección
+  Resistencias de 220 ohm
+  LED RGB
+
+
+El circuito es el que se muestra en la página de arduino.
+
+Código para Arduino
+get the code
+
+">
   
 
   
@@ -215,11 +247,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Eliminar archivos trackeados</h1>
+          <h1>Controlar LED RGB con binario y arduino</h1>
 		  
 		  
 		  
-		  <span class="post-meta">Posted on February 18, 2019</span>
+		  <span class="post-meta">Posted on March 19, 2019</span>
 		  
         </div>
       </div>
@@ -239,36 +271,21 @@
       
 
       <article role="main" class="blog-post">
-        <p>Este tutorial lo hago para tener un lugar donde buscar los comandos.</p>
+        <p>En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.</p>
 
-<h1 id="paso-1">Paso 1</h1>
-<h2 id="hacer-un-commit-de-todos-los-cambios">Hacer un commit de todos los cambios</h2>
-
-<p>De todo, incluyendo el .gitignore</p>
-
-<h1 id="paso-2">Paso 2</h1>
-<h2 id="eliminar-los-archivos-del-índice">Eliminar los archivos del índice</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rm <span class="nt">-r</span> <span class="nt">--cached</span> <span class="nb">.</span>
-</code></pre></div></div>
-
+<h1 id="materiales">Materiales</h1>
 <ul>
-  <li>rm es para borrar</li>
-  <li>-r para que sea recursivo</li>
-  <li>El punto especifica que todos los archivos se van a eliminar. Para borrar solo algunos se los puede especificar con git rm –cached archivo.c</li>
+  <li>Arduino (cualquiera puede funcionar)</li>
+  <li>Protoboard</li>
+  <li>Cables de conección</li>
+  <li>Resistencias de 220 ohm</li>
+  <li>LED RGB</li>
 </ul>
 
-<h1 id="paso-3">Paso 3</h1>
-<h2 id="agregar-todo-de-nuevo">Agregar todo de nuevo</h2>
+<p>El circuito es el que se muestra en la <a href="https://www.arduino.cc/en/Tutorial/ReadASCIIString">página de arduino</a>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
-</code></pre></div></div>
-
-<h1 id="paso-4">Paso 4</h1>
-<h2 id="hacer-un-commit-con-los-cambios">Hacer un commit con los cambios</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"arreglo .gitignore"</span>
-</code></pre></div></div>
+<h2 id="código-para-arduino">Código para Arduino</h2>
+<p><a href="https://martinnievas.github.io/myblog/assets/led_rgb_binario.ino">get the code</a></p>
 
 
       </article>
@@ -287,13 +304,9 @@
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="/myblog/2019-02-12-compilar-desde-la-terminal/" data-toggle="tooltip" data-placement="top" title="Compilar y correr un programa desde la terminal">&larr; Previous Post</a>
+          <a href="/myblog/2019-02-18-eliminar-archivos-gitignore/" data-toggle="tooltip" data-placement="top" title="Eliminar archivos trackeados">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="next">
-          <a href="/myblog/2019-03-19-controlar-led-binario/" data-toggle="tooltip" data-placement="top" title="Controlar LED RGB con binario y arduino">Next Post &rarr;</a>
-        </li>
         
       </ul>
 

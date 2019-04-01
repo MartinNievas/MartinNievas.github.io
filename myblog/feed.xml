@@ -7,6 +7,33 @@
     <atom:link href="https://martinnievas.github.io/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Controlar LED RGB con binario y arduino</title>
+        <description>
+          
+          En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.
+
+Materiales
+
+  Arduino (cualquiera puede funcionar)
+  Protoboard
+  Cables de conección
+  Resistencias de 220 ohm
+  LED RGB
+
+
+El circuito es el que se muestra en la página de arduino.
+
+Código para Arduino
+get the code
+
+
+        </description>
+        <pubDate>Tue, 19 Mar 2019 00:00:00 -0700</pubDate>
+        <link>https://martinnievas.github.io/myblog/2019-03-19-controlar-led-binario/</link>
+        <guid isPermaLink="true">https://martinnievas.github.io/myblog/2019-03-19-controlar-led-binario/</guid>
+      </item>
+    
+      <item>
         <title>Eliminar archivos trackeados</title>
         <description>
           
