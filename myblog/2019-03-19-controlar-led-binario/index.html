@@ -62,23 +62,7 @@
   
 
    
-  <meta property="og:description" content="En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.
-
-Materiales
-
-  Arduino (cualquiera puede funcionar)
-  Protoboard
-  Cables de conección
-  Resistencias de 220 ohm
-  LED RGB
-
-
-El circuito es el que se muestra en la página de arduino.
-
-Código para Arduino
-get the code
-
-">
+  <meta property="og:description" content="En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para controlar un led RGB. Materiales Arduino (cualquiera puede funcionar) Protoboard Cables de conección Resistencias de 220 ohm LED RGB El circuito es el que se muestra en la página de...">
   
 
 
@@ -104,23 +88,7 @@ get the code
   
 
   
-  <meta name="twitter:description" content="En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.
-
-Materiales
-
-  Arduino (cualquiera puede funcionar)
-  Protoboard
-  Cables de conección
-  Resistencias de 220 ohm
-  LED RGB
-
-
-El circuito es el que se muestra en la página de arduino.
-
-Código para Arduino
-get the code
-
-">
+  <meta name="twitter:description" content="En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para controlar un led RGB. Materiales Arduino (cualquiera puede funcionar) Protoboard Cables de conección Resistencias de 220 ohm LED RGB El circuito es el que se muestra en la página de...">
   
 
   
@@ -271,7 +239,8 @@ get the code
       
 
       <article role="main" class="blog-post">
-        <p>En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.</p>
+        <p>En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para
+controlar un led RGB.</p>
 
 <h1 id="materiales">Materiales</h1>
 <ul>
@@ -287,6 +256,13 @@ get the code
 <h2 id="código-para-arduino">Código para Arduino</h2>
 <p><a href="https://martinnievas.github.io/myblog/assets/led_rgb_binario.ino">get the code</a></p>
 
+<h2 id="procedimiento">Procedimiento</h2>
+<p>El procedimiento es básicamente conectar la placa a la computadora, abrir el programa descargado con el Arduino IDE y
+cargarlo a la placa.</p>
+
+<p>Luego, abrir el monitor de puerto serie (ctrl+shift+m) y escribir 3 dígitos correspondientes a los colores. La velocidad
+del puerto debe estar configurada en 9600. Hay que tener en cuenta que los bits para prender los leds, trabajan en
+lógica negada, es decir, un 0 enciende el color correspondiente, y un 1 lo apaga.</p>
 
       </article>
 
