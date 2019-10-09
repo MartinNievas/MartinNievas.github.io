@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>Controlar LED RGB con binario y arduino</title>
+  <title>Placa raspiGPIO</title>
 
   <meta name="author" content="Martin Nievas" />
 
@@ -58,19 +58,19 @@
   
 
   
-  <meta property="og:title" content="Controlar LED RGB con binario y arduino" />
+  <meta property="og:title" content="Placa raspiGPIO" />
   
 
    
-  <meta property="og:description" content="En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para controlar un led RGB. Materiales Arduino (cualquiera puede funcionar) Protoboard Cables de conección Resistencias de 220 ohm LED RGB El circuito es el que se muestra en la página de...">
+  <meta property="og:description" content="Materiales Placa experimental perforada de 5x5cm Tira de 20 pines hembra en doble fila 8 leds de 3mm 8 resistencias de 820 Ohm (o de 1 kOhm también funciona) 2 resistencias de 1 kOhm 2 pulsadores switch para pcb Referencias Los pulsadores tienen Estos pequeños pulsadores son bastante económicos y...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://localhost:4000/2019-03-19-controlar-led-binario/" />
-  <link rel="canonical" href="http://localhost:4000/2019-03-19-controlar-led-binario/" />
+  <meta property="og:url" content="http://localhost:4000/2019-10-09-placa-raspberry-pi/" />
+  <link rel="canonical" href="http://localhost:4000/2019-10-09-placa-raspberry-pi/" />
   
 
   
@@ -84,11 +84,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Controlar LED RGB con binario y arduino" />
+  <meta name="twitter:title" content="Placa raspiGPIO" />
   
 
   
-  <meta name="twitter:description" content="En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para controlar un led RGB. Materiales Arduino (cualquiera puede funcionar) Protoboard Cables de conección Resistencias de 220 ohm LED RGB El circuito es el que se muestra en la página de...">
+  <meta name="twitter:description" content="Materiales Placa experimental perforada de 5x5cm Tira de 20 pines hembra en doble fila 8 leds de 3mm 8 resistencias de 820 Ohm (o de 1 kOhm también funciona) 2 resistencias de 1 kOhm 2 pulsadores switch para pcb Referencias Los pulsadores tienen Estos pequeños pulsadores son bastante económicos y...">
   
 
   
@@ -215,11 +215,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Controlar LED RGB con binario y arduino</h1>
+          <h1>Placa raspiGPIO</h1>
 		  
 		  
 		  
-		  <span class="post-meta">Posted on March 19, 2019</span>
+		  <span class="post-meta">Posted on October 9, 2019</span>
 		  
         </div>
       </div>
@@ -239,30 +239,76 @@
       
 
       <article role="main" class="blog-post">
-        <p>En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para
-controlar un led RGB.</p>
-
-<h1 id="materiales">Materiales</h1>
+        <h2 id="materiales">Materiales</h2>
 <ul>
-  <li>Arduino (cualquiera puede funcionar)</li>
-  <li>Protoboard</li>
-  <li>Cables de conección</li>
-  <li>Resistencias de 220 ohm</li>
-  <li>LED RGB</li>
+  <li>Placa experimental perforada de 5x5cm</li>
+  <li>Tira de 20 pines hembra en doble fila</li>
+  <li>8 leds de 3mm</li>
+  <li>8 resistencias de 820 Ohm (o de 1 kOhm también funciona)</li>
+  <li>2 resistencias de 1 kOhm</li>
+  <li>2 pulsadores switch para pcb</li>
 </ul>
 
-<p>El circuito es el que se muestra en la <a href="https://www.arduino.cc/en/Tutorial/ReadASCIIString">página de arduino</a>.</p>
+<h2 id="referencias">Referencias</h2>
+<p>Los pulsadores tienen 
+Estos pequeños pulsadores son bastante económicos y se pueden conectar directamente en una placa de prototipado. 
+Estos dispositivos mecánicos tienen 4 patillas, que pueden hacernos pensar que hay 4 pines, pero de hecho, dos de cada lado en realidad dentro están unidos. 
+Por tanto realmente, este pulsador es solamente un pulsador de 2 cables. Los pines del pulsador salen hacia los costados.</p>
 
-<h2 id="código-para-arduino">Código para Arduino</h2>
-<p><a href="http://localhost:4000/assets/led_rgb_binario.ino">get the code</a></p>
+<p><img src="/myblog/img/raspi/Pulsadores.jpg" alt="alt text" /></p>
 
-<h2 id="procedimiento">Procedimiento</h2>
-<p>El procedimiento es básicamente conectar la placa a la computadora, abrir el programa descargado con el Arduino IDE y
-cargarlo a la placa.</p>
+<h2 id="circuito">Circuito</h2>
+<p>El procedimiento para armar la placa se puede ver en las siguientes imágenes:
+Lo primero es doblar los pines de la tira, de tal forma que queden a 90 grados. Esto es para facilitar la soldadura sobre la placa.</p>
 
-<p>Luego, abrir el monitor de puerto serie (ctrl+shift+m) y escribir 3 dígitos correspondientes a los colores. La velocidad
-del puerto debe estar configurada en 9600. Hay que tener en cuenta que los bits para prender los leds, trabajan en
-lógica negada, es decir, un 0 enciende el color correspondiente, y un 1 lo apaga.</p>
+<p>Como ésta placa no tiene 20 perforaciones de largo, se tienen que remover los últimos 8 pines (4 de cada lado).
+<img src="/myblog/img/raspi/1.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/2.jpg" alt="alt text" />
+Se pueden ayudar con un borde para realizar esto.
+<img src="/myblog/img/raspi/3.jpg" alt="alt text" /></p>
+
+<p>El resultado debería quedar así:
+<img src="/myblog/img/raspi/4.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/6.jpg" alt="alt text" />
+Soldamos el conector en la misma posición que la foto anterior. Para mantener una orientación en el tutorial, en la parte superior derecha hay una flecha que indica el sentido de la placa.
+La flecha está del lado de arriba y del lado de abajo, apuntando al mismo vértice.
+<img src="/myblog/img/raspi/6_exp.jpg" alt="alt text" /></p>
+
+<p>El siguiente paso es soldar las resistencias. Notar la orientación de la placa y la posición del conector.
+<img src="/myblog/img/raspi/7.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/7_exp.jpg" alt="alt text" />
+Soldar las resistencias.
+<img src="/myblog/img/raspi/8.jpg" alt="alt text" />
+El terminal de la resistencia que se aleja del conector, dejarlo mas largo, esto ayudará a soldar los led.
+<img src="/myblog/img/raspi/9.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/9_exp.jpg" alt="alt text" />
+Los led de 3mm tienen dos terminales. El mas largo corresponde al positivo.
+<img src="/myblog/img/raspi/10.jpg" alt="alt text" />
+Insertarlos con el terminal positivo hacia el lado de la resistencia.
+<img src="/myblog/img/raspi/11.jpg" alt="alt text" />
+Del otro lado, soldar las resistencias al terminal positivo del led. Dejando el terminal negativo del led sin cortar y doblarlo hacia la derecha.
+<img src="/myblog/img/raspi/12.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/12_exp.jpg" alt="alt text" />
+Ahora necesitamos unir todos los terminales negativos de los leds. Para esto, doblarlos en ángulo de tal forma que coincidan con el borde de la placa.</p>
+
+<p>Además, necesitamos conectar todos estos terminales (negativo de los led) con el negativo de la raspi. El terminal negativo es el cuarto contando de derecha a izquierda según se ve en la siguiente foto.
+Para unirlo con los pines de los leds, podemos utilizar el terminal de una resistencia (cortarlo a la medida necesaria para que llegue a los pines).
+<img src="/myblog/img/raspi/13.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/13_exp.jpg" alt="alt text" />
+En la siguiente imagen se ve terminada la conexión de los terminales negativos al pin del conector.
+<img src="/myblog/img/raspi/14.jpg" alt="alt text" />
+Lo siguiente es soldar los pulsadores como se indica en la siguiente imagen:
+<img src="/myblog/img/raspi/15.jpg" alt="alt text" />
+Del otro lado de la placa, soldar los terminales y las resistencias según se ve a continuación:
+<img src="/myblog/img/raspi/16.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/16_exp.jpg" alt="alt text" />
+Agregar una conexión entre los pulsadores:
+<img src="/myblog/img/raspi/17.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/17_exp.jpg" alt="alt text" />
+Por último necesitamos pasar un pin de 3.3V hacia el lado de los pulsadores (Si, la raspi tiene entradas de 3.3V, no le pongan nada con 5V).
+<img src="/myblog/img/raspi/18.jpg" alt="alt text" />
+<img src="/myblog/img/raspi/18_exp.jpg" alt="alt text" /></p>
+
 
       </article>
 
@@ -280,13 +326,9 @@ lógica negada, es decir, un 0 enciende el color correspondiente, y un 1 lo apag
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="/myblog/2019-02-18-eliminar-archivos-gitignore/" data-toggle="tooltip" data-placement="top" title="Eliminar archivos trackeados">&larr; Previous Post</a>
+          <a href="/myblog/2019-03-19-controlar-led-binario/" data-toggle="tooltip" data-placement="top" title="Controlar LED RGB con binario y arduino">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="next">
-          <a href="/myblog/2019-10-09-placa-raspberry-pi/" data-toggle="tooltip" data-placement="top" title="Controlar LED RGB con binario y arduino">Next Post &rarr;</a>
-        </li>
         
       </ul>
 

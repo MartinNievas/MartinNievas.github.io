@@ -3,8 +3,19 @@
   <channel>
     <title>martin nievas blog</title>
     <description>Some really cool stuff</description>
-    <link>https://martinnievas.github.io/myblog</link>
-    <atom:link href="https://martinnievas.github.io/myblog/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Controlar LED RGB con binario y arduino</title>
+        <description>
+          
+          Materiales Arduino (cualquiera puede funcionar) Protoboard Cables de conección Resistencias de 220 ohm LED RGB El circuito es el que se muestra en la página de arduino. Código para Arduino get the code Procedimiento El procedimiento es básicamente conectar la placa a la computadora, abrir el programa descargado con el...
+        </description>
+        <pubDate>Wed, 09 Oct 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2019-10-09-placa-raspberry-pi/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-10-09-placa-raspberry-pi/</guid>
+      </item>
     
       <item>
         <title>Controlar LED RGB con binario y arduino</title>
@@ -13,8 +24,8 @@
           En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para controlar un led RGB. Materiales Arduino (cualquiera puede funcionar) Protoboard Cables de conección Resistencias de 220 ohm LED RGB El circuito es el que se muestra en la página de...
         </description>
         <pubDate>Tue, 19 Mar 2019 00:00:00 -0700</pubDate>
-        <link>https://martinnievas.github.io/myblog/2019-03-19-controlar-led-binario/</link>
-        <guid isPermaLink="true">https://martinnievas.github.io/myblog/2019-03-19-controlar-led-binario/</guid>
+        <link>http://localhost:4000/2019-03-19-controlar-led-binario/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-03-19-controlar-led-binario/</guid>
       </item>
     
       <item>
@@ -24,8 +35,8 @@
           Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...
         </description>
         <pubDate>Mon, 18 Feb 2019 00:00:00 -0800</pubDate>
-        <link>https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/</link>
-        <guid isPermaLink="true">https://martinnievas.github.io/myblog/2019-02-18-eliminar-archivos-gitignore/</guid>
+        <link>http://localhost:4000/2019-02-18-eliminar-archivos-gitignore/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-02-18-eliminar-archivos-gitignore/</guid>
       </item>
     
       <item>
@@ -35,8 +46,8 @@
           En este tutorial se mostrará como compilar desde la terminal de GNU/Linux. Esto resulta útil para cuando no se dispone de un IDE (Integrated Development Environment) para programar. Ubuntu nos permite compilar, enlazar y correr el programa desde la misma terminal! :D Para ello utilizaremos GCC. La sigla GCC significa...
         </description>
         <pubDate>Tue, 12 Feb 2019 00:00:00 -0800</pubDate>
-        <link>https://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/</link>
-        <guid isPermaLink="true">https://martinnievas.github.io/myblog/2019-02-12-compilar-desde-la-terminal/</guid>
+        <link>http://localhost:4000/2019-02-12-compilar-desde-la-terminal/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-02-12-compilar-desde-la-terminal/</guid>
       </item>
     
       <item>
@@ -47,8 +58,8 @@
 
         </description>
         <pubDate>Mon, 11 Feb 2019 00:00:00 -0800</pubDate>
-        <link>https://martinnievas.github.io/myblog/2019-02-11-primer-post/</link>
-        <guid isPermaLink="true">https://martinnievas.github.io/myblog/2019-02-11-primer-post/</guid>
+        <link>http://localhost:4000/2019-02-11-primer-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-02-11-primer-post/</guid>
       </item>
     
   </channel>
