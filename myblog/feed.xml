@@ -3,18 +3,18 @@
   <channel>
     <title>martin nievas blog</title>
     <description>Some really cool stuff</description>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://martinnievas.com/myblog</link>
+    <atom:link href="https://martinnievas.com/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Instalar subsistema de Linux en windows y herramientas de compilación</title>
         <description>
           
-          Video La primera parte está cubierta en éste Tienen que seguir eso, hasta el minuto 2:18 (cuando reinicia). Luego de reiniciar, continuar con las imágenes de abajo: Buscar la tienda de microsoft En el buscador, poner ubuntu Buscar ubuntu 20.04 Poner “no, gracias” Se empieza a instalar Esperamos… Ingresan su...
+          Video La primera parte está cubierta en éste video Tienen que seguir eso, hasta el minuto 2:18 (cuando reinicia). Luego de reiniciar, continuar con las imágenes de abajo: Buscar la tienda de microsoft En el buscador, poner ubuntu Buscar ubuntu 20.04 Poner “no, gracias” Se empieza a instalar Esperamos… Ingresan...
         </description>
         <pubDate>Sat, 09 May 2020 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2020-05-09-instalar-subsistema-linux/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-05-09-instalar-subsistema-linux/</guid>
+        <link>https://martinnievas.com/myblog/2020-05-09-instalar-subsistema-linux/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2020-05-09-instalar-subsistema-linux/</guid>
       </item>
     
       <item>
@@ -24,8 +24,8 @@
           Materiales Placa para soldar los componentes 1 tira de 20 pines hembra en doble fila 8 leds de 3mm 8 resistencias de 820 Ohm (o de 1 kOhm también funciona) 3 resistencias de 10 kOhm 3 resistencias de 100 kOhm 3 capacitores derámicos de 100nF 3 pulsadores switch para pcb...
         </description>
         <pubDate>Sun, 15 Mar 2020 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2020-03-15-raspberrypi-teaching-hat/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-03-15-raspberrypi-teaching-hat/</guid>
+        <link>https://martinnievas.com/myblog/2020-03-15-raspberrypi-teaching-hat/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2020-03-15-raspberrypi-teaching-hat/</guid>
       </item>
     
       <item>
@@ -35,8 +35,8 @@
           Materiales Placa experimental perforada de 5x5cm Tira de 20 pines hembra en doble fila 8 leds de 3mm 8 resistencias de 820 Ohm (o de 1 kOhm también funciona) 2 resistencias de 1 kOhm 2 pulsadores switch para pcb Referencias Los pulsadores tienen Estos pequeños pulsadores son bastante económicos y...
         </description>
         <pubDate>Wed, 09 Oct 2019 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2019-10-09-placa-raspberry-pi/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019-10-09-placa-raspberry-pi/</guid>
+        <link>https://martinnievas.com/myblog/2019-10-09-placa-raspberry-pi/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2019-10-09-placa-raspberry-pi/</guid>
       </item>
     
       <item>
@@ -46,8 +46,8 @@
           En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para controlar un led RGB. Materiales Arduino (cualquiera puede funcionar) Protoboard Cables de conección Resistencias de 220 ohm LED RGB El circuito es el que se muestra en la página de...
         </description>
         <pubDate>Tue, 19 Mar 2019 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2019-03-19-controlar-led-binario/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019-03-19-controlar-led-binario/</guid>
+        <link>https://martinnievas.com/myblog/2019-03-19-controlar-led-binario/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2019-03-19-controlar-led-binario/</guid>
       </item>
     
       <item>
@@ -57,8 +57,8 @@
           Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...
         </description>
         <pubDate>Mon, 18 Feb 2019 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2019-02-18-eliminar-archivos-gitignore/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019-02-18-eliminar-archivos-gitignore/</guid>
+        <link>https://martinnievas.com/myblog/2019-02-18-eliminar-archivos-gitignore/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2019-02-18-eliminar-archivos-gitignore/</guid>
       </item>
     
       <item>
@@ -68,8 +68,8 @@
           En este tutorial se mostrará como compilar desde la terminal de GNU/Linux. Esto resulta útil para cuando no se dispone de un IDE (Integrated Development Environment) para programar. Ubuntu nos permite compilar, enlazar y correr el programa desde la misma terminal! :D Para ello utilizaremos GCC. La sigla GCC significa...
         </description>
         <pubDate>Tue, 12 Feb 2019 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2019-02-12-compilar-desde-la-terminal/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019-02-12-compilar-desde-la-terminal/</guid>
+        <link>https://martinnievas.com/myblog/2019-02-12-compilar-desde-la-terminal/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2019-02-12-compilar-desde-la-terminal/</guid>
       </item>
     
       <item>
@@ -80,8 +80,8 @@
 
         </description>
         <pubDate>Mon, 11 Feb 2019 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2019-02-11-primer-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019-02-11-primer-post/</guid>
+        <link>https://martinnievas.com/myblog/2019-02-11-primer-post/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2019-02-11-primer-post/</guid>
       </item>
     
   </channel>
