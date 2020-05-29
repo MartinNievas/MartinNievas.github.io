@@ -7,6 +7,17 @@
     <atom:link href="https://martinnievas.com/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Recursos de robótica</title>
+        <description>
+          
+          En la UTN frc se da una materia electiva: fundamentos de robótica móvil, también cuenta con un repositorio donde se sube el material de las clases/prácticos. Instagram Rama IEEE UTN frc code byter Links útiles de robótica (español) ROBOTEAM Links útiles de robótica (inglés) Repo de github con varios cursos...
+        </description>
+        <pubDate>Fri, 22 May 2020 00:00:00 -0700</pubDate>
+        <link>https://martinnievas.com/myblog/2020-05-22-recursos-robotica/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2020-05-22-recursos-robotica/</guid>
+      </item>
+    
+      <item>
         <title>Instalar subsistema de Linux en windows y herramientas de compilación</title>
         <description>
           
