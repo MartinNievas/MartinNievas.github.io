@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>Recursos de robótica</title>
+  <title>Raspberry pi 3 + ROS melodic</title>
 
   <meta name="author" content="Martin Nievas" />
 
@@ -58,19 +58,19 @@
   
 
   
-  <meta property="og:title" content="Recursos de robótica" />
+  <meta property="og:title" content="Raspberry pi 3 + ROS melodic" />
   
 
    
-  <meta property="og:description" content="En la UTN frc se da una materia electiva: fundamentos de robótica móvil, también cuenta con un repositorio donde se sube el material de las clases/prácticos. Instagram Rama IEEE UTN frc code byter Links útiles de robótica (español) ROBOTEAM Links útiles de robótica (inglés) Repo de github con varios cursos...">
+  <meta property="og:description" content="Introducción Normalmente cuando estamos por empezar a crear nuestro robot nos basamos en las imágenes de Ubiquity. Las mismas están basadas en Ubuntu 16.04, por lo que utilizan ROS kinetic. Las imágenes están geniales, es clonar, insertar una SD en el lector, presionar el botón de grabar en Etcher y...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="https://martinnievas.com/myblog/2020-05-22-recursos-robotica/" />
-  <link rel="canonical" href="https://martinnievas.com/myblog/2020-05-22-recursos-robotica/" />
+  <meta property="og:url" content="https://martinnievas.com/myblog/2020-08-23-raspberry-pi-sd/" />
+  <link rel="canonical" href="https://martinnievas.com/myblog/2020-08-23-raspberry-pi-sd/" />
   
 
   
@@ -82,11 +82,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Recursos de robótica" />
+  <meta name="twitter:title" content="Raspberry pi 3 + ROS melodic" />
   
 
   
-  <meta name="twitter:description" content="En la UTN frc se da una materia electiva: fundamentos de robótica móvil, también cuenta con un repositorio donde se sube el material de las clases/prácticos. Instagram Rama IEEE UTN frc code byter Links útiles de robótica (español) ROBOTEAM Links útiles de robótica (inglés) Repo de github con varios cursos...">
+  <meta name="twitter:description" content="Introducción Normalmente cuando estamos por empezar a crear nuestro robot nos basamos en las imágenes de Ubiquity. Las mismas están basadas en Ubuntu 16.04, por lo que utilizan ROS kinetic. Las imágenes están geniales, es clonar, insertar una SD en el lector, presionar el botón de grabar en Etcher y...">
   
 
   
@@ -203,11 +203,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Recursos de robótica</h1>
+          <h1>Raspberry pi 3 + ROS melodic</h1>
 		  
 		  
 		  
-		  <span class="post-meta">Posted on May 22, 2020</span>
+		  <span class="post-meta">Posted on August 23, 2020</span>
 		  
         </div>
       </div>
@@ -227,39 +227,87 @@
       
 
       <article role="main" class="blog-post">
-        <p>En la UTN frc se da una materia electiva: <a href="https://ciii.frc.utn.edu.ar/wiki/GonzaloPerezPaina/FundamentosRoboticaMovil">fundamentos de robótica móvil</a>, también cuenta con un <a href="https://github.com/gfpp/fundamentos_robotica/">repositorio</a> donde se sube el material de las clases/prácticos.</p>
+        <h1 id="introducción">Introducción</h1>
 
-<h2 id="instagram">Instagram</h2>
+<p>Normalmente cuando estamos por empezar a crear nuestro robot nos basamos en las imágenes de <a href="https://downloads.ubiquityrobotics.com/pi.html">Ubiquity</a>. Las mismas están basadas en Ubuntu 16.04, por lo que utilizan <a href="https://wiki.ros.org/kinetic">ROS kinetic</a>.</p>
+
+<p>Las imágenes están geniales, es clonar, insertar una SD en el lector, presionar el botón de grabar en <a href="https://www.balena.io/etcher/">Etcher</a> y listo!</p>
+
+<p>Pero bueno… ROS kinetic tiene un EOL para Abril del 2021(Xenial EOL). Y ROS melodic para 2023! Así que hice lo que cualquier persona haría, dedicar un fin de semana a crear su propia imagen de Ubuntu para una raspberry pi 3 con ROS Melodic.</p>
+
+<p><img src="/myblog/img/raspi_SD_0/usb-1284227_1280.jpg" alt="Image by Pexels from Pixabay" /></p>
+
+<h4 id="imagen-sd">Imagen SD</h4>
+
+<p><a href="https://drive.google.com/file/d/1o78W6_mPl7Ovv70t98UUnWum5krj67Wx/view?usp=sharing">Link de Descarga (4Gb) V0.1</a></p>
+
+<p>La imagen está basada en <a href="https://ubuntu.com/download/raspberry-pi-core">Ubuntu Core</a>.
+Ubuntu Core es Ubuntu para IoT y entornos integrados, optimizado para seguridad y actualizaciones confiables.
+Es fácil de implementar, a prueba de manipulaciones y reforzado contra la corrupción.</p>
+
+<p>Los requisitos mínimos son:</p>
 <ul>
-  <li><a href="https://www.instagram.com/ieeeutnfrc/">Rama IEEE UTN frc</a></li>
-  <li><a href="https://www.instagram.com/code_byter/">code byter</a></li>
+  <li>500Mhz single-core CPU</li>
+  <li>256MB RAM</li>
+  <li>512MB storage</li>
 </ul>
 
-<h2 id="links-útiles-de-robótica-español">Links útiles de robótica (español)</h2>
-<ul>
-  <li><a href="https://ewh.ieee.org/r9/argentina/wie/proyectos.html">ROBOTEAM</a></li>
-</ul>
+<p>Antes se seguir, no se si ubuntu Core es la mejor opción para robots.
+Mi idea es poder correr ROS melodic en containers Docker, por lo que todo va a estar aislado (idealmente), entonces no tendría problemas con la <a href="https://core.docs.ubuntu.com/en/">feature</a> de Ubuntu Core:</p>
+<blockquote>
+  <p>A read-only filesystem: apps run in isolation from each other and access to system resources is only granted with explicit permissions</p>
+</blockquote>
 
-<h2 id="links-útiles-de-robótica-inglés">Links útiles de robótica (inglés)</h2>
+<h4 id="conectarse-a-la-raspi">Conectarse a la raspi</h4>
 
-<ul>
-  <li><a href="https://github.com/mithi/robotics-coursework">Repo</a> de github con varios cursos gratis (y pagos de robótica)</li>
-  <li><a href="https://github.com/onlytailei/CppRobotics">Repo</a> con implementaciones en cpp de varios algoritmos de robótica.</li>
-  <li><a href="https://diydrones.com/">Drones</a> para construir.</li>
-  <li>“Sistema operativo” para robots <a href="https://www.ros.org/">ROS</a></li>
-  <li>Simulador <a href="http://gazebosim.org/">Gazebo</a></li>
-  <li>Simulador <a href="https://www.coppeliarobotics.com/">VREP</a></li>
-</ul>
+<p>Para conectarme a la raspberry, utilizo un AP creado en la misma placa. El mismo se puede configurar siguiendo el <a href="https://www.raspberrypi.org/documentation/configuration/wireless/access-point-bridged.md">tutorial oficial</a> y con la ayuda de <a href="https://learn.sparkfun.com/tutorials/setting-up-a-raspberry-pi-3-as-an-access-point/all">este otro</a> en algunos casos.</p>
 
-<h2 id="canales-de-yt">Canales de YT</h2>
+<p>La configuración del AP podemos editarla haciendo <em>sudo vim /etc/hostapd/hostapd.conf</em></p>
 
-<ul>
-  <li><a href="https://www.youtube.com/channel/UCUdunfSS-4CyZsIhICtgr6A">Kris Temmerman</a></li>
-  <li><a href="https://www.youtube.com/user/superazote">Ivan Miranda</a></li>
-  <li><a href="https://www.youtube.com/user/colinfurze/featured">colinfurze</a></li>
-  <li><a href="https://www.youtube.com/channel/UCt6Lag-vv25fTX3e11mVY1Q">The Construct</a></li>
-</ul>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">country_code</span><span class="o">=</span>AR
+<span class="nv">interface</span><span class="o">=</span>wlan0
+<span class="nv">bridge</span><span class="o">=</span>br0
+<span class="nv">ssid</span><span class="o">=</span>robot
+<span class="nv">hw_mode</span><span class="o">=</span>g
+<span class="nv">channel</span><span class="o">=</span>4
+<span class="nv">macaddr_acl</span><span class="o">=</span>0
+<span class="nv">auth_algs</span><span class="o">=</span>1
+<span class="nv">ignore_broadcast_ssid</span><span class="o">=</span>0
+<span class="nv">wpa</span><span class="o">=</span>2
+<span class="nv">wpa_passphrase</span><span class="o">=</span>12345678
+<span class="nv">wpa_key_mgmt</span><span class="o">=</span>WPA-PSK
+<span class="nv">wpa_pairwise</span><span class="o">=</span>TKIP
+<span class="nv">rsn_pairwise</span><span class="o">=</span>CCMP
+</code></pre></div></div>
 
+<p>Donde <em>ssid</em> lo tienen que modificar por el nombre de la red que quieran y <em>wpa_passphrase</em> por una clave <a href="https://www.csoonline.com/article/3244004/top-25-worst-most-insecure-passwords-used-in-2017.html">más segura</a> (al menos no es la más usada). Contraseñas muy complicadas en estos robots que realizan tareas no críticas, no tienen mucho sentido. Pero en la vida real, usen contraseñas seguras, sino después aparecen en <a href="https://haveibeenpwned.com/">páginas</a>.</p>
+
+<p><strong>NOTA</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usuario : ubuntu
+contraseña : snowbot123
+dirección de ip: 192.168.5.1
+</code></pre></div></div>
+
+<p>Entonces, buscamos <em>robot</em> en la lista de wifi, nos conectamos poniendo la clave <em>12345678</em> y ya estamos adentro! La raspberry nos va a asignar una IP del pool indicado en <em>/etc/dnsmasq.conf</em>, que van del 100 al 200.
+Por lo que, si hacemos <em>ifconfig</em> en nuestra PC, nos debería salir una ip en ese rango:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ifconfig
+....
+192.168.5.143
+...
+</code></pre></div></div>
+
+<p>Una vez conectado al AP del robot, podemos conectarnos a la raspberry mediante <em>ssh</em> haciendo desde la terminal de nuestra PC:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh ubuntu@192.168.5.1
+</code></pre></div></div>
+
+<p>Listo!</p>
+
+<h4 id="mejoras">¿Mejoras?</h4>
+<p>En stand-by, tenemos un promedio de 30 tareas y 110Mb de RAM ocupada en la nueva imagen. Mientras que en la imagen de Ubiquity tenemos 80 tareas y 200Mb de RAM.
+Porque la diferencia en RAM, en la imagen que armé <em>no hay</em> entorno gráfico :D</p>
+
+<p>Las terminales son mas cool y, al fin y al cabo, no necesito una pantalla en mis robots.
+En futuros post espero seguir contando los resultados de ROS con Docker en la Raspberry.</p>
 
       </article>
 
@@ -270,7 +318,7 @@
           
             <a href="/myblog/tags#robotica,">robotica,</a>
           
-            <a href="/myblog/tags#presentaciones">presentaciones</a>
+            <a href="/myblog/tags#raspberry">raspberry</a>
           
           
         </div>
@@ -288,13 +336,9 @@
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="/myblog/2020-05-09-instalar-subsistema-linux/" data-toggle="tooltip" data-placement="top" title="Instalar subsistema de Linux en windows y herramientas de compilación">&larr; Previous Post</a>
+          <a href="/myblog/2020-05-22-recursos-robotica/" data-toggle="tooltip" data-placement="top" title="Recursos de robótica">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="next">
-          <a href="/myblog/2020-08-23-raspberry-pi-sd/" data-toggle="tooltip" data-placement="top" title="Raspberry pi 3 + ROS melodic">Next Post &rarr;</a>
-        </li>
         
       </ul>
 
