@@ -241,22 +241,18 @@
 
 <p><a href="https://drive.google.com/file/d/1o78W6_mPl7Ovv70t98UUnWum5krj67Wx/view?usp=sharing">Link de Descarga (4Gb) V0.1</a></p>
 
-<p>La imagen está basada en <a href="https://ubuntu.com/download/raspberry-pi-core">Ubuntu Core</a>.
-Ubuntu Core es Ubuntu para IoT y entornos integrados, optimizado para seguridad y actualizaciones confiables.
-Es fácil de implementar, a prueba de manipulaciones y reforzado contra la corrupción.</p>
+<p>La imagen está basada en <a href="https://ubuntu.com/download/raspberry-pi-core"><del>Ubuntu Core</del></a> <a href="https://ubuntu.com/download/server/arm">Ubuntu Server</a>.
+Instalada mediante <a href="https://ubuntu.com/blog/how-to-install-ubuntu-with-the-new-raspberry-pi-imager">rpi-imager</a>.</p>
 
-<p>Los requisitos mínimos son:</p>
+<p>Ubuntu Server para ARM incluye todo lo que busca en un sistema operativo de servidor, que incluye:</p>
+
 <ul>
-  <li>500Mhz single-core CPU</li>
-  <li>256MB RAM</li>
-  <li>512MB storage</li>
+  <li>El hipervisor de contenedor LXD, que le brinda acceso instantáneo a entornos aislados y seguros que se ejecutan con un rendimiento completo</li>
+  <li>Tecnología de contenedor de aplicaciones basada en Docker y Kubernetes, incluida la FAN-based Network</li>
 </ul>
 
-<p>Antes se seguir, no se si ubuntu Core es la mejor opción para robots.
-Mi idea es poder correr ROS melodic en containers Docker, por lo que todo va a estar aislado (idealmente), entonces no tendría problemas con la <a href="https://core.docs.ubuntu.com/en/">feature</a> de Ubuntu Core:</p>
-<blockquote>
-  <p>A read-only filesystem: apps run in isolation from each other and access to system resources is only granted with explicit permissions</p>
-</blockquote>
+<p>Antes se seguir, no se si ubuntu <del>Core</del> Server es la mejor opción para robots.
+Mi idea es poder correr ROS melodic en containers Docker, por lo que todo va a estar aislado (idealmente).</p>
 
 <h4 id="conectarse-a-la-raspi">Conectarse a la raspi</h4>
 
