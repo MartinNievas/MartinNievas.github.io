@@ -18,7 +18,7 @@
       </item>
     
       <item>
-        <title>Raspberry pi 3 + ROS melodic</title>
+        <title>Mover carpeta de Docker a disco externo</title>
         <description>
           
           ¿Cómo mover las imágenes de docker a otra carpeta? Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a $ESTUDIANTES. La información está sacada de este maravilloso post de LinuxConfig(dot)org. Primero detenemos el servicio de Docker: sudo service stop docker Vamos a...
