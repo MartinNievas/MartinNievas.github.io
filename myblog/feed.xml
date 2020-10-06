@@ -7,6 +7,28 @@
     <atom:link href="https://martinnievas.com/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Exploración robótica</title>
+        <description>
+          
+          Hacia la exploración eficiente de ambientes no estructurados Introducción Cuando pensamos en un escenario de desastre natural, las horas y los días iniciales son los más importantes para rescatar sobrevivientes , por lo que es importante contar con un procedimiento de contingencia. El uso de robots en colaboración con los...
+        </description>
+        <pubDate>Tue, 29 Sep 2020 00:00:00 -0700</pubDate>
+        <link>https://martinnievas.com/myblog/2020-09-29-robotic-exploration/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2020-09-29-robotic-exploration/</guid>
+      </item>
+    
+      <item>
+        <title>Raspberry pi 3 + ROS melodic</title>
+        <description>
+          
+          ¿Cómo mover las imágenes de docker a otra carpeta? Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a $ESTUDIANTES. La información está sacada de este maravilloso post de LinuxConfig(dot)org. Primero detenemos el servicio de Docker: sudo service stop docker Vamos a...
+        </description>
+        <pubDate>Fri, 25 Sep 2020 00:00:00 -0700</pubDate>
+        <link>https://martinnievas.com/myblog/2020-09-25-update-docker-location/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2020-09-25-update-docker-location/</guid>
+      </item>
+    
+      <item>
         <title>Raspberry pi 3 + ROS melodic</title>
         <description>
           

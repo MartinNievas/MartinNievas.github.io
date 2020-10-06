@@ -6,12 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>martin nievas blog - Some really cool stuff</title>
+  <title>Raspberry pi 3 + ROS melodic</title>
 
   <meta name="author" content="Martin Nievas" />
 
-  
-  <meta name="description" content="PhD, robotics and electronic stuff">
   
 
   <link rel="alternate" type="application/rss+xml" title="martin nievas blog - Some really cool stuff" href="/myblog/feed.xml" />
@@ -60,19 +58,19 @@
   
 
   
-  <meta property="og:title" content="Blog personal" />
+  <meta property="og:title" content="Raspberry pi 3 + ROS melodic" />
   
 
    
-  <meta property="og:description" content="PhD, robotics and electronic stuff">
+  <meta property="og:description" content="¿Cómo mover las imágenes de docker a otra carpeta? Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a $ESTUDIANTES. La información está sacada de este maravilloso post de LinuxConfig(dot)org. Primero detenemos el servicio de Docker: sudo service stop docker Vamos a...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="https://martinnievas.com/myblog/" />
-  <link rel="canonical" href="https://martinnievas.com/myblog/" />
+  <meta property="og:url" content="https://martinnievas.com/myblog/2020-09-25-update-docker-location/" />
+  <link rel="canonical" href="https://martinnievas.com/myblog/2020-09-25-update-docker-location/" />
   
 
   
@@ -84,11 +82,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Blog personal" />
+  <meta name="twitter:title" content="Raspberry pi 3 + ROS melodic" />
   
 
   
-  <meta name="twitter:description" content="PhD, robotics and electronic stuff">
+  <meta name="twitter:description" content="¿Cómo mover las imágenes de docker a otra carpeta? Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a $ESTUDIANTES. La información está sacada de este maravilloso post de LinuxConfig(dot)org. Primero detenemos el servicio de Docker: sudo service stop docker Vamos a...">
   
 
   
@@ -204,15 +202,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-heading">
-          <h1>Blog personal</h1>
-		  
-		    
-            <hr class="small">
-            <span class="page-subheading">PhD, robotics and electronic stuff</span>
-			
+        <div class="post-heading">
+          <h1>Raspberry pi 3 + ROS melodic</h1>
 		  
 		  
+		  
+		  <span class="post-meta">Posted on September 25, 2020</span>
 		  
         </div>
       </div>
@@ -225,225 +220,107 @@
 
 
 
-<div class="container" role="main">
+<div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <div class="posts-list">
-  
-  <article class="post-preview">
-    <a href="/myblog/2020-09-29-robotic-exploration/">
-	  <h2 class="post-title">Exploración robótica</h2>
 
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on September 29, 2020
-    </p>
-
-    <div class="post-entry-container">
       
-      <div class="post-entry">
-        Hacia la exploración eficiente de ambientes no estructurados Introducción Cuando pensamos en un escenario de desastre natural, las horas y los días iniciales son los más importantes para rescatar sobrevivientes , por lo que es importante contar con un procedimiento de contingencia. El uso de robots en colaboración con los...
+
+      <article role="main" class="blog-post">
+        <h1 id="cómo-mover-las-imágenes-de-docker-a-otra-carpeta">¿Cómo mover las imágenes de docker a otra carpeta?</h1>
+<p>Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a <code class="highlighter-rouge">$ESTUDIANTES</code>.
+La información está sacada de <a href="https://linuxconfig.org/how-to-move-docker-s-default-var-lib-docker-to-another-directory-on-ubuntu-debian-linux">este</a> maravilloso post de LinuxConfig(dot)org.</p>
+
+<p>Primero detenemos el servicio de Docker:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service stop docker
+</code></pre></div></div>
+
+<p>Vamos a mover todo lo de Docker a la carpeta <code class="highlighter-rouge">/mnt/external</code>, para copiar los datos actuales de Docker hacemos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># mkdir /mnt/external/docker</span>
+<span class="c"># rsync -aqxP /var/lib/docker/ /mnt/external/docker</span>
+</code></pre></div></div>
+<p>Si no tenemos ningún archivo este paso es rápido, pero si estamos copiando de un SSD a un rotacional, puede demorar unos minutos.</p>
+
+<p>Ahora tenemos que apuntar a la nueva carpeta en el archivo de configuraciones de Docker.
+Modificar el archivo <code class="highlighter-rouge">/lib/systemd/system/docker.service</code> y cambiar:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM:
+ExecStart=/usr/bin/docker daemon -H fd://
+TO:
+ExecStart=/usr/bin/docker daemon -g /mnt/external/docker -H fd://
+</code></pre></div></div>
+
+<p>Donde <code class="highlighter-rouge">/mnt/external</code> es la carpeta donde queremos mover las imágenes y conatiners de Docker.</p>
+
+<p>Una vez finalizado, ejecutar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service start docker
+</code></pre></div></div>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/myblog/tags#robotica,">robotica,</a>
+          
+            <a href="/myblog/tags#raspberry">raspberry</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/myblog/2020-08-23-raspberry-pi-sd/" data-toggle="tooltip" data-placement="top" title="Raspberry pi 3 + ROS melodic">&larr; Previous Post</a>
+        </li>
         
         
-          <a href="/myblog/2020-09-29-robotic-exploration/" class="post-read-more">[Read&nbsp;More]</a>
+        <li class="next">
+          <a href="/myblog/2020-09-29-robotic-exploration/" data-toggle="tooltip" data-placement="top" title="Exploración robótica">Next Post &rarr;</a>
+        </li>
         
-      </div>
-    </div>
+      </ul>
 
-    
-    <div class="blog-tags">
-      Tags:
       
-      
-      <a href="/myblog/tags#robotica,">robotica,</a>
-      
-      <a href="/myblog/tags#investigación,">investigación,</a>
-      
-      <a href="/myblog/tags#PHD">PHD</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2020-09-25-update-docker-location/">
-	  <h2 class="post-title">Raspberry pi 3 + ROS melodic</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on September 25, 2020
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        ¿Cómo mover las imágenes de docker a otra carpeta?
-Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a $ESTUDIANTES.
-La información está sacada de este maravilloso post de LinuxConfig(dot)org.
-
-
-        
-        
-          <a href="/myblog/2020-09-25-update-docker-location/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#robotica,">robotica,</a>
-      
-      <a href="/myblog/tags#raspberry">raspberry</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2020-08-23-raspberry-pi-sd/">
-	  <h2 class="post-title">Raspberry pi 3 + ROS melodic</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on August 23, 2020
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        Introducción
-
-
-        
-        
-          <a href="/myblog/2020-08-23-raspberry-pi-sd/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#robotica,">robotica,</a>
-      
-      <a href="/myblog/tags#raspberry">raspberry</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2020-05-22-recursos-robotica/">
-	  <h2 class="post-title">Recursos de robótica</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on May 22, 2020
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        En la UTN frc se da una materia electiva: fundamentos de robótica móvil, también cuenta con un repositorio donde se sube el material de las clases/prácticos.
-
-
-        
-        
-          <a href="/myblog/2020-05-22-recursos-robotica/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#robotica,">robotica,</a>
-      
-      <a href="/myblog/tags#presentaciones">presentaciones</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2020-05-09-instalar-subsistema-linux/">
-	  <h2 class="post-title">Instalar subsistema de Linux en windows y herramientas de compilación</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on May 9, 2020
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        Video
-La primera parte está cubierta en éste video
-
-
-        
-        
-          <a href="/myblog/2020-05-09-instalar-subsistema-linux/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#info1,">info1,</a>
-      
-      <a href="/myblog/tags#linux,">linux,</a>
-      
-      <a href="/myblog/tags#gcc">gcc</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
+        <div class="disqus-comments">
+          <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'martinnievas';
+        /* ensure that pages with query string get the same discussion */
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+        </div>
+          
+        <div class="staticman-comments">
+          
 
-
-<ul class="pager main-pager">
-  
-  
-  <li class="next">
-    <a href="/myblog/page2">Older Posts &rarr;</a>
-  </li>
-  
-</ul>
-
-
-	    
+        </div>
+      
     </div>
   </div>
 </div>

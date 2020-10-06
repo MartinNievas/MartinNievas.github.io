@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Exploración robótica</title>
+
+  <meta name="author" content="Martin Nievas" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="martin nievas blog - Some really cool stuff" href="/myblog/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/myblog/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/myblog/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/myblog/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Exploración robótica" />
+  
+
+   
+  <meta property="og:description" content="Hacia la exploración eficiente de ambientes no estructurados Introducción Cuando pensamos en un escenario de desastre natural, las horas y los días iniciales son los más importantes para rescatar sobrevivientes , por lo que es importante contar con un procedimiento de contingencia. El uso de robots en colaboración con los...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinnievas.com/myblog/2020-09-29-robotic-exploration/" />
+  <link rel="canonical" href="https://martinnievas.com/myblog/2020-09-29-robotic-exploration/" />
+  
+
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Exploración robótica" />
+  
+
+  
+  <meta name="twitter:description" content="Hacia la exploración eficiente de ambientes no estructurados Introducción Cuando pensamos en un escenario de desastre natural, las horas y los días iniciales son los más importantes para rescatar sobrevivientes , por lo que es importante contar con un procedimiento de contingencia. El uso de robots en colaboración con los...">
+  
+
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinnievas.com/myblog">martin nievas blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/myblog/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://www.markdowntutorial.com/">Learn markdown</a>
+
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://pages.github.com/">GitHub Pages</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="https://martinnievas.com">Author's home</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Exploración robótica</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on September 29, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="hacia-la-exploración-eficiente-de-ambientes-no-estructurados">Hacia la exploración eficiente de ambientes no estructurados</h1>
+<h1 id="introducción">Introducción</h1>
+<p>Cuando pensamos en un escenario de desastre natural, las horas y los días iniciales son los más importantes para rescatar sobrevivientes , por lo que es importante contar con un procedimiento de contingencia.
+El uso de robots en colaboración con los equipos de rescate, puede mejorar la posibilidad de supervivencia para las personas atrapadas.
+Con la ayuda de múltiples robots, el área puede ser explorarada más rápido, dando un tiempo valioso a los equipos médicos para atender a las víctimas.
+Como podemos ver, existe una clara necesidad de robots de búsqueda y rescate que puedan ser liberados inmediatamente después de un desastre, en el que las condiciones sean demasiado peligrosas y demasiado abarrotadas para que personas y perros inicien la búsqueda de víctimas.</p>
+
+<p>Los robots, a diferencia de trabajadores y perros de búsqueda y rescate entrenados, tienen ciertas ventajas, entre las cuales podemos numerar:</p>
+<ol>
+  <li>Un robot de rescate no sufrirá de estrés ni fatiga</li>
+  <li>Es posible desplegar robots de rescate en grandes cantidades. Mientras que los profesionales de rescate con experiencia y perros de rescate entrenados son recursos escasos.</li>
+  <li>En el caso necesario, es posible prescindir de un robot, pero no sucede lo mismo con el personal de rescate. Si un robot sufre daños, puede ser reparado o reemplazado fácilmente. En cambio, la pérdida de trabajadores de rescate es muy difícil debido a su relación dentro de la sociedad.</li>
+</ol>
+
+<h2 id="exploración-robótica">Exploración robótica</h2>
+<p>Podemos considerar al proceso de exploración como aquel que, dado un robot móvil en un entorno desconocido, guía al mismo para construir un modelo del medio ambiente que lo rodea.
+Podemos considerar la exploración como la respuesta a la pregunta: ¿A qué lugar tengo que desplazarme para mejorar mi representación del entorno?</p>
+
+<p>Queremos determinar la mejor posición a la cual tenemos que desplazarnos, para incrementar de manera eficiente nuestro conocimiento del mapa.
+Podemos considerar eficiente como:</p>
+<ul>
+  <li>En el menor tiempo</li>
+  <li>Con el menor desplazamiento</li>
+  <li>Con la menor energía consumida</li>
+</ul>
+
+<p>Los problemas asociados a la navegación son muy diversos, y varían dependiendo la aplicación, el entorno y el tipo de robot entre otras cosas.</p>
+
+<p><img src="/myblog/img/exploration/venn.png" alt="alt text" /></p>
+
+<p>Un algoritmo de exploración puede ser considerado como un procedimiento iterativo que consiste en una selección de un nuevo objetivo y una navegación hacia este objetivo.
+El algoritmo finaliza cuando se cumple una condición definida (objetivo de la misión).
+La estrategia de exploración es la encargada de determinar el próximo objetivo del robot.
+En cada iteración, se utiliza la posición actual del robot, el conocimiento sobre el entorno y un criterio de optimización seleccionado.</p>
+
+<h2 id="mapas-métricos">Mapas métricos</h2>
+<p>La identificación de las regiones no exploradas del entorno, puede ser realizada de diferentes maneras, dependiendo de la representación del espacio que utiliza el robot.
+Uno de los más populares es el uso de mapas utilizando una cuadrícula de ocupación.
+Éstos mapas representan la probabilidad de ocupación de cada zona del entorno dentro de una cuadrícula.</p>
+
+<p><img src="/myblog/img/exploration/mapa_metrico.webp" alt="alt text" /></p>
+
+<p>Según la probabilidad de ocupación, las celdas se pueden clasificar como libres (blancas), ocupadas (negras) o desconocidas (grises).
+Usando esta representación, un robot puede alcanzar una zona desconocida mediante la navegación hacia las celdas de frontera.
+Las mismas separan las celdas libres de las celdas desconocidas, concepto introducido por Yamauchi en 1997.</p>
+
+<h2 id="mapas-métricos-en-juegos-de-computadora">Mapas métricos en juegos de computadora</h2>
+<p>Este concepto es utilizado en numerosos y diversos ambientes.</p>
+
+<p>Por ejemplo, en la siguiente imagen, las zonas de frontera corresponden a la sección delimitada por las líneas celestes.
+Esta es una captura del juego Age of Empire 2, en la cual el jugador tiene que ampliar el conocimiento del mapa, desplazando unidades (equivalente al robot).</p>
+
+<p>Hay <a href="https://www.youtube.com/watch?v=uYoTbTSwDF4">una presentación</a> dictada para la <a href="https://www.instagram.com/ieeeutnfrc/">Rama Estudiantil del IEEE UTN - frc</a>, en la cual explico algunos conceptos de exploración empleados en el juego AOE2. Los slides de la presentación están <a href="https://gitlab.com/martinnievas/slides-and-presentations/-/blob/master/talks/Del%20Age%20of%20Empire%20a%20la%20exploraci%C3%B3n%20con%20robots.pdf">aquí</a>
+<img src="/myblog/img/exploration/age.webp" alt="alt text" /></p>
+
+<p>En los últimos años la robótica, se ha demostrado un gran interés por la reproducción de resultados que se publican.
+Esto es debido a que, en ciertas ocasiones, para recrear un experimento desarrollado en otro laboratorio, es necesario contar con los mismos robots y sensores.
+Sin embargo, pese a que se avanza hacia el uso de herramientas de programación que permiten a los investigadores tener una base común de desarrollo, como ROS y Gazebo, los sistemas son cada vez más complejos y difíciles de reproducir.
+Por otro lado, no siempre se indican todas las herramientas o dependencias utilizadas en el proceso de investigación para lograr su reproducción.</p>
+
+<h2 id="ros-en-contenedores-docker">ROS en contenedores Docker</h2>
+<p>En un <a href="https://www.youtube.com/watch?v=w2X7GCkZrCE">trabajo de 2019</a> se utilizaron contenedores Docker, para realizar pruebas con diferente algoritmos de exploración.
+Los algoritmos fueron implementados en ROS, y evaluados mediante el simulador Gazebo dentro del mismo contenedor.</p>
+
+<p>Utilizar contenedores presenta ciertas ventajas:</p>
+<ul>
+  <li>Aislamiento entre entorno de trabajo y el local</li>
+  <li>Utilizar contenedores Docker en Linux, no afecta al flujo de trabajo normal por lo que tiene una rápida adaptación a su uso.</li>
+</ul>
+
+<p>En la siguiente imagen podemos ver un ejemplo de simulación disponible dentro del contenedor, la cual consta de un ambiente similar a oficinas.
+En la esquina superior izquierda podemos ver uno de los robots simulados, y en la esquina opuesta el mapa generado por el mismo.</p>
+
+<p><img src="/myblog/img/exploration/office_complete.webp" alt="alt text" /></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/myblog/tags#robotica,">robotica,</a>
+          
+            <a href="/myblog/tags#investigación,">investigación,</a>
+          
+            <a href="/myblog/tags#PHD">PHD</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/myblog/2020-09-25-update-docker-location/" data-toggle="tooltip" data-placement="top" title="Raspberry pi 3 + ROS melodic">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'martinnievas';
+        /* ensure that pages with query string get the same discussion */
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/myblog/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://github.com/MartinNievas" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://linkedin.com/in/martin-nievas" title="LinkedIn"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+            </li><li><a href="https://www.instagram.com/martin_nievas_" title="Instagram"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Instagram</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Martin Nievas
+      &nbsp;&bull;&nbsp;
+      2020
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/myblog/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/myblog/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/myblog/js/main.js"></script>
+    
+  
+
+
+  
+  </body>
+</html>
