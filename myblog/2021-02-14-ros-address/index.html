@@ -6,12 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>About me</title>
+  <title>Configurar direcciones de IP para ROS</title>
 
   <meta name="author" content="Martin Nievas" />
 
-  
-  <meta name="description" content="subtitle">
   
 
   <link rel="alternate" type="application/rss+xml" title="martin nievas blog - Some really cool stuff" href="/myblog/feed.xml" />
@@ -60,19 +58,19 @@
   
 
   
-  <meta property="og:title" content="About me" />
+  <meta property="og:title" content="Configurar direcciones de IP para ROS" />
   
 
    
-  <meta property="og:description" content="subtitle">
+  <meta property="og:description" content="Direcciones Tenemos dos direcciones (ROS_MASTER_URI y ROS_IP)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras. ROS_MASTER_URI: tiene que apuntar a la PC que está corriendo roscore ROS_IP: tiene que ser el localhost, pero en dirección IPv4 o IPv6 Ejemplo En la computadora (donde corre la simulación, por...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="https://martinnievas.com/myblog/aboutme/" />
-  <link rel="canonical" href="https://martinnievas.com/myblog/aboutme/" />
+  <meta property="og:url" content="https://martinnievas.com/myblog/2021-02-14-ros-address/" />
+  <link rel="canonical" href="https://martinnievas.com/myblog/2021-02-14-ros-address/" />
   
 
   
@@ -84,11 +82,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="About me" />
+  <meta name="twitter:title" content="Configurar direcciones de IP para ROS" />
   
 
   
-  <meta name="twitter:description" content="subtitle">
+  <meta name="twitter:description" content="Direcciones Tenemos dos direcciones (ROS_MASTER_URI y ROS_IP)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras. ROS_MASTER_URI: tiene que apuntar a la PC que está corriendo roscore ROS_IP: tiene que ser el localhost, pero en dirección IPv4 o IPv6 Ejemplo En la computadora (donde corre la simulación, por...">
   
 
   
@@ -204,15 +202,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-heading">
-          <h1>About me</h1>
-		  
-		    
-            <hr class="small">
-            <span class="page-subheading">subtitle</span>
-			
+        <div class="post-heading">
+          <h1>Configurar direcciones de IP para ROS</h1>
 		  
 		  
+		  
+		  <span class="post-meta">Posted on February 14, 2021</span>
 		  
         </div>
       </div>
@@ -225,13 +220,111 @@
 
 
 
-<div class="container" role="main">
+<div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <p>Algo para contar…</p>
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="direcciones">Direcciones</h1>
+
+<p>Tenemos dos direcciones (<code class="highlighter-rouge">ROS_MASTER_URI</code> y <code class="highlighter-rouge">ROS_IP</code>)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">ROS_MASTER_URI</code>: tiene que apuntar a la PC que está corriendo roscore</li>
+  <li><code class="highlighter-rouge">ROS_IP</code>: tiene que ser el localhost, pero en dirección IPv4 o IPv6</li>
+</ul>
+
+<h1 id="ejemplo">Ejemplo</h1>
+<p>En la computadora (donde corre la simulación, por ejemplo Gazebo):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ROS_MASTER_URI</span><span class="o">=</span>http://192.168.0.100:11311
+<span class="nb">export </span><span class="nv">ROS_IP</span><span class="o">=</span>192.168.0.100
+</code></pre></div></div>
+
+<p>En la placa remota (robot, lugar donde se prueba el algoritmo)</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ROS_MASTER_URI</span><span class="o">=</span>http://192.168.0.100:11311
+<span class="nb">export </span><span class="nv">ROS_IP</span><span class="o">=</span>192.168.0.101
+</code></pre></div></div>
+
+<p>Notar que el robot tiene el master en la dirección de la computadora donde corre la simulación.</p>
+
+<h1 id="no-funciona">No funciona?</h1>
+<p>Otro cambio que se puede realizar y en la práctica funciona es agregar en el robot la dirección de IP, en el archivo <code class="highlighter-rouge">/etc/hosts</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1	localhost
+127.0.1.1	hostname
+192.168.0.100 PChostname
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre></div></div>
+
+<p>Todo esto está documentado en la <a href="https://wiki.ros.org/ROS/EnvironmentVariables">wiki de ROS</a>.</p>
+
+<p><a href="https://answers.ros.org/question/48240/rostopic-list-works-but-rostopic-echo-does-not/">Esta pregunta</a> también fué de gran utilidad.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/myblog/tags#robotica,">robotica,</a>
+          
+            <a href="/myblog/tags#ROS">ROS</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
 
 
-	    
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/myblog/2020-09-29-robotic-exploration/" data-toggle="tooltip" data-placement="top" title="Exploración robótica">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'martinnievas';
+        /* ensure that pages with query string get the same discussion */
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+      
     </div>
   </div>
 </div>

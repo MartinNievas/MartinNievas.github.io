@@ -7,6 +7,17 @@
     <atom:link href="https://martinnievas.com/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Configurar direcciones de IP para ROS</title>
+        <description>
+          
+          Direcciones Tenemos dos direcciones (ROS_MASTER_URI y ROS_IP)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras. ROS_MASTER_URI: tiene que apuntar a la PC que está corriendo roscore ROS_IP: tiene que ser el localhost, pero en dirección IPv4 o IPv6 Ejemplo En la computadora (donde corre la simulación, por...
+        </description>
+        <pubDate>Sun, 14 Feb 2021 00:00:00 -0800</pubDate>
+        <link>https://martinnievas.com/myblog/2021-02-14-ros-address/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2021-02-14-ros-address/</guid>
+      </item>
+    
+      <item>
         <title>Exploración robótica</title>
         <description>
           
