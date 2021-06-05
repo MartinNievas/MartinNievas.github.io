@@ -7,6 +7,17 @@
     <atom:link href="https://martinnievas.com/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Robot sin nombre</title>
+        <description>
+          
+          Idea The project is born from the need to test the algorithms for my doctorate thesis. Currently, the laboratory is closed and access to staff is not allowed. One might think that at the time of virtuality, you could work remote, but not all have the possibility of remotely remotely...
+        </description>
+        <pubDate>Thu, 29 Apr 2021 00:00:00 -0700</pubDate>
+        <link>https://martinnievas.com/myblog/2021-04-29-hoverboard-robot/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2021-04-29-hoverboard-robot/</guid>
+      </item>
+    
+      <item>
         <title>Configurar direcciones de IP para ROS</title>
         <description>
           

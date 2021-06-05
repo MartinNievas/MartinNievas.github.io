@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Robot sin nombre</title>
+
+  <meta name="author" content="Martin Nievas" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="martin nievas blog - Some really cool stuff" href="/myblog/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/myblog/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/myblog/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/myblog/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Robot sin nombre" />
+  
+
+   
+  <meta property="og:description" content="Idea The project is born from the need to test the algorithms for my doctorate thesis. Currently, the laboratory is closed and access to staff is not allowed. One might think that at the time of virtuality, you could work remote, but not all have the possibility of remotely remotely...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinnievas.com/myblog/2021-04-29-hoverboard-robot/" />
+  <link rel="canonical" href="https://martinnievas.com/myblog/2021-04-29-hoverboard-robot/" />
+  
+
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Robot sin nombre" />
+  
+
+  
+  <meta name="twitter:description" content="Idea The project is born from the need to test the algorithms for my doctorate thesis. Currently, the laboratory is closed and access to staff is not allowed. One might think that at the time of virtuality, you could work remote, but not all have the possibility of remotely remotely...">
+  
+
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinnievas.com/myblog">martin nievas blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/myblog/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://www.markdowntutorial.com/">Learn markdown</a>
+
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://pages.github.com/">GitHub Pages</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="https://martinnievas.com">Author's home</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Robot sin nombre</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 29, 2021</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="idea">Idea</h1>
+<p>The project is born from the need to test the algorithms for my doctorate thesis. Currently, the laboratory is closed and access to staff is not allowed.</p>
+
+<p>One might think that at the time of virtuality, you could work remote, but not all have the possibility of remotely remotely remotely.</p>
+
+<h1 id="in-search-of-alternatives">In search of alternatives</h1>
+<p>Simulators are awesome! Don’t get me wrong, but not all the things can be discovered from them.
+So… we need a robot, where to start? In my university, we have a project of educational robotics called <a href="https://github.com/ciiiiutnfrc/eduromaa">edu-romaa</a>. The robot has differential traction and is designed completely with free software.</p>
+
+<p><img src="/myblog/img/robot/eduromaas.jpg" alt="alt text" /></p>
+
+<p>EduRoMAA (robot) uses two motors with a reduction. The robot works excellent to test simple robotics algorithms and begin to explore the programming of embedded systems. But Robot problem is that we could not use heavy sensors, because the motors are not designed to transport heavy loads.
+Looking for Motors for Robots I found this <a href="https://hackaday.com/2018/02/03/heres-why-hoverboard-motors-might-belong-in-robots/">Wonderful article</a> of <a href="https://hackaday.com">Hackaday</a>. In this article, the characteristics of the engines and a link to <a href="https://discourse.odriverobotics.com/t/project-hoverarm/441">Discourse</a> in which they mention two repositories:</p>
+
+<ul>
+  <li><a href="https://github.com/emanuelferu/HOVERBOARD-Firmware-Hack-foc">Hoverboard-firmware-Hack-FOC</a></li>
+  <li><a href="https://github.com/bipropellant/bipropellant-hoverboard-firmware">Bipropellant-Hoverboard-firmware</a></li>
+</ul>
+
+<p>I decided on the second because I found a <a href="https://github.com/alex-makarov/hoverboard-driver">Driver for Ros</a> that was theoretically functioning.</p>
+
+<h1 id="bipropellant-magic">bipropellant magic</h1>
+<p><a href="https://github.com/bipropellant/bipropellant-hoverboard-firmware">BIPROPELLANT-HOVERBARD-FIRMWARE</a> allows us to control Hoverboar engines, using a UART interface.
+This combined with the <a href="https://github.com/bipropellant/bipropellant-protocol">protocol</a> module allows us to control the speed of the motors, measure the speed from the Hall effect sensors.</p>
+
+<h1 id="the-hoverboard">The Hoverboard</h1>
+<p>As you can see by the images, Hoverboard is secondhand. You can see some scratches that demonstrate it.</p>
+
+<p><img src="/myblog/img/robot/hover.jpg" alt="alt text" /></p>
+
+<h2 id="disassembly">Disassembly.</h2>
+<p>The disarmed process is pretty Straight Forward.
+Remove the screws, disconnect some chips, and separate the electronics from the mechanics.
+There are plenty of tutorials <a href="https://www.youtube.com/watch?v=Z5KvlbqZCws">1</a> and more detailed videos out there, so I’m not going to stop at this.</p>
+
+<p><img src="/myblog/img/robot/hover2.jpg" alt="alt text" /></p>
+
+<h2 id="programming">Programming</h2>
+<p>La parte que toma un poco más de tiempo es la programación. Afortunadamente el circuito impreso tiene unos pads para soldar una tira de pines y acceder al puerto de programación.
+<img src="/myblog/img/robot/programm.jpg" alt="alt text" /></p>
+
+<h2 id="how-its-work">How it’s work?</h2>
+<p>Basically, all the magic is done by Alex Makarov <a href="https://github.com/alex-makarov/hoverboard-driver">hoverboard driver</a>.
+After flashing bipropellant firmware to the hoverboard, we can attach an USB-UART adapter and start to send velocity commands!</p>
+
+<p>There was some issues that I addresses in <a href="https://github.com/MartinNievas/hoverboard-driver">this fork</a>, but there is still an open one, odometry is not working properly.
+<a href="https://github.com/MartinNievas/hoverboard-driver/blob/ec61834ab342b8e2ea76db3dd1b241fa94a48713/src/hoverboard.cpp#L177-L214">In these lines</a> I basically added the differential drive robot equations:</p>
+
+<p><img src="/myblog/img/robot/curso-gonzalo.png" alt="" /></p>
+
+<p>First, we get wheels velocity from the hoverboard:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">double</span> <span class="n">v_right</span> <span class="o">=</span> <span class="n">joints</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">vel</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="c1">// right_wheel speed in m/s
+</span>    <span class="kt">double</span> <span class="n">v_left</span> <span class="o">=</span> <span class="n">joints</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">vel</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="c1">// left_wheel speed in m/s
+</span>
+    <span class="n">robot_vx</span> <span class="o">=</span> <span class="p">((</span><span class="n">v_right</span> <span class="o">+</span> <span class="n">v_left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">robot_vy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">robot_vth</span> <span class="o">=</span> <span class="p">((</span><span class="n">v_right</span> <span class="o">-</span> <span class="n">v_left</span><span class="p">)</span><span class="o">/</span><span class="n">_length_between_wheels</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Once we have the speed of each wheel, we compute a delta position increment based on the previous timestamp:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">//compute odometry in a typical way given the velocities of the robot
+</span>    <span class="c1">//current_time and last_time are ros::Time variables
+</span>    <span class="kt">double</span> <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">).</span><span class="n">toSec</span><span class="p">();</span>
+    <span class="kt">double</span> <span class="n">delta_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">robot_vx</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">robot_th</span><span class="p">)</span> <span class="o">-</span> <span class="n">robot_vy</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">robot_th</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">delta_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">robot_vx</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">robot_th</span><span class="p">)</span> <span class="o">+</span> <span class="n">robot_vy</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">robot_th</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">delta_th</span> <span class="o">=</span> <span class="n">robot_vth</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>We integrate each delta position (and its errors):</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">robot_x</span> <span class="o">+=</span> <span class="n">delta_x</span><span class="p">;</span>
+    <span class="n">robot_y</span> <span class="o">+=</span> <span class="n">delta_y</span><span class="p">;</span>
+    <span class="n">robot_th</span> <span class="o">+=</span> <span class="n">delta_th</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>And finally, we make an <code class="highlighter-rouge">Odom</code> ROS msg and publish it:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">nav_msgs</span><span class="o">::</span><span class="n">Odometry</span> <span class="n">odom</span><span class="p">;</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">current_time</span><span class="p">;</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"odom"</span><span class="p">;</span>
+
+    <span class="c1">//set the position
+</span>    <span class="n">odom</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">robot_x</span><span class="p">;</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">robot_y</span><span class="p">;</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">// odom.pose.pose.orientation = odom_quat;
+</span>
+    <span class="c1">//set the velocity
+</span>    <span class="n">odom</span><span class="p">.</span><span class="n">child_frame_id</span> <span class="o">=</span> <span class="s">"base_link"</span><span class="p">;</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">robot_vx</span><span class="p">;</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">robot_vy</span><span class="p">;</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">robot_vth</span><span class="p">;</span>
+
+    <span class="c1">//publish the message
+</span>    <span class="n">odom_test</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">odom</span><span class="p">);</span>
+</code></pre></div></div>
+<p>We could have calculated Yaw’s angle from the rotations of the wheel and converting it to Quaternions, but I still did not implement it.</p>
+
+<h2 id="future-work">Future work</h2>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/myblog/tags#robotica,">robotica,</a>
+          
+            <a href="/myblog/tags#ROS">ROS</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/myblog/2021-02-14-ros-address/" data-toggle="tooltip" data-placement="top" title="Configurar direcciones de IP para ROS">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'martinnievas';
+        /* ensure that pages with query string get the same discussion */
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/myblog/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://github.com/MartinNievas" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li><li><a href="https://linkedin.com/in/martin-nievas" title="LinkedIn"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+            </li><li><a href="https://www.instagram.com/martin_nievas_" title="Instagram"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Instagram</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Martin Nievas
+      &nbsp;&bull;&nbsp;
+      2021
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/myblog/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/myblog/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/myblog/js/main.js"></script>
+    
+  
+
+
+  
+  </body>
+</html>
