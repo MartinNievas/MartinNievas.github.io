@@ -3833,3 +3833,7 @@
   * {
   box-sizing: border-box;
 }
+
+div.pps-status-wip {
+  text-align: center;
+}
