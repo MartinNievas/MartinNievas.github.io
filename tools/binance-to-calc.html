@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta charset="utf-8" />
+    <title>Binance-to-calc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/cutout.css" />
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-98385505-1', 'auto');
+ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <h1><a href="index.html">Martin Nievas</a></h1>
+      </header>
+
+      <article id="main">
+        <section class="wrapper style4">
+          <div class="inner">
+
+
+            <h3>Binance order book to calc parser</h3>
+
+            <p>1. Copy one row from the order book</p>
+            <img src="../images/binance-tool/binance-tool.png" alt="Binance Tool" width="1504" height="151">
+            <p>2. Paste it below and press Convert</p>
+            <div class="row uniform">
+              <div class="12u 12u$(xsmall)">
+                <input type="text" name="row-input" id="myText" value="" placeholder="Paste it here..." />
+              </div>
+            </div>
+
+            <button onclick="parseInput()">Convert</button>
+            <p>3. The generated row can be inserted in a spreadsheet</p>
+
+            <table>
+              <tr>
+                <th>Date</th>
+                <th>Hour</th>
+                <th>Pair</th>
+                <th>Type</th>
+                <th>Side</th>
+                <th>Average</th>
+                <th>Price</th>
+                <th>Executed</th>
+                <th>Amount</th>
+                <th>Total</th>
+                <th>Trigger Conditions</th>
+              </tr>
+              <tr>
+                <td> <p id="date"></p></td>
+                <td> <p id="hour"></p></td>
+                <td> <p id="pair"></p></td>
+                <td> <p id="type"></p></td>
+                <td> <p id="side"></p></td>
+                <td> <p id="average"></p></td>
+                <td> <p id="price"></p></td>
+                <td> <p id="executed"></p></td>
+                <td> <p id="amount"></p></td>
+                <td> <p id="total"></p></td>
+                <td> <p id="trigger"></p></td>
+              </tr>
+            </table>
+
+          </div>
+
+    </div>
+
+    <!-- Everything is computed on this function -->
+    <script>
+      function parseInput() {
+        let x = document.getElementById("myText").value;
+        let lines = x.split(" ");
+        document.getElementById("date").innerHTML = lines[0];
+        document.getElementById("hour").innerHTML = lines[1];
+        document.getElementById("pair").innerHTML = lines[2];
+        document.getElementById("type").innerHTML = lines[3];
+        document.getElementById("side").innerHTML = lines[4];
+        document.getElementById("average").innerHTML = lines[5];
+        document.getElementById("price").innerHTML = lines[6];
+        document.getElementById("executed").innerHTML = lines[7];
+        document.getElementById("amount").innerHTML = lines[8];
+        document.getElementById("total").innerHTML = lines[9];
+        document.getElementById("trigger").innerHTML = lines[10];
+      }
+    </script>
+
+
+  </body>
+</html>
+
