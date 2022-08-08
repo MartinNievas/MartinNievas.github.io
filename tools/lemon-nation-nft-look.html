@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lemon Nation</title>
+    <script>
+      function displayImage(){
+        var num = Math.floor(Math.random() * 459999);
+        var image_link = `https://lemoncash-nfts-bucket.s3.amazonaws.com/LemonNation/${num}.jpg`;
+        document.canvas.src = image_link;
+        document.getElementById("nft").innerHTML = `NFT #${num}`;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Lemon Nation</h1>
+    <form name="imageForm">
+      <table border=3>
+        <tr>
+          <td>
+            <input onclick="displayImage();" type=button value="Click para cargar un NFT random">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="blank.jpg" name="canvas"
+                                 height="500" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <p id="nft" style="font-weight:bold;">Hello World!</p>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98385505-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-98385505-2');
+    </script>
+  </body>
+</html>
