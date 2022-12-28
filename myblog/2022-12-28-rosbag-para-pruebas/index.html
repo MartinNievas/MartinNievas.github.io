@@ -6,12 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 
-  <title>martin nievas blog - Some really cool stuff</title>
+  <title>Reproducir rosbag para pruebas</title>
 
   <meta name="author" content="Martin Nievas" />
 
-  
-  <meta name="description" content="PhD, robotics and electronic stuff. Sometimes english, otras en español">
   
 
   <link rel="alternate" type="application/rss+xml" title="martin nievas blog - Some really cool stuff" href="/myblog/feed.xml" />
@@ -76,19 +74,19 @@
   
 
   
-  <meta property="og:title" content="Blog personal" />
+  <meta property="og:title" content="Reproducir rosbag para pruebas" />
   
 
    
-  <meta property="og:description" content="PhD, robotics and electronic stuff. Sometimes english, otras en español">
+  <meta property="og:description" content="Pasos para ejecutar el rosbag en pruebas locales Para evitar errores con el tiempo: Transform [sender=/odom] Message removed because it is too old (frame=[/link_chassis], stamp=[1809237948.1498749182]) [WARN] [1456267968.1398749182, 1455437948.1494443182]: Detected jump back in time. Clearing TF buffer. Hay que configurar el parámetro use_sim_time luego de lanzar el roscore: roscore rosparam set...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="https://martinnievas.com/myblog/page3/" />
-  <link rel="canonical" href="https://martinnievas.com/myblog/page3/" />
+  <meta property="og:url" content="https://martinnievas.com/myblog/2022-12-28-rosbag-para-pruebas/" />
+  <link rel="canonical" href="https://martinnievas.com/myblog/2022-12-28-rosbag-para-pruebas/" />
   
 
   
@@ -100,11 +98,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Blog personal" />
+  <meta name="twitter:title" content="Reproducir rosbag para pruebas" />
   
 
   
-  <meta name="twitter:description" content="PhD, robotics and electronic stuff. Sometimes english, otras en español">
+  <meta name="twitter:description" content="Pasos para ejecutar el rosbag en pruebas locales Para evitar errores con el tiempo: Transform [sender=/odom] Message removed because it is too old (frame=[/link_chassis], stamp=[1809237948.1498749182]) [WARN] [1456267968.1398749182, 1455437948.1494443182]: Detected jump back in time. Clearing TF buffer. Hay que configurar el parámetro use_sim_time luego de lanzar el roscore: roscore rosparam set...">
   
 
   
@@ -132,7 +130,7 @@
       </button>
       
         
-          <a class="navbar-brand navbar-brand-logo" href="https://martinnievas.com/myblog"><img src="img/depth_200.jpg"/></a>
+          <a class="navbar-brand navbar-brand-logo" href="https://martinnievas.com/myblog"><img src="../img/depth_200.jpg"/></a>
         
       
     </div>
@@ -189,15 +187,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-heading">
-          <h1>Blog personal</h1>
-		  
-		    
-            <hr class="small">
-            <span class="page-subheading">PhD, robotics and electronic stuff. Sometimes english, otras en español</span>
-			
+        <div class="post-heading">
+          <h1>Reproducir rosbag para pruebas</h1>
 		  
 		  
+		  
+		  <span class="post-meta">Posted on December 28, 2022</span>
 		  
         </div>
       </div>
@@ -210,228 +205,62 @@
 
 
 
-<div class="container" role="main">
+<div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <div class="posts-list">
-  
-  <article class="post-preview">
-    <a href="/myblog/2019-10-09-placa-raspberry-pi/">
-	  <h2 class="post-title">Placa raspiGPIO</h2>
 
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on October 9, 2019
-    </p>
-
-    <div class="post-entry-container">
       
-      <div class="post-entry">
-        Materiales
 
-  Placa experimental perforada de 5x5cm
-  Tira de 20 pines hembra en doble fila
-  8 leds de 3mm
-  8 resistencias de 820 Ohm (o de 1 kOhm también funciona)
-  2 resistencias de 1 kOhm
-  2 pulsadores switch para pcb
+      <article role="main" class="blog-post">
+        <h1 id="pasos-para-ejecutar-el-rosbag-en-pruebas-locales">Pasos para ejecutar el rosbag en pruebas locales</h1>
+<p>Para evitar errores con el tiempo:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Transform [sender=/odom] Message removed because it is too old (frame=[/link_chassis], stamp=[1809237948.1498749182])
+[WARN] [1456267968.1398749182, 1455437948.1494443182]: Detected jump back in time. Clearing TF buffer.
+</code></pre></div></div>
+
+<p>Hay que configurar el parámetro <code class="highlighter-rouge">use_sim_time</code> luego de lanzar el roscore:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>roscore
+rosparam <span class="nb">set</span> /use_sim_time <span class="nb">true
+</span>roslaunch &lt;launchfile.launch&gt;
+rosrun rviz rviz
+rosbag play <span class="nt">--clock</span> <span class="nt">--pause</span> rosbag.bag
+</code></pre></div></div>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/myblog/tags#ros">ros</a>
+          
+            <a href="/myblog/tags#rosbag">rosbag</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
 
 
 
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/myblog/2022-02-05-git-flow/" data-toggle="tooltip" data-placement="top" title="Pasos para gitflow">&larr; Previous Post</a>
+        </li>
         
         
-          <a href="/myblog/2019-10-09-placa-raspberry-pi/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
+      </ul>
 
-    
-    <div class="blog-tags">
-      Tags:
       
-      
-      <a href="/myblog/tags#info1">info1</a>
-      
-      <a href="/myblog/tags#raspberry">raspberry</a>
-      
-      <a href="/myblog/tags#electronic">electronic</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2019-03-19-controlar-led-binario/">
-	  <h2 class="post-title">Controlar LED RGB con binario y arduino</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on March 19, 2019
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        En este ejemplo se mostrará como utilizar el código binario enviado a una placa arduino, mediante el puerto serie, para
-controlar un led RGB.
-
-
-        
-        
-          <a href="/myblog/2019-03-19-controlar-led-binario/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#info1">info1</a>
-      
-      <a href="/myblog/tags#extras">extras</a>
-      
-      <a href="/myblog/tags#arduino">arduino</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2019-02-18-eliminar-archivos-gitignore/">
-	  <h2 class="post-title">Eliminar archivos trackeados</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on February 18, 2019
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        Este tutorial lo hago para tener un lugar donde buscar los comandos.
-
-
-        
-        
-          <a href="/myblog/2019-02-18-eliminar-archivos-gitignore/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#git">git</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2019-02-12-compilar-desde-la-terminal/">
-	  <h2 class="post-title">Compilar y correr un programa desde la terminal</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on February 12, 2019
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        En este tutorial se mostrará como compilar desde la terminal de GNU/Linux.
-
-
-        
-        
-          <a href="/myblog/2019-02-12-compilar-desde-la-terminal/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#gcc">gcc</a>
-      
-      <a href="/myblog/tags#info1">info1</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/myblog/2019-02-11-primer-post/">
-	  <h2 class="post-title">Primer post1</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on February 11, 2019
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        Primeras pruebas.
-
-        
-        
-          <a href="/myblog/2019-02-11-primer-post/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/myblog/tags#inicio">inicio</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-</div>
-
-
-<ul class="pager main-pager">
-  
-  <li class="previous">
-    <a href="/myblog/page2">&larr; Newer Posts</a>
-  </li>
-  
-  
-</ul>
-
-
-	    
     </div>
   </div>
 </div>
