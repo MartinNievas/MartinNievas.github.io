@@ -7,6 +7,17 @@
     <atom:link href="https://martinnievas.com/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Desarme de POS Point Mini MercadoPago</title>
+        <description>
+          
+          Introducción Esto está inspirado en este blog y para completar con un modelo que no estaba. En el post menciona que estos POS son de bajo costo, porque básicamente están subsidiados por las comisiones de los usuarios. Si los agarran en oferta, mejor todavía. De la misma manera, la idea...
+        </description>
+        <pubDate>Sat, 07 Jan 2023 00:00:00 -0800</pubDate>
+        <link>https://martinnievas.com/myblog/2023-01-07-point-mini/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2023-01-07-point-mini/</guid>
+      </item>
+    
+      <item>
         <title>Reproducir rosbag para pruebas</title>
         <description>
           
