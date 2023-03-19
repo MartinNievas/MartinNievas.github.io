@@ -10,6 +10,9 @@ syntax on
 "" Colores de identado
 set listchars=tab:>·,trail:·
 
+"" Resaltado de sintaxis en la búsqueda
+  :set hls
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -29,7 +32,6 @@ set noai
 " " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
   map <space> /
   map <c-space> ?
-
 
 "" Smart way to move between windows
   :map <Tab> <ESC>:tabn<RETURN>
