@@ -213,7 +213,7 @@
 
       <article role="main" class="blog-post">
         <h1 id="cómo-mover-las-imágenes-de-docker-a-otra-carpeta">¿Cómo mover las imágenes de docker a otra carpeta?</h1>
-<p>Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a <code class="highlighter-rouge">$ESTUDIANTES</code>.
+<p>Este post lo hago para tener los pasos anotados en español y poder compartirlos de forma fácil a <code class="language-plaintext highlighter-rouge">$ESTUDIANTES</code>.
 La información está sacada de <a href="https://linuxconfig.org/how-to-move-docker-s-default-var-lib-docker-to-another-directory-on-ubuntu-debian-linux">este</a> maravilloso post de LinuxConfig(dot)org.</p>
 
 <p>Primero detenemos el servicio de Docker:</p>
@@ -221,7 +221,7 @@ La información está sacada de <a href="https://linuxconfig.org/how-to-move-doc
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service stop docker
 </code></pre></div></div>
 
-<p>Vamos a mover todo lo de Docker a la carpeta <code class="highlighter-rouge">/mnt/external</code>, para copiar los datos actuales de Docker hacemos:</p>
+<p>Vamos a mover todo lo de Docker a la carpeta <code class="language-plaintext highlighter-rouge">/mnt/external</code>, para copiar los datos actuales de Docker hacemos:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># mkdir /mnt/external/docker</span>
 <span class="c"># rsync -aqxP /var/lib/docker/ /mnt/external/docker</span>
@@ -229,15 +229,15 @@ La información está sacada de <a href="https://linuxconfig.org/how-to-move-doc
 <p>Si no tenemos ningún archivo este paso es rápido, pero si estamos copiando de un SSD a un rotacional, puede demorar unos minutos.</p>
 
 <p>Ahora tenemos que apuntar a la nueva carpeta en el archivo de configuraciones de Docker.
-Modificar el archivo <code class="highlighter-rouge">/lib/systemd/system/docker.service</code> y cambiar:</p>
+Modificar el archivo <code class="language-plaintext highlighter-rouge">/lib/systemd/system/docker.service</code> y cambiar:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM:
 ExecStart=/usr/bin/docker daemon -H fd://
 TO:
 ExecStart=/usr/bin/docker daemon -g /mnt/external/docker -H fd://
 </code></pre></div></div>
 
-<p>Donde <code class="highlighter-rouge">/mnt/external</code> es la carpeta donde queremos mover las imágenes y conatiners de Docker.</p>
+<p>Donde <code class="language-plaintext highlighter-rouge">/mnt/external</code> es la carpeta donde queremos mover las imágenes y conatiners de Docker.</p>
 
 <p>Una vez finalizado, ejecutar:</p>
 

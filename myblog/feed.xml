@@ -7,6 +7,17 @@
     <atom:link href="https://martinnievas.com/myblog/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Cómo instalar paquetes viejos en Ubuntu</title>
+        <description>
+          
+          Introducción El año es 2023, estamos felices utilizando nuestro Ubuntu 22.04, hacemos colcon build y tenemos un problema… queremos contruir un paquete que originalmente estaba pensado para ROS 1, desarrollado en Ubuntu 18.04 Aparte de tener que migrar la lógica de ROS 1 a ROS 2, tenemos el problema de...
+        </description>
+        <pubDate>Wed, 27 Sep 2023 00:00:00 -0700</pubDate>
+        <link>https://martinnievas.com/myblog/2023-09-27-paquetes-viejos/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2023-09-27-paquetes-viejos/</guid>
+      </item>
+    
+      <item>
         <title>Desarme de Point Smart A910</title>
         <description>
           

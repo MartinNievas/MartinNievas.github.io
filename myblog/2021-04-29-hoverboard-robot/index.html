@@ -274,17 +274,17 @@ After flashing hoverboard-driver firmware into the hoverboard, we can attach an 
 <p><img src="/myblog/img/robot/curso-gonzalo.png" alt="" /></p>
 
 <p>First, we get wheels velocity from the hoverboard:</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">double</span> <span class="n">v_right</span> <span class="o">=</span> <span class="n">joints</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">vel</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="c1">// right_wheel speed in m/s
-</span>    <span class="kt">double</span> <span class="n">v_left</span> <span class="o">=</span> <span class="n">joints</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">vel</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="c1">// left_wheel speed in m/s
-</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">double</span> <span class="n">v_right</span> <span class="o">=</span> <span class="n">joints</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">vel</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="c1">// right_wheel speed in m/s</span>
+    <span class="kt">double</span> <span class="n">v_left</span> <span class="o">=</span> <span class="n">joints</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">vel</span><span class="p">.</span><span class="n">data</span><span class="p">;</span> <span class="c1">// left_wheel speed in m/s</span>
+
     <span class="n">robot_vx</span> <span class="o">=</span> <span class="p">((</span><span class="n">v_right</span> <span class="o">+</span> <span class="n">v_left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
     <span class="n">robot_vy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">robot_vth</span> <span class="o">=</span> <span class="p">((</span><span class="n">v_right</span> <span class="o">-</span> <span class="n">v_left</span><span class="p">)</span><span class="o">/</span><span class="n">_length_between_wheels</span><span class="p">);</span>
 </code></pre></div></div>
 <p>Once we have the speed of each wheel, we compute a delta position increment based on the previous timestamp:</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">//compute odometry in a typical way given the velocities of the robot
-</span>    <span class="c1">//current_time and last_time are ros::Time variables
-</span>    <span class="kt">double</span> <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">).</span><span class="n">toSec</span><span class="p">();</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">//compute odometry in a typical way given the velocities of the robot</span>
+    <span class="c1">//current_time and last_time are ros::Time variables</span>
+    <span class="kt">double</span> <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">).</span><span class="n">toSec</span><span class="p">();</span>
     <span class="kt">double</span> <span class="n">delta_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">robot_vx</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">robot_th</span><span class="p">)</span> <span class="o">-</span> <span class="n">robot_vy</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">robot_th</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">delta_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">robot_vx</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">robot_th</span><span class="p">)</span> <span class="o">+</span> <span class="n">robot_vy</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">robot_th</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">delta_th</span> <span class="o">=</span> <span class="n">robot_vth</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
@@ -296,26 +296,26 @@ After flashing hoverboard-driver firmware into the hoverboard, we can attach an 
     <span class="n">robot_th</span> <span class="o">+=</span> <span class="n">delta_th</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>And finally, we make an <code class="highlighter-rouge">Odom</code> ROS msg and publish it:</p>
+<p>And finally, we make an <code class="language-plaintext highlighter-rouge">Odom</code> ROS msg and publish it:</p>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">nav_msgs</span><span class="o">::</span><span class="n">Odometry</span> <span class="n">odom</span><span class="p">;</span>
     <span class="n">odom</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">current_time</span><span class="p">;</span>
     <span class="n">odom</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"odom"</span><span class="p">;</span>
 
-    <span class="c1">//set the position
-</span>    <span class="n">odom</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">robot_x</span><span class="p">;</span>
+    <span class="c1">//set the position</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">robot_x</span><span class="p">;</span>
     <span class="n">odom</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">robot_y</span><span class="p">;</span>
     <span class="n">odom</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
 
-    <span class="c1">// odom.pose.pose.orientation = odom_quat;
-</span>
-    <span class="c1">//set the velocity
-</span>    <span class="n">odom</span><span class="p">.</span><span class="n">child_frame_id</span> <span class="o">=</span> <span class="s">"base_link"</span><span class="p">;</span>
+    <span class="c1">// odom.pose.pose.orientation = odom_quat;</span>
+
+    <span class="c1">//set the velocity</span>
+    <span class="n">odom</span><span class="p">.</span><span class="n">child_frame_id</span> <span class="o">=</span> <span class="s">"base_link"</span><span class="p">;</span>
     <span class="n">odom</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">robot_vx</span><span class="p">;</span>
     <span class="n">odom</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">robot_vy</span><span class="p">;</span>
     <span class="n">odom</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">twist</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">robot_vth</span><span class="p">;</span>
 
-    <span class="c1">//publish the message
-</span>    <span class="n">odom_test</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">odom</span><span class="p">);</span>
+    <span class="c1">//publish the message</span>
+    <span class="n">odom_test</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">odom</span><span class="p">);</span>
 </code></pre></div></div>
 <p>We could have calculated Yaw’s angle from the rotations of the wheel and converting it to Quaternions, but I still did not implement it.</p>
 

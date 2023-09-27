@@ -214,11 +214,11 @@
       <article role="main" class="blog-post">
         <h1 id="direcciones">Direcciones</h1>
 
-<p>Tenemos dos direcciones (<code class="highlighter-rouge">ROS_MASTER_URI</code> y <code class="highlighter-rouge">ROS_IP</code>)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras.</p>
+<p>Tenemos dos direcciones (<code class="language-plaintext highlighter-rouge">ROS_MASTER_URI</code> y <code class="language-plaintext highlighter-rouge">ROS_IP</code>)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">ROS_MASTER_URI</code>: tiene que apuntar a la PC que está corriendo roscore</li>
-  <li><code class="highlighter-rouge">ROS_IP</code>: tiene que ser el localhost, pero en dirección IPv4 o IPv6</li>
+  <li><code class="language-plaintext highlighter-rouge">ROS_MASTER_URI</code>: tiene que apuntar a la PC que está corriendo roscore</li>
+  <li><code class="language-plaintext highlighter-rouge">ROS_IP</code>: tiene que ser el localhost, pero en dirección IPv4 o IPv6</li>
 </ul>
 
 <h1 id="ejemplo">Ejemplo</h1>
@@ -235,9 +235,9 @@
 <p>Notar que el robot tiene el master en la dirección de la computadora donde corre la simulación.</p>
 
 <h1 id="no-funciona">No funciona?</h1>
-<p>Otro cambio que se puede realizar y en la práctica funciona es agregar en el robot la dirección de IP, en el archivo <code class="highlighter-rouge">/etc/hosts</code>:</p>
+<p>Otro cambio que se puede realizar y en la práctica funciona es agregar en el robot la dirección de IP, en el archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1	localhost
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1	localhost
 127.0.1.1	hostname
 192.168.0.100 PChostname
 

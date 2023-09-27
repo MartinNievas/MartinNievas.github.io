@@ -78,7 +78,7 @@
   
 
    
-  <meta property="og:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
+  <meta property="og:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
   
 
 
@@ -102,7 +102,7 @@
   
 
   
-  <meta name="twitter:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
+  <meta name="twitter:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
   
 
   
@@ -206,7 +206,7 @@
 <div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <a href="#PHD" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;PHD&nbsp;(1)</a><a href="#ROS" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;ROS&nbsp;(2)</a><a href="#arduino" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;arduino&nbsp;(1)</a><a href="#circuit" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;circuit&nbsp;(3)</a><a href="#electronic" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;electronic&nbsp;(5)</a><a href="#extras" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;extras&nbsp;(1)</a><a href="#gcc" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;gcc&nbsp;(2)</a><a href="#git" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;git&nbsp;(2)</a><a href="#gitflow" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;gitflow&nbsp;(1)</a><a href="#info1" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;info1&nbsp;(5)</a><a href="#inicio" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;inicio&nbsp;(1)</a><a href="#investigación" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;investigación&nbsp;(1)</a><a href="#linux" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;linux&nbsp;(1)</a><a href="#presentaciones" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;presentaciones&nbsp;(1)</a><a href="#raspberry" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;raspberry&nbsp;(4)</a><a href="#reverse" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;reverse&nbsp;(3)</a><a href="#robotica" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;robotica&nbsp;(6)</a><a href="#ros" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;ros&nbsp;(1)</a><a href="#rosbag" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;rosbag&nbsp;(1)</a><a href="#tutorials" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;tutorials&nbsp;(1)</a><div id="full-tags-list"><h2 id="PHD" class="linked-section">
+      <a href="#PHD" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;PHD&nbsp;(1)</a><a href="#ROS" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;ROS&nbsp;(2)</a><a href="#arduino" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;arduino&nbsp;(1)</a><a href="#circuit" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;circuit&nbsp;(3)</a><a href="#electronic" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;electronic&nbsp;(5)</a><a href="#extras" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;extras&nbsp;(1)</a><a href="#gcc" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;gcc&nbsp;(2)</a><a href="#git" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;git&nbsp;(2)</a><a href="#gitflow" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;gitflow&nbsp;(1)</a><a href="#info1" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;info1&nbsp;(5)</a><a href="#inicio" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;inicio&nbsp;(1)</a><a href="#install" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;install&nbsp;(1)</a><a href="#investigación" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;investigación&nbsp;(1)</a><a href="#linux" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;linux&nbsp;(1)</a><a href="#presentaciones" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;presentaciones&nbsp;(1)</a><a href="#raspberry" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;raspberry&nbsp;(4)</a><a href="#reverse" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;reverse&nbsp;(3)</a><a href="#robotica" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;robotica&nbsp;(6)</a><a href="#ros" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;ros&nbsp;(1)</a><a href="#rosbag" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;rosbag&nbsp;(1)</a><a href="#tutorials" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;tutorials&nbsp;(1)</a><a href="#ubuntu" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;ubuntu&nbsp;(1)</a><div id="full-tags-list"><h2 id="PHD" class="linked-section">
         <i class="fa fa-tag" aria-hidden="true"></i>
         &nbsp;PHD&nbsp;(1)
     </h2>
@@ -370,6 +370,15 @@
                 <div class="entry-date">
                     <time datetime="2019-02-11T00:00:00-08:00">February 11, 2019</time>
                 </div>
+            </div></div><h2 id="install" class="linked-section">
+        <i class="fa fa-tag" aria-hidden="true"></i>
+        &nbsp;install&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="https://martinnievas.com/myblog/2023-09-27-paquetes-viejos/">Cómo instalar paquetes viejos en Ubuntu</a>
+                <div class="entry-date">
+                    <time datetime="2023-09-27T00:00:00-07:00">September 27, 2023</time>
+                </div>
             </div></div><h2 id="investigación" class="linked-section">
         <i class="fa fa-tag" aria-hidden="true"></i>
         &nbsp;investigación&nbsp;(1)
@@ -500,6 +509,15 @@
                 <a href="https://martinnievas.com/myblog/2022-02-05-git-flow/">Pasos para gitflow</a>
                 <div class="entry-date">
                     <time datetime="2022-02-05T00:00:00-08:00">February 05, 2022</time>
+                </div>
+            </div></div><h2 id="ubuntu" class="linked-section">
+        <i class="fa fa-tag" aria-hidden="true"></i>
+        &nbsp;ubuntu&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="https://martinnievas.com/myblog/2023-09-27-paquetes-viejos/">Cómo instalar paquetes viejos en Ubuntu</a>
+                <div class="entry-date">
+                    <time datetime="2023-09-27T00:00:00-07:00">September 27, 2023</time>
                 </div>
             </div></div></div>
 

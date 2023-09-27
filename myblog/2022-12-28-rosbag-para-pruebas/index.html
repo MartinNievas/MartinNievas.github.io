@@ -214,11 +214,11 @@
       <article role="main" class="blog-post">
         <h1 id="pasos-para-ejecutar-el-rosbag-en-pruebas-locales">Pasos para ejecutar el rosbag en pruebas locales</h1>
 <p>Para evitar errores con el tiempo:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Transform [sender=/odom] Message removed because it is too old (frame=[/link_chassis], stamp=[1809237948.1498749182])
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Transform [sender=/odom] Message removed because it is too old (frame=[/link_chassis], stamp=[1809237948.1498749182])
 [WARN] [1456267968.1398749182, 1455437948.1494443182]: Detected jump back in time. Clearing TF buffer.
 </code></pre></div></div>
 
-<p>Hay que configurar el parámetro <code class="highlighter-rouge">use_sim_time</code> luego de lanzar el roscore:</p>
+<p>Hay que configurar el parámetro <code class="language-plaintext highlighter-rouge">use_sim_time</code> luego de lanzar el roscore:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>roscore
 rosparam <span class="nb">set</span> /use_sim_time <span class="nb">true
