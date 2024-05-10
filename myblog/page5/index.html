@@ -9,13 +9,13 @@
 
   
 
-  <title>Configurar direcciones de IP para ROS</title>
+  <title>My website</title>
 
   
   <meta name="author" content="Martin Nievas">
   
 
-  <meta name="description" content="Direcciones Tenemos dos direcciones (ROS_MASTER_URI y ROS_IP)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras. ROS_MASTER_URI: tiene que apuntar a la PC que está corriendo roscore ROS_IP: tiene que ser el localhost, pero en dirección IPv4 o IPv6 Ejemplo En la computadora (donde corre la simulación, por...">
+  <meta name="description" content="This is where I will tell my friends way too much about me">
 
   
 
@@ -76,19 +76,17 @@
 
   
   <meta property="og:site_name" content="martin nievas blog">
-  <meta property="og:title" content="Configurar direcciones de IP para ROS">
-  <meta property="og:description" content="Direcciones Tenemos dos direcciones (ROS_MASTER_URI y ROS_IP)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras. ROS_MASTER_URI: tiene que apuntar a la PC que está corriendo roscore ROS_IP: tiene que ser el localhost, pero en dirección IPv4 o IPv6 Ejemplo En la computadora (donde corre la simulación, por...">
+  <meta property="og:title" content="My website">
+  <meta property="og:description" content="This is where I will tell my friends way too much about me">
 
   
   <meta property="og:image" content="https://martinnievas.com/myblog/assets/img/avatar-icon.png">
   
 
   
-  <meta property="og:type" content="article">
-  <meta property="og:article:author" content="Martin Nievas">
-  <meta property="og:article:published_time" content="2021-02-14T00:00:00-05:00">
-  <meta property="og:url" content="https://martinnievas.com/myblog/2021-02-14-ros-address/">
-  <link rel="canonical" href="https://martinnievas.com/myblog/2021-02-14-ros-address/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://martinnievas.com/myblog/page5/">
+  <link rel="canonical" href="https://martinnievas.com/myblog/page5/">
   
 
   
@@ -97,8 +95,8 @@
   <meta name="twitter:site" content="@mlnievas">
   <meta name="twitter:creator" content="@mlnievas">
 
-  <meta property="twitter:title" content="Configurar direcciones de IP para ROS">
-  <meta property="twitter:description" content="Direcciones Tenemos dos direcciones (ROS_MASTER_URI y ROS_IP)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras. ROS_MASTER_URI: tiene que apuntar a la PC que está corriendo roscore ROS_IP: tiene que ser el localhost, pero en dirección IPv4 o IPv6 Ejemplo En la computadora (donde corre la simulación, por...">
+  <meta property="twitter:title" content="My website">
+  <meta property="twitter:description" content="This is where I will tell my friends way too much about me">
 
   
   <meta name="twitter:image" content="https://martinnievas.com/myblog/assets/img/avatar-icon.png">
@@ -391,14 +389,15 @@
   <div class="container-md">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="post-heading">
-          <h1>Configurar direcciones de IP para ROS</h1>
+        <div class="page-heading">
+          <h1>My website</h1>
+          
+            
+              <hr class="small">
+              <span class="page-subheading">This is where I will tell my friends way too much about me</span>
+            
           
 
-          
-            <span class="post-meta">Posted on February 14, 2021</span>
-            
-            
           
         </div>
       </div>
@@ -411,155 +410,83 @@
 
 
 
-<div class=" container-md ">
+<div class=" container-md " role="main">
   <div class="row">
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
-
       
 
       
 
-      <article role="main" class="blog-post">
-        <h1 id="direcciones">Direcciones</h1>
 
-<p>Tenemos dos direcciones (<code class="language-plaintext highlighter-rouge">ROS_MASTER_URI</code> y <code class="language-plaintext highlighter-rouge">ROS_IP</code>)que deben estar configuradas en nuestro sistema para poder hablar entre computadoras.</p>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">ROS_MASTER_URI</code>: tiene que apuntar a la PC que está corriendo roscore</li>
-  <li><code class="language-plaintext highlighter-rouge">ROS_IP</code>: tiene que ser el localhost, pero en dirección IPv4 o IPv6</li>
+<!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
+<ul class="posts-list list-unstyled" role="list">
+  
+  <li class="post-preview">
+    <article>
+      
+
+      
+
+      <a href="https://martinnievas.com/myblog/2019-02-11-primer-post/">
+        <h2 class="post-title">Primer post1</h2>
+
+        
+      </a>
+
+      <p class="post-meta">
+        
+        Posted on February 11, 2019
+      </p>
+
+      
+
+      
+      
+
+      <div class="post-entry">
+        
+        Primeras pruebas.
+
+        
+        
+      </div>
+      
+
+      
+      <div class="blog-tags">
+        <span>Tags:</span>
+        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
+        <ul class="d-inline list-inline" role="list">
+          
+          <li class="list-inline-item">
+            <a href="https://martinnievas.com/myblog/tags#inicio">inicio</a>
+          </li>
+          
+        </ul>
+      </div>
+      
+
+    </article>
+  </li>
+  
 </ul>
 
-<h1 id="ejemplo">Ejemplo</h1>
-<p>En la computadora (donde corre la simulación, por ejemplo Gazebo):</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ROS_MASTER_URI</span><span class="o">=</span>http://192.168.0.100:11311
-<span class="nb">export </span><span class="nv">ROS_IP</span><span class="o">=</span>192.168.0.100
-</code></pre></div></div>
 
-<p>En la placa remota (robot, lugar donde se prueba el algoritmo)</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">ROS_MASTER_URI</span><span class="o">=</span>http://192.168.0.100:11311
-<span class="nb">export </span><span class="nv">ROS_IP</span><span class="o">=</span>192.168.0.101
-</code></pre></div></div>
-
-<p>Notar que el robot tiene el master en la dirección de la computadora donde corre la simulación.</p>
-
-<h1 id="no-funciona">No funciona?</h1>
-<p>Otro cambio que se puede realizar y en la práctica funciona es agregar en el robot la dirección de IP, en el archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1	localhost
-127.0.1.1	hostname
-192.168.0.100 PChostname
-
-# The following lines are desirable for IPv6 capable hosts
-::1     ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-</code></pre></div></div>
-
-<p>Todo esto está documentado en la <a href="https://wiki.ros.org/ROS/EnvironmentVariables">wiki de ROS</a>.</p>
-
-<p><a href="https://answers.ros.org/question/48240/rostopic-list-works-but-rostopic-echo-does-not/">Esta pregunta</a> también fué de gran utilidad.</p>
-
-      </article>
-
-      
-        <div class="blog-tags">
-          <span>Tags:</span>
-          
-            <a href="/myblog/tags#robotica">robotica</a>
-          
-            <a href="/myblog/tags#ROS">ROS</a>
-          
-        </div>
-      
-
-      
-
-      
-        <!-- Check if any share-links are active -->
-
-
-
-
-<section id = "social-share-section">
-  <span class="sr-only">Share: </span>
-
+<ul class="pagination main-pager">
   
-    <a href="https://twitter.com/intent/tweet?text=Configurar+direcciones+de+IP+para+ROS&url=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2021-02-14-ros-address%2F"
-      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
-      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
-      <span class="sr-only">Twitter</span>
-    </a>
+  <li class="page-item previous">
+    <a class="page-link" href="https://martinnievas.com/myblog/page4">&larr; Newer Posts</a>
+  </li>
   
-
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2021-02-14-ros-address%2F"
-      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
-      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
-      <span class="sr-only">Facebook</span>
-    </a>
-  
-
-  
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2021-02-14-ros-address%2F"
-      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
-      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
-      <span class="sr-only">LinkedIn</span>
-    </a>
-  
-
-  
-
-  
-
-</section>
+</ul>
 
 
 
       
 
-      <ul class="pagination blog-pager">
-        
-        <li class="page-item previous">
-          <a class="page-link" href="/myblog/2020-09-29-robotic-exploration/" data-toggle="tooltip" data-placement="top" title="Exploración robótica">&larr; Previous Post</a>
-        </li>
-        
-        
-        <li class="page-item next">
-          <a class="page-link" href="/myblog/2021-04-29-hoverboard-robot/" data-toggle="tooltip" data-placement="top" title="Robot sin nombre">Next Post &rarr;</a>
-        </li>
-        
-      </ul>
       
-  <div class="disqus-comments">
-  <div class="comments">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-	  var disqus_shortname = 'martinnievas';
-	  /* ensure that pages with query string get the same discussion */
-	  var url_parts = window.location.href.split("?");
-	  var disqus_url = url_parts[0];
-	  (function() {
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	  })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</div>
-  
-  
-
-  
-
-
-  
-
-  
-
-
 
     </div>
   </div>
