@@ -9,13 +9,13 @@
 
   
 
-  <title>About me</title>
+  <title>Ingeniería inversa de impresora térmica</title>
 
   
   <meta name="author" content="Martin Nievas">
   
 
-  <meta name="description" content="subtitle">
+  <meta name="description" content="Introducción Todo empezó con el desarme del posnet A910, en el cual venía una impresora térmica. La idea era poder reutilizar el conjunto completo para imprimir imágenes al estilo cámara Polaroid. Luego de varios intentos fallidos, hice lo que toda persona haría… hacer ingeniería inversa de la impresora térmica y...">
 
   
 
@@ -76,17 +76,19 @@
 
   
   <meta property="og:site_name" content="martin nievas blog">
-  <meta property="og:title" content="About me">
-  <meta property="og:description" content="subtitle">
+  <meta property="og:title" content="Ingeniería inversa de impresora térmica">
+  <meta property="og:description" content="Introducción Todo empezó con el desarme del posnet A910, en el cual venía una impresora térmica. La idea era poder reutilizar el conjunto completo para imprimir imágenes al estilo cámara Polaroid. Luego de varios intentos fallidos, hice lo que toda persona haría… hacer ingeniería inversa de la impresora térmica y...">
 
   
   <meta property="og:image" content="https://martinnievas.com/myblog/assets/img/avatar-icon.png">
   
 
   
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://martinnievas.com/myblog/aboutme/">
-  <link rel="canonical" href="https://martinnievas.com/myblog/aboutme/">
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Martin Nievas">
+  <meta property="og:article:published_time" content="2024-05-18T00:00:00-04:00">
+  <meta property="og:url" content="https://martinnievas.com/myblog/2024-05-18-impresora-termica/">
+  <link rel="canonical" href="https://martinnievas.com/myblog/2024-05-18-impresora-termica/">
   
 
   
@@ -95,8 +97,8 @@
   <meta name="twitter:site" content="@mlnievas">
   <meta name="twitter:creator" content="@mlnievas">
 
-  <meta property="twitter:title" content="About me">
-  <meta property="twitter:description" content="subtitle">
+  <meta property="twitter:title" content="Ingeniería inversa de impresora térmica">
+  <meta property="twitter:description" content="Introducción Todo empezó con el desarme del posnet A910, en el cual venía una impresora térmica. La idea era poder reutilizar el conjunto completo para imprimir imágenes al estilo cámara Polaroid. Luego de varios intentos fallidos, hice lo que toda persona haría… hacer ingeniería inversa de la impresora térmica y...">
 
   
   <meta name="twitter:image" content="https://martinnievas.com/myblog/assets/img/avatar-icon.png">
@@ -396,15 +398,14 @@
   <div class="container-md">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="page-heading">
-          <h1>About me</h1>
-          
-            
-              <hr class="small">
-              <span class="page-subheading">subtitle</span>
-            
+        <div class="post-heading">
+          <h1>Ingeniería inversa de impresora térmica</h1>
           
 
+          
+            <span class="post-meta">Posted on May 18, 2024</span>
+            
+            
           
         </div>
       </div>
@@ -417,18 +418,192 @@
 
 
 
-<div class=" container-md " role="main">
+<div class=" container-md ">
   <div class="row">
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
-      
-
-      <p>Algo para contar…</p>
-
-
 
       
 
       
+
+      <article role="main" class="blog-post">
+        <h1 id="introducción">Introducción</h1>
+<p>Todo empezó con el desarme del posnet <a href="https://martinnievas.com/myblog/2023-02-08-point-smart/">A910</a>, en el cual venía una impresora térmica.
+La idea era poder reutilizar el conjunto completo para imprimir imágenes al estilo cámara Polaroid.
+Luego de varios intentos fallidos, hice lo que toda persona haría… hacer ingeniería inversa de la impresora térmica y utilizarla por separado.</p>
+
+<h1 id="desarme-e-ingeniería-inversa">Desarme e ingeniería inversa</h1>
+<p>La impresora térmica es un conjunto de 3 partes:</p>
+<ol>
+  <li>Cabezal térmico</li>
+  <li>Sensor de papel</li>
+  <li>Motor paso a paso</li>
+</ol>
+
+<p><img src="/myblog/img/point_smart/point_smart_12.jpg" alt="alt text" /></p>
+
+<p>Inicialmente había empezado a identificar cada señal en cada pin de la impresora, soldando unos cables a una placa de pruebas.
+Más adelante en el proyecto, Agustin Palla consiguió el <a href="https://archive.org/details/pt-48-ge-en-rev.-1.1-10.1.48-g-0.-0-h-01">datasheet!(webarchive pdf)</a> y terminé verificando cada pin.</p>
+
+<p><img src="/myblog/img/desarme_impresora_termica/cables.png" alt="alt text" />
+<img src="/myblog/img/desarme_impresora_termica/diagrama.png" alt="alt text" /></p>
+
+<p>La impresora tiene una interfaz serie, es un shift register, donde cada pixel ingresado se se carga en un buffer.
+Luego, para cargar los datos se envía un pulso de LATCH y mediante la señal de STROBE se imprimen los datos.</p>
+
+<p><img src="/myblog/img/point_smart/esquema.png" alt="alt text" /></p>
+
+<p>La matriz de la impresora es de 384 puntos, donde cada pixel está separado por 0.125mm (1/8 de mm).
+Son 8 puntos por mm, lo que hace un total de 48mm de ancho imprimible, unos 203 dpi.</p>
+
+<h1 id="programación">Programación</h1>
+<p>Las primeras pruebas fueron para identificar y probar el protocolo serie.
+Se utilizó una placa ESP32 para enviar los datos a la impresora mediante el puerto SPI.</p>
+
+<p>El programa es básicamente:</p>
+<ol>
+  <li>Inicializar los pines de LATCH(HIGH) y STROBE(LOW).</li>
+  <li>Enviar 384 bits de datos (48 bytes de 0x0F) a la impresora para generar un patrón</li>
+  <li>Enviar el pulso de LATCH en bajo y luego en alto. Almacena los datos en el buffer</li>
+  <li>Enviar el pulso de STROBE en alto. Con esto se imprime el buffer en la impresora</li>
+  <li>Avanzar el papel</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">latch_pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+<span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">latch_pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">dst_pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">dst_pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><img src="/myblog/img/point_smart/imprimir_patron.png" alt="alt text" /></p>
+
+<p>El siguiente paso fué implementar una función para imprimir una imagen.
+El concepto es basícamente lo mismo, pero en lugar de enviar un patrón, se envía una imagen en paquetes de 1 byte.
+El problema es de donde conseguir una imagen codificada en 1 bit por pixel, y que fuera fácil de adaptar al código C++… Ahí es donde viene la página <a href="https://javl.github.io/image2cpp/">image2cpp</a> de <a href="https://github.com/javl">Jasper Van Loenen</a>.
+En esta página se puede cargar una imagen y seleccionar la cantidad de bits por pixel, y luego se genera un código C++ con la imagen codificada.
+Es importante que la imagen sea en blanco y negro (podemos convertirla en la página) y también que tenga un ancho de 384px, valor que coincide con el máximo imprimible.</p>
+
+<p>En caso de una imagen en escala de grises, podemos utilizar <a href="https://en.wikipedia.org/wiki/Dither">Dither</a> para mejorar la representación en pixels.</p>
+
+<p><img src="/myblog/img/point_smart/prueba_dither.png" alt="Prueba dither" /></p>
+
+<p>Las líneas horizontales más claras (como falta de toner) son debido a que los cables que estoy utilizando para alimentar la impresora no son lo suficientemente gruesos. Esto causa una caída de voltaje y afecta la calidad de la impresión. Recomiendo utilizar cables de mayor calibre para evitar este problema.</p>
+
+<p><a href="https://imgur.com/UVBZbeq">Aquí</a> pueden apreciar un ejemplo de impresión de texto e imagen juntos.</p>
+
+<p>Qué como genero el texto? ahí es donde entran las fuentes GLCD. Hay varias en internet dando vueltas, hay que <a href="https://github.com/basti79/LCD-fonts/tree/master">buscar una</a> y adaptar el código. Es básicamente una imagen, pero de 8 bits de alto y 384 bits de ancho (máximo imprimible).
+En el caso del video son fuentes de 8x8, por lo que se pueden imprimir hasta 48 caracteres por línea.</p>
+
+<h1 id="conclusión">Conclusión</h1>
+<p>La impresora térmica es un dispositivo muy interesante y fácil de utilizar. Con un poco de ingeniería inversa y programación se pueden hacer cosas muy interesantes.</p>
+
+<p>En el caso de querer imprimir imágenes, recomiendo utilizar una fuente de alimentación de 7.8V y cables de mayor calibre para evitar problemas de calidad de impresión.
+El problema es imprimir varios pixels al mismo tiempo, ya que esto implica un mayor consumo de corriente.</p>
+
+<p>En el caso de querer imprimir texto, recomiendo utilizar fuentes de 8x8 para poder imprimir hasta 48 caracteres por línea.</p>
+
+<h1 id="próximos-pasos">Próximos pasos</h1>
+<p>El código eventualmente lo voy a subir a mi <a href="https://github.com/MartinNievas">perfil de github</a> para que puedan utilizarlo. Inicialmente empezó como un proyecto personal, pero me parece interesante compartirlo como una biblioteca para que otros puedan utilizarlo.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/myblog/tags#reverse">reverse</a>
+          
+            <a href="/myblog/tags#engineering">engineering</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Ingenier%C3%ADa+inversa+de+impresora+t%C3%A9rmica&url=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2024-05-18-impresora-termica%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2024-05-18-impresora-termica%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2024-05-18-impresora-termica%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/myblog/2023-09-27-paquetes-viejos/" data-toggle="tooltip" data-placement="top" title="Cómo instalar paquetes viejos en Ubuntu">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+      
+  <div class="disqus-comments">
+  <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+	  var disqus_shortname = 'martinnievas';
+	  /* ensure that pages with query string get the same discussion */
+	  var url_parts = window.location.href.split("?");
+	  var disqus_url = url_parts[0];
+	  (function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+  
+  
+
+  
+
+
+  
+
+  
+
+
 
     </div>
   </div>

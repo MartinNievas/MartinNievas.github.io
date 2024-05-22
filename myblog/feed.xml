@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>Ingeniería inversa de impresora térmica</title>
+        <description>
+          
+          Introducción Todo empezó con el desarme del posnet A910, en el cual venía una impresora térmica. La idea era poder reutilizar el conjunto completo para imprimir imágenes al estilo cámara Polaroid. Luego de varios intentos fallidos, hice lo que toda persona haría… hacer ingeniería inversa de la impresora térmica y...
+        </description>
+        <pubDate>Sat, 18 May 2024 00:00:00 -0400</pubDate>
+        <link>https://martinnievas.com/myblog/2024-05-18-impresora-termica/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2024-05-18-impresora-termica/</guid>
+      </item>
+    
+      <item>
         <title>Cómo instalar paquetes viejos en Ubuntu</title>
         <description>
           
@@ -232,17 +243,6 @@ git flow feature finish feature_branch
         <pubDate>Mon, 18 Feb 2019 00:00:00 -0500</pubDate>
         <link>https://martinnievas.com/myblog/2019-02-18-eliminar-archivos-gitignore/</link>
         <guid isPermaLink="true">https://martinnievas.com/myblog/2019-02-18-eliminar-archivos-gitignore/</guid>
-      </item>
-    
-      <item>
-        <title>Compilar y correr un programa desde la terminal</title>
-        <description>
-          
-          En este tutorial se mostrará como compilar desde la terminal de GNU/Linux. Esto resulta útil para cuando no se dispone de un IDE (Integrated Development Environment) para programar. Ubuntu nos permite compilar, enlazar y correr el programa desde la misma terminal! :D Para ello utilizaremos GCC. La sigla GCC significa...
-        </description>
-        <pubDate>Tue, 12 Feb 2019 00:00:00 -0500</pubDate>
-        <link>https://martinnievas.com/myblog/2019-02-12-compilar-desde-la-terminal/</link>
-        <guid isPermaLink="true">https://martinnievas.com/myblog/2019-02-12-compilar-desde-la-terminal/</guid>
       </item>
     
   </channel>
