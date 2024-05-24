@@ -451,7 +451,7 @@ Más adelante en el proyecto, Agustin Palla consiguió el <a href="https://archi
 <p>La impresora tiene una interfaz serie, es un shift register, donde cada pixel ingresado se se carga en un buffer.
 Luego, para cargar los datos se envía un pulso de LATCH y mediante la señal de STROBE se imprimen los datos.</p>
 
-<p><img src="/myblog/img/point_smart/esquema.png" alt="alt text" /></p>
+<p><img src="/myblog/img/desarme_impresora_termica/esquema.png" alt="alt text" /></p>
 
 <p>La matriz de la impresora es de 384 puntos, donde cada pixel está separado por 0.125mm (1/8 de mm).
 Son 8 puntos por mm, lo que hace un total de 48mm de ancho imprimible, unos 203 dpi.</p>
@@ -479,7 +479,7 @@ Se utilizó una placa ESP32 para enviar los datos a la impresora mediante el pue
 <span class="n">digitalWrite</span><span class="p">(</span><span class="n">dst_pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
 </code></pre></div></div>
 
-<p><img src="/myblog/img/point_smart/imprimir_patron.png" alt="alt text" /></p>
+<p><img src="/myblog/img/desarme_impresora_termica/imprimir_patron.png" alt="alt text" /></p>
 
 <p>El siguiente paso fué implementar una función para imprimir una imagen.
 El concepto es basícamente lo mismo, pero en lugar de enviar un patrón, se envía una imagen en paquetes de 1 byte.
@@ -489,7 +489,7 @@ Es importante que la imagen sea en blanco y negro (podemos convertirla en la pá
 
 <p>En caso de una imagen en escala de grises, podemos utilizar <a href="https://en.wikipedia.org/wiki/Dither">Dither</a> para mejorar la representación en pixels.</p>
 
-<p><img src="/myblog/img/point_smart/prueba_dither.png" alt="Prueba dither" /></p>
+<p><img src="/myblog/img/desarme_impresora_termica/prueba_dither.png" alt="Prueba dither" /></p>
 
 <p>Las líneas horizontales más claras (como falta de toner) son debido a que los cables que estoy utilizando para alimentar la impresora no son lo suficientemente gruesos. Esto causa una caída de voltaje y afecta la calidad de la impresión. Recomiendo utilizar cables de mayor calibre para evitar este problema.</p>
 
