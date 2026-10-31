@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>Simulador de ROE para RG6 - Adaptando impedancias en antenas multibanda</title>
+        <description>
+          
+          Introducción Comencé operando en FT8 en la banda de 10m con un transceptor QMX y una antena EFHW que ajusté para trabajar en monobanda, todo conectado con un cable RG6 ajustado con el nano VNA. Logré bastantes contactos y obtuve las primeras experiencias en modos digitales. Naturalmente, la siguiente etapa...
+        </description>
+        <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+        <link>https://martinnievas.com/myblog/2026-10-30-simulador-swr-rg6/</link>
+        <guid isPermaLink="true">https://martinnievas.com/myblog/2026-10-30-simulador-swr-rg6/</guid>
+      </item>
+    
+      <item>
         <title>Ingeniería inversa de impresora térmica</title>
         <description>
           
@@ -232,17 +243,6 @@ git flow feature finish feature_branch
         <pubDate>Tue, 19 Mar 2019 00:00:00 -0400</pubDate>
         <link>https://martinnievas.com/myblog/2019-03-19-controlar-led-binario/</link>
         <guid isPermaLink="true">https://martinnievas.com/myblog/2019-03-19-controlar-led-binario/</guid>
-      </item>
-    
-      <item>
-        <title>Eliminar archivos trackeados</title>
-        <description>
-          
-          Este tutorial lo hago para tener un lugar donde buscar los comandos. Paso 1 Hacer un commit de todos los cambios De todo, incluyendo el .gitignore Paso 2 Eliminar los archivos del índice git rm -r --cached . rm es para borrar -r para que sea recursivo El punto especifica...
-        </description>
-        <pubDate>Mon, 18 Feb 2019 00:00:00 -0500</pubDate>
-        <link>https://martinnievas.com/myblog/2019-02-18-eliminar-archivos-gitignore/</link>
-        <guid isPermaLink="true">https://martinnievas.com/myblog/2019-02-18-eliminar-archivos-gitignore/</guid>
       </item>
     
   </channel>

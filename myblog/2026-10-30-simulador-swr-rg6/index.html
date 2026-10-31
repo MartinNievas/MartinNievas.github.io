@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Simulador de ROE para RG6 - Adaptando impedancias en antenas multibanda</title>
+
+  
+  <meta name="author" content="Martin Nievas">
+  
+
+  <meta name="description" content="Introducción Comencé operando en FT8 en la banda de 10m con un transceptor QMX y una antena EFHW que ajusté para trabajar en monobanda, todo conectado con un cable RG6 ajustado con el nano VNA. Logré bastantes contactos y obtuve las primeras experiencias en modos digitales. Naturalmente, la siguiente etapa...">
+
+  
+
+  
+
+  
+  <link rel="alternate" type="application/rss+xml" title="martin nievas blog" href="https://martinnievas.com/myblog/feed.xml">
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/myblog/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/myblog/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="martin nievas blog">
+  <meta property="og:title" content="Simulador de ROE para RG6 - Adaptando impedancias en antenas multibanda">
+  <meta property="og:description" content="Introducción Comencé operando en FT8 en la banda de 10m con un transceptor QMX y una antena EFHW que ajusté para trabajar en monobanda, todo conectado con un cable RG6 ajustado con el nano VNA. Logré bastantes contactos y obtuve las primeras experiencias en modos digitales. Naturalmente, la siguiente etapa...">
+
+  
+  <meta property="og:image" content="https://martinnievas.com/myblog/assets/img/avatar-icon.png">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Martin Nievas">
+  <meta property="og:article:published_time" content="2026-10-30T00:00:00-04:00">
+  <meta property="og:url" content="https://martinnievas.com/myblog/2026-10-30-simulador-swr-rg6/">
+  <link rel="canonical" href="https://martinnievas.com/myblog/2026-10-30-simulador-swr-rg6/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@mlnievas">
+  <meta name="twitter:creator" content="@mlnievas">
+
+  <meta property="twitter:title" content="Simulador de ROE para RG6 - Adaptando impedancias en antenas multibanda">
+  <meta property="twitter:description" content="Introducción Comencé operando en FT8 en la banda de 10m con un transceptor QMX y una antena EFHW que ajusté para trabajar en monobanda, todo conectado con un cable RG6 ajustado con el nano VNA. Logré bastantes contactos y obtuve las primeras experiencias en modos digitales. Naturalmente, la siguiente etapa...">
+
+  
+  <meta name="twitter:image" content="https://martinnievas.com/myblog/assets/img/avatar-icon.png">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand navbar-brand-logo" href="https://martinnievas.com/myblog"><img alt="martin nievas blog Logo" src="/myblog/img/depth_200.jpg"/></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://martinnievas.com/acercaDe.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://martinnievas.com">Author's home</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="https://martinnievas.com/myblog">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/myblog/assets/img/avatar-icon.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "Simulador de ROE para RG6 - Adaptando impedancias en antenas multibanda", \
+          "category" : "radioaficion,efhw,rf,simulacion", \
+          "url"      : "myblog/2026-10-30-simulador-swr-rg6/", \
+          "date"     : "October 30, 2026" \
+        }, \
+       \
+        { \
+          "title"    : "Ingeniería inversa de impresora térmica", \
+          "category" : "reverseengineering", \
+          "url"      : "myblog/2024-05-18-impresora-termica/", \
+          "date"     : "May 18, 2024" \
+        }, \
+       \
+        { \
+          "title"    : "Cómo instalar paquetes viejos en Ubuntu", \
+          "category" : "ubuntuinstall", \
+          "url"      : "myblog/2023-09-27-paquetes-viejos/", \
+          "date"     : "September 27, 2023" \
+        }, \
+       \
+        { \
+          "title"    : "Desarme de Point Smart A910", \
+          "category" : "reverseelectroniccircuit", \
+          "url"      : "myblog/2023-02-08-point-smart/", \
+          "date"     : "February  8, 2023" \
+        }, \
+       \
+        { \
+          "title"    : "Desarme de POS UALA bis", \
+          "category" : "reverseelectroniccircuit", \
+          "url"      : "myblog/2023-02-02-uala-bis/", \
+          "date"     : "February  2, 2023" \
+        }, \
+       \
+        { \
+          "title"    : "Desarme de POS Point Mini MercadoPago", \
+          "category" : "reverseelectroniccircuit", \
+          "url"      : "myblog/2023-01-07-point-mini/", \
+          "date"     : "January  7, 2023" \
+        }, \
+       \
+        { \
+          "title"    : "Reproducir rosbag para pruebas", \
+          "category" : "rosrosbag", \
+          "url"      : "myblog/2022-12-28-rosbag-para-pruebas/", \
+          "date"     : "December 28, 2022" \
+        }, \
+       \
+        { \
+          "title"    : "Pasos para gitflow", \
+          "category" : "gittutorialsgitflow", \
+          "url"      : "myblog/2022-02-05-git-flow/", \
+          "date"     : "February  5, 2022" \
+        }, \
+       \
+        { \
+          "title"    : "Robot sin nombre", \
+          "category" : "roboticaROS", \
+          "url"      : "myblog/2021-04-29-hoverboard-robot/", \
+          "date"     : "April 29, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Configurar direcciones de IP para ROS", \
+          "category" : "roboticaROS", \
+          "url"      : "myblog/2021-02-14-ros-address/", \
+          "date"     : "February 14, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Exploración robótica", \
+          "category" : "roboticainvestigaciónPHD", \
+          "url"      : "myblog/2020-09-29-robotic-exploration/", \
+          "date"     : "September 29, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Mover carpeta de Docker a disco externo", \
+          "category" : "roboticaraspberry", \
+          "url"      : "myblog/2020-09-25-update-docker-location/", \
+          "date"     : "September 25, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Raspberry pi 3 + ROS melodic", \
+          "category" : "roboticaraspberry", \
+          "url"      : "myblog/2020-08-23-raspberry-pi-sd/", \
+          "date"     : "August 23, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Recursos de robótica", \
+          "category" : "roboticapresentaciones", \
+          "url"      : "myblog/2020-05-22-recursos-robotica/", \
+          "date"     : "May 22, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Instalar subsistema de Linux en windows y herramientas de compilación", \
+          "category" : "info1linuxgcc", \
+          "url"      : "myblog/2020-05-09-instalar-subsistema-linux/", \
+          "date"     : "May  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Placa estudiantil para raspberry pi", \
+          "category" : "info1raspberryelectronic", \
+          "url"      : "myblog/2020-03-15-raspberrypi-teaching-hat/", \
+          "date"     : "March 15, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Sample blog post", \
+          "category" : "test", \
+          "url"      : "myblog/2020-02-28-test-markdown/", \
+          "date"     : "February 28, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Flake it till you make it", \
+          "category" : "bookstest", \
+          "url"      : "myblog/2020-02-26-flake-it-till-you-make-it/", \
+          "date"     : "February 26, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Placa raspiGPIO", \
+          "category" : "info1raspberryelectronic", \
+          "url"      : "myblog/2019-10-09-placa-raspberry-pi/", \
+          "date"     : "October  9, 2019" \
+        }, \
+       \
+        { \
+          "title"    : "Controlar LED RGB con binario y arduino", \
+          "category" : "info1extrasarduino", \
+          "url"      : "myblog/2019-03-19-controlar-led-binario/", \
+          "date"     : "March 19, 2019" \
+        }, \
+       \
+        { \
+          "title"    : "Eliminar archivos trackeados", \
+          "category" : "git", \
+          "url"      : "myblog/2019-02-18-eliminar-archivos-gitignore/", \
+          "date"     : "February 18, 2019" \
+        }, \
+       \
+        { \
+          "title"    : "Compilar y correr un programa desde la terminal", \
+          "category" : "gccinfo1", \
+          "url"      : "myblog/2019-02-12-compilar-desde-la-terminal/", \
+          "date"     : "February 12, 2019" \
+        }, \
+       \
+        { \
+          "title"    : "Primer post1", \
+          "category" : "inicio", \
+          "url"      : "myblog/2019-02-11-primer-post/", \
+          "date"     : "February 11, 2019" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "About me", \
+          "category" : "page", \
+          "url"      : "myblog/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "myblog/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "myblog/tags/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "myblog/page2/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "myblog/page3/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "myblog/page4/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "myblog/page5/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Simulador de ROE para RG6 - Adaptando impedancias en antenas multibanda</h1>
+          
+
+          
+            <span class="post-meta">Posted on October 30, 2026</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="introducción">Introducción</h1>
+<p>Comencé operando en FT8 en la banda de 10m con un transceptor QMX y una antena EFHW que ajusté para trabajar en monobanda, todo conectado con un cable RG6 ajustado con el nano VNA.
+Logré bastantes contactos y obtuve las primeras experiencias en modos digitales.
+Naturalmente, la siguiente etapa era era dar el salto y armar una EFHW multibanda para operar en 40m, 20m, 15m y 10m.
+El problema surgió al querer usar el mismo cable coaxial RG6 para la bajada. Como el equipo espera ver 50 ohms y la antena también presenta cerca de 50 ohms (gracias a su transformador), meter un cable de 75 ohms en el medio genera un desajuste.</p>
+
+<p>Luego de pensar en cómo calcular esto sin recurrir a la prueba y error, hice lo que toda persona haría… programar un simulador web para ver qué largo exacto de cable necesitaba antes de subir al techo a cortar coaxial.</p>
+
+<h1 id="por-qué-oscila-la-roe-en-el-rg6">¿Por qué oscila la ROE en el RG6?</h1>
+<p>Cuando conectamos una carga de 50 ohms a un transmisor de 50 ohms usando un cable de 75 ohms, la impedancia que “ve” el equipo en la entrada va cambiando dependiendo de dos factores: la frecuencia de operación y el largo físico del cable.</p>
+
+<p><img src="/myblog/img/rg6_sim/rg6_p3.jpg" alt="Monitor de barrido CRT" style="max-width: 800px; width: 100%; height: auto;" /></p>
+
+<p>Si el largo del cable es un múltiplo exacto de media longitud de onda (λ/2) para una frecuencia dada, el cable se vuelve “transparente” y actúa como un repetidor 1:1. En ese punto, el equipo ve los 50 ohms reales de la antena y la ROE baja a 1:1.
+Por el contrario, si la longitud cae en un múltiplo impar de un cuarto de onda (λ/4), el cable actúa como un transformador de impedancias ($Z_{in} = Z_0^2 / Z_L$), elevando la impedancia a 112.5 ohms y llevando la ROE a 2.25:1. Al hacer un barrido de frecuencias, la longitud eléctrica del cable cambia constantemente, alternando entre estos puntos y dibujando una especie de onda sinusoidal.</p>
+
+<h1 id="el-simulador-en-acción">El Simulador en acción</h1>
+<p>La idea era experimentar de forma rápida y visual como varía el SWR en distintas frecuencias, para distintos largos de cable. El panel de configuración permite establecer la longitud del cable coaxial en metros, seleccionar el tipo de línea (como RG6 de 75 ohms) con su factor de velocidad, y definir tanto la impedancia del instrumento de medición como la de la carga final (Normalmente 50ohms).
+El proceso fué:</p>
+<ol>
+  <li>Un ida y vuelta en chatgpt para definir bien las ecuaciones a utilizar, que mostrar por pantalla y que variables meter en la ecuación</li>
+  <li>Una vez definida la arquitectura (solo frontend), requerimientos y especificaciones de diseño, le pedí que armara un prompt para tirarle a una IA que implemente todo.</li>
+  <li>Con el prompt de chatgpt, le pasé a gemini 3.8 Flash (Medium)</li>
+  <li>Primeras pruebas, un poco de ida y vuelta corrigiendo errores de UI/UX</li>
+  <li>Le pedí a chatgpt armar un plan para mejorar UI/UX, con un par de preferencias personales (entre ellas el estilo modo osciloscopio CRT)</li>
+  <li>Segunda iteración con gemini 3.8 Flash (Medium) para implementar todo</li>
+</ol>
+
+<p>Abajo se puede ver como quedó luego de todo este proceso.</p>
+
+<p>Una vez seteados los parámetros físicos del cable y las pérdidas, pasamos a la visualización. En la interfaz gráfica, programé un monitor estilo CRT de espectrograma que muestra el barrido continuo de la ROE frente a la frecuencia, dibujando una curva verde que oscila a lo largo de todo el espectro HF[cite: 1].</p>
+
+<p><img src="/myblog/img/rg6_sim/rg6_p6.jpg" alt="Monitor de barrido CRT" style="max-width: 800px; width: 100%; height: auto;" /></p>
+
+<p>En este gráfico se resaltan con barras verticales las distintas bandas de radioaficionados, desde los 160m hasta los 10m[cite: 1]. El juego consiste en ir deslizando el control de longitud del cable hasta encontrar un “sweet spot”: un largo de RG6 donde los valles de la onda verde caigan simultáneamente dentro de las bandas de 40m, 20m, 15m y 10m[cite: 1].
+También se podrían utilizar otra longitud de cable, dejando los valles según las bandas que uno está buscando trabajar.</p>
+
+<h2 id="validación-con-nanovna">Validación con NanoVNA</h2>
+<p>Acontinuación se muestran algunos resultados experimentales. A través la página de la app de manos amarillas, compré dos rollos de 15m de cable RG6 (75 Ohms) y con unos metros que tenía, llegué a 34.75m, valor que utilicé como primera prueba para la instalación final.</p>
+
+<p><img src="/myblog/img/rg6_sim/rg6_p1.jpg" alt="Monitor de barrido CRT" style="max-width: 800px; width: 100%; height: auto;" /></p>
+
+<p><img src="/myblog/img/rg6_sim/rg6_p5.jpg" alt="Monitor de barrido CRT" style="max-width: 800px; width: 100%; height: auto;" /></p>
+
+<p><img src="/myblog/img/rg6_sim/rg6_p0.jpg" alt="Monitor de barrido CRT" style="max-width: 800px; width: 100%; height: auto;" /></p>
+
+<p>La longitud final del cable quedó en aproximadamente 34m. El ajuste fué:</p>
+<ol>
+  <li>Colocar una carga de 50ohms en el extremo del cable</li>
+  <li>Con el Nano VNA se validó que la cantidad de picos y valles fuera consistente con el simulador.</li>
+  <li>Se midió con el SWR del cable para las distintas bandas con el QMX, teniendo en el extremo una carga de 50ohms (esto sería la impedancia aprox de la EFWH para estas bandas)</li>
+</ol>
+
+<p>Para el ajuste final hubo que recortar parte de la antena (EFHW) para sintonizar la antena. Se midió el SWR con la antena final instalada y el cable quedando en:</p>
+<ol>
+  <li>Banda 10m ROE 1.05</li>
+  <li>Banda 15m ROE 1.02</li>
+  <li>Banda 20m ROE 1.5</li>
+  <li>Banda 40m ROE 1.35</li>
+</ol>
+
+<h1 id="conclusión">Conclusión</h1>
+<p>Armar herramientas a medida suele ahorrar muchísimos dolores de cabeza en el campo. Con el simulador pude encontrar rápidamente una longitud de compromiso que mantiene la ROE en niveles aceptables para el QMX sin necesitar un sintonizador externo.</p>
+
+<p>El problema principal de usar cables desadaptados en configuraciones multibanda es que el punto de media onda (ROE 1:1) es muy estrecho y no siempre se alinea armónicamente en todas las bandas que queremos operar.</p>
+
+<h1 id="próximos-pasos">Próximos pasos</h1>
+<p>El simulador ya está funcional y la idea es dejarlo colgado online en esta misma página para que cualquiera pueda usarlo.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/myblog/tags#radioaficion,">radioaficion,</a>
+          
+            <a href="/myblog/tags#efhw,">efhw,</a>
+          
+            <a href="/myblog/tags#rf,">rf,</a>
+          
+            <a href="/myblog/tags#simulacion">simulacion</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Simulador+de+ROE+para+RG6+-+Adaptando+impedancias+en+antenas+multibanda&url=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2026-10-30-simulador-swr-rg6%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2026-10-30-simulador-swr-rg6%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmartinnievas.com%2Fmyblog%2F2026-10-30-simulador-swr-rg6%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/myblog/2024-05-18-impresora-termica/" data-toggle="tooltip" data-placement="top" title="Ingeniería inversa de impresora térmica">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+      
+  <div class="disqus-comments">
+  <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+	  var disqus_shortname = 'martinnievas';
+	  /* ensure that pages with query string get the same discussion */
+	  var url_parts = window.location.href.split("?");
+	  var disqus_url = url_parts[0];
+	  (function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+  
+  
+
+  
+
+
+  
+
+  
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="https://github.com/martinnievas" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/mlnievas" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/martin-nievas" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Martin Nievas
+        &nbsp;&bull;&nbsp;
+      
+      2026
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="https://martinnievas.com/myblog">martinnievas.com</a>
+        </span>
+      
+
+      
+
+      
+
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/myblog/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
